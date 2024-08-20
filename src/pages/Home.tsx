@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router";
-import styled from "styled-components";
 
 const HomePage = () => {
   const navigater = useNavigate();
@@ -7,29 +6,10 @@ const HomePage = () => {
     navigater("/main");
   };
   return (
-    <Container>
-      <h1>Home</h1>
-      <button onClick={clickHandler}>go to main page</button>
-    </Container>
+    <div className="bg-yellow-200">
+      <h1 className="text-green-500">안녕하세요</h1>
+    </div>
   );
 };
 
 export default HomePage;
-
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  h1 {
-    font-size: 2rem;
-  }
-  button {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    border: none;
-    background-color: #333;
-    color: #fff;
-    cursor: pointer;
-  }
-`;
