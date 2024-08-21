@@ -2,28 +2,30 @@ name: git push into another repo to deploy to vercel
 
 on:
   push:
-    branches: [dev-build#1]
+    branches:
+      - "dev-build#1"
 
 jobs:
-	build:
+  build:
     runs-on: ubuntu-latest
-    container: pandoc/latex
     steps:
-        - uses: actions/checkout@v2
-        - name: Install mustache (to update the date)
-        run: apk add ruby && gem install mustache
-        - name: creates output
+      - uses: actions/checkout@v2
+
+      - name: Install mustache (to update the date)
+        run: sudo apt-get update && sudo apt-get install -y ruby && sudo gem install mustache
+
+      - name: Creates output
         run: sh ./deploy.sh
-        - name: Pushes to another repository
+
+      - name: Pushes to another repository
         id: push_directory
         uses: cpina/github-action-push-to-another-repository@main
         env:
-            API_TOKEN_GITHUB: ${{ secrets.DEPLOY_ACTIONS }}
+          API_TOKEN_GITHUB: ${{ secrets.DEPLOY_ACTIONS }}
         with:
-            source-directory: "output"
-            destination-github-username: "yeomin4242"
-            destination-repository-name: "music-room-deployment"
-            user-email: ${{ secrets.ACCOUNT_EMAIL }}
-            commit-message: ${{ github.event.commits[0].message }}
-            target-branch: main
-        - name: Test get variable exported by push-to-    
+          source-directory: "output"
+          destination-github-username: "yeomin4242"
+          destination-repository-name: "music-room-deployment"
+          user-email: ${{ secrets.ACCOUNT_EMAIL }}
+          commit-message: ${{ github.event.commits[0].message }}
+          target-branch: main
