@@ -7,7 +7,7 @@ const HomePage = () => {
   };
   return (
     <div className="bg-yellow-200">
-      <h1 className="text-green-500">안녕하세요</h1>
+      <h1 className="text-purple-500">안녕하세요</h1>
     </div>
   );
 };
