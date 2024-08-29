@@ -81,7 +81,8 @@
   time,
   mark,
   audio,
-  video {
+  video 
+  /*{
     margin: 0;
     padding: 0;
     border: 0;
@@ -89,7 +90,7 @@
     font: inherit;
     vertical-align: baseline;
     box-sizing: border-box;
-  }
+  }*/
   /* HTML5 display-role reset for older browsers */
   article,
   aside,
@@ -127,9 +128,9 @@
     border-spacing: 0;
   }
 
-  a {
+  /*a {
     text-decoration: none;
-  }
+  }*/
 
   h2 {
     font-size: 1.2rem;

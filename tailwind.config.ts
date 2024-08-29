@@ -25,6 +25,7 @@ const config: Config = {
         "custom-purple": "#AC25FF",
         "gray-D9DADC": "#D9DADC",
         "gray-878787": "#878787",
+        "gray-6A6A6A": "#6A6A6A",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
