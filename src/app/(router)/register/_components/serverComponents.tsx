@@ -18,14 +18,14 @@ export function NewButton({ label, size, onClick }: NewButtonProps) {
       onClick={onClick}
       className={`w-full p-3 mb-4 ${
         size === "small" ? "text-sm" : "text-lg"
-      } bg-custom-purple text-white rounded-full hover:bg-[#ac44ff] font-normal`}
+      } bg-purple-AC25FF text-white rounded-full hover:bg-[#ac44ff] font-normal`}
     >
       {label}
     </button>
   );
 }
 
-export function LoginTitle() {
+export function RegisterEmailTitle() {
   return (
     <h1 className="text-black text-center font-bold text-[50px] leading-[60px] tracking-[-1.6px] mb-6 font-Pretendard ">
       가입하고
@@ -41,7 +41,7 @@ export function SubmitButton({ label, onClick }: submitButtonProps) {
   return (
     <button
       onClick={onClick}
-      className="w-full p-3 mb-4 bg-custom-purple text-white rounded-full hover:bg-[#ac44ff] font-normal "
+      className="w-full p-3 mb-4 bg-purple-AC25FF text-white rounded-full hover:bg-[#ac44ff] font-normal "
     >
       다음
     </button>
