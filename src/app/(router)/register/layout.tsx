@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/app/globals.css";
 import localFont from "next/font/local";
+import SpotifyLogo from "@/public/icons/spotify.svg"; // Correct import path
 
 const pretendard = localFont({
   src: "../../../../public/fonts/PretendardVariable.woff2",
@@ -24,7 +25,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="kr" className={`${pretendard.variable}`}>
-      <body className={pretendard.className}>{children}</body>
+      <body className={pretendard.className}>
+        <header className="flex justify-center py-8 bg-white">
+          <SpotifyLogo alt="Spotify Logo" />
+        </header>
+        {children}
+      </body>
     </html>
   );
 }

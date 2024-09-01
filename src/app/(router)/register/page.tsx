@@ -29,8 +29,7 @@ export default function RegisterEmail() {
     }
   };
   return (
-    <div className="flex flex-col items-center max-w-xl mx-auto text-center p-16 right- bg-white min-h-screen font-pretendard font-bold">
-      <SpotifyLogo className="mb-4" alt="Spotify Logo" />
+    <div className="flex flex-col items-center max-w-md mx-auto text-center right- bg-white min-h-screen font-pretendard font-bold">
       <RegisterEmailTitle />
       <EmailInputField email={email} setEmail={setEmail} error={error} />{" "}
       <SubmitButton label="다음" onClick={handleSubmit} />{" "}
