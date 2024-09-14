@@ -13,11 +13,11 @@ const pretendard = localFont({
 
 //페이지 설명을 추가하려면 metadata 객체를 만들고 title 및 description 속성을 추가합니다.
 export const metadata: Metadata = {
-  title: "RegisterPassword - Spotify",
-  description: "RegisterPassword page for Spotify",
+  title: "RegisterTerm - Spotify",
+  description: "RegisterTerm page for Spotify",
 };
 
-export default function RegisterPasswordLayout({
+export default function RegisterTermLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

@@ -1,27 +1,20 @@
-import React from "react";
-import GoogleIcon from "@/public/icons/google-24.svg"; // Correct import path
+import "server-only";
+import dynamic from "next/dynamic";
+import Link from "next/link";
+import GoogleIcon from "@/public/images/google-24.svg";
+import SpotifyIcon from "@/public/images/spotify.svg";
 
-interface NewButtonProps {
-  label: string;
-  size: "small" | "large";
-  onClick?: () => void;
-}
 
-interface submitButtonProps {
-  label: string;
-  onClick?: () => void;
-}
+//// Dynamically import the SpotifyLogo component
+//const SpotifyLogo = dynamic(() => import("@/public/images/spotify.svg"), {
+//  ssr: true // Enable Server-Side Rendering (true enables SSR, false disables it)
+//});
 
-export function NewButton({ label, size, onClick }: NewButtonProps) {
+export function HeaderSpotifyLogo() {
   return (
-    <button
-      onClick={onClick}
-      className={`w-full p-3 mb-4 ${
-        size === "small" ? "text-sm" : "text-lg"
-      } bg-purple-AC25FF text-white rounded-full hover:bg-[#ac44ff] font-normal`}
-    >
-      {label}
-    </button>
+    <header className="flex justify-center py-8 bg-white">
+      <SpotifyIcon/>
+    </header>
   );
 }
 
@@ -37,16 +30,23 @@ export function RegisterEmailTitle() {
   );
 }
 
-export function SubmitButton({ label, onClick }: submitButtonProps) {
+export function GoogleOauthButton() {
+  const googleClientId = process.env.NEXT_PUBLIC_GOOGLE_OAUTH_CLIENT_ID;
+  const redirectUri = process.env.NEXT_PUBLIC_GOOGLE_OAUTH_REDIRECT_URI;
+  const scope = process.env.NEXT_PUBLIC_GOOGLE_OAUTH_SCOPE;
+  const oauthUrl = `https://accounts.google.com/o/oauth2/auth?client_id=${googleClientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scope}`;
+
   return (
-    <button
-      onClick={onClick}
-      className="w-full p-3 mb-4 bg-purple-AC25FF text-white rounded-full hover:bg-[#ac44ff] font-normal "
+    <Link
+      href={oauthUrl}
+      className="w-full p-3 mb-4 flex items-center justify-center border border-gray-878787 rounded-full hover:border-black"
     >
-      다음
-    </button>
+      <GoogleIcon className="w-5 h-4 mr-2" alt="Google Icon" />
+      <span className="font-normal text-gray-700">Continue with Google</span>
+    </Link>
   );
 }
+
 
 export function SeperateOtherLoginWay() {
   return (
@@ -58,22 +58,14 @@ export function SeperateOtherLoginWay() {
   );
 }
 
-export function GoogleOauthButton() {
-  return (
-    <button className="w-full p-3 mb-4 flex items-center justify-center border border-gray-878787 rounded-full hover:border-black">
-      <GoogleIcon className="w-5 h-4 mr-2" alt="Google Icon" />
-      <span className="font-normal text-gray-700">Continue with Google</span>
-    </button>
-  );
-}
-
 export function MoveToLoginPageButton() {
+  const LogindUrl = process.env.NEXT_PUBLIC_LOGIN_URL;
   return (
     <p className="text-black mt-4 font-normal text-sm flex items-center">
       <span>이미 계정이 있나요?</span>
-      <a href="#" className="text-black underline font-bold ml-1">
+      <Link href={LogindUrl!} className="text-black underline font-bold ml-1">
         여기에서 로그인하세요
-      </a>
+      </Link>
     </p>
   );
 }

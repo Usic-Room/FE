@@ -1,73 +1,73 @@
-import { ComponentMeta, ComponentStory } from "@storybook/nextjs";
-import { EmailInputField } from "@/router/login/_components/clientcomponents"; // Correct import path
 import {
-  NewButton,
+  EmailInputField,
   SubmitButton,
-  GoogleOauthButton,
+  RegisterPasswordForm,
   MoveToLoginPageButton,
-} from "@/router/login/_components/serverComponents"; // Correct import path
+} from "@/router/register/password/_components/clientComponents"; // Correct import path
+import {
+  ProgessBarAndSections,
+  BackToRegisterEmailPage,
+  SeperateOtherLoginWay,
+} from "@/router/register/password/_components/serverComponents"; // Correct import path
 
-const EmailInputFieldTemplate: ComponentStory<typeof EmailInputField> = (
-  args
-) => <EmailInputField {...args} />;
-
-export const DefaultEmailInputField = EmailInputFieldTemplate.bind({});
-DefaultEmailInputField.args = {
-  email: "",
-  setEmail: (email: string) => console.log("Email changed:", email),
-  error: "",
-};
-
-export const ErrorEmailInputField = EmailInputFieldTemplate.bind({});
-ErrorEmailInputField.args = {
-  email: "invalid-email",
-  setEmail: (email: string) => console.log("Email changed:", email),
-  error: "Invalid email address",
-};
-
-const SubmitButtonTemplate: ComponentStory<typeof SubmitButton> = (args) => (
-  <SubmitButton {...args} />
-);
-
-export const DefaultSubmitButton = SubmitButtonTemplate.bind({});
-DefaultSubmitButton.args = {
-  label: "Submit",
-  onClick: () => console.log("Button clicked"),
-};
-
-const GoogleOauthButtonTemplate: ComponentStory<typeof GoogleOauthButton> = (
-  args
-) => <GoogleOauthButton {...args} />;
-
-export const DefaultGoogleOauthButton = GoogleOauthButtonTemplate.bind({});
-DefaultGoogleOauthButton.args = {};
-
-const MoveToLoginPageButtonTemplate: ComponentStory<
-  typeof MoveToLoginPageButton
-> = (args) => <MoveToLoginPageButton {...args} />;
-
-export const DefaultMoveToLoginPageButton = MoveToLoginPageButtonTemplate.bind(
-  {}
-);
-DefaultMoveToLoginPageButton.args = {};
-
+// Story metadata
 export default {
-  title: "Components/Forms", // Updated story name to be more general for both components
-  component: NewButton,
-} as ComponentMeta<typeof NewButton>;
-
-const NewButtonTemplate: ComponentStory<typeof NewButton> = (args) => (
-  <NewButton {...args} />
-);
-
-export const SmallButton = NewButtonTemplate.bind({});
-SmallButton.args = {
-  size: "small",
-  label: "small",
+  title: "Components/Forms",
+  tags: ["autodocs"], // Enable autodocs
+  argTypes: {
+    email: { description: "The user's email" },
+    setEmail: { action: "setEmail", description: "Function to update email" },
+    error: { description: "Error message for invalid email" },
+    onClick: { action: "onClick", description: "Submit button handler" },
+  },
 };
 
-export const LargeButton = NewButtonTemplate.bind({});
-LargeButton.args = {
-  size: "large",
-  label: "large",
+// EmailInputField stories
+export const DefaultEmailInputField = {
+  args: {
+    email: "",
+    setEmail: (email: string) => console.log("Email changed:", email),
+    error: "",
+  },
+};
+
+export const ErrorEmailInputField = {
+  args: {
+    email: "invalid-email",
+    setEmail: (email: string) => console.log("Email changed:", email),
+    error: "Invalid email address",
+  },
+};
+
+// SubmitButton stories
+export const DefaultSubmitButton = {
+  args: {
+    label: "Submit",
+    onClick: () => console.log("Button clicked"),
+  },
+};
+
+// GoogleOauthButton stories (if it exists in your project)
+export const DefaultGoogleOauthButton = {
+  args: {},
+};
+
+// MoveToLoginPageButton stories
+export const DefaultMoveToLoginPageButton = {
+  args: {},
+};
+
+// NewButton stories
+export const SmallButton = {
+  args: {
+    size: "small",
+    label: "small",
+  },
+};
+
+export const LargeButton = {
+  args: {
+    size: "large",
+    label: "large",
+  },
 };

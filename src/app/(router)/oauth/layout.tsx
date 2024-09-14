@@ -1,9 +1,9 @@
 // layout.tsx
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "@/app/globals.css";
 import localFont from "next/font/local";
-import { FormProvider } from "@/app/(router)/register/_components/registerForm";
-
+import SpotifyLogo from "@/public/images/spotify.svg"; // Correct import path
 
 const pretendard = localFont({
   src: "../../../../public/fonts/PretendardVariable.woff2",
@@ -18,19 +18,19 @@ export const metadata: Metadata = {
   description: "Register page for Spotify",
 };
 
-export default function RegisterLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <FormProvider>
     <html lang="kr" className={`${pretendard.variable}`}>
       <body className={pretendard.className}>
-        {/*<HeaderSpotifyLogo />*/}
+        <header className="flex justify-center pt-8 bg-white">
+          <SpotifyLogo alt="Spotify Logo" />
+        </header>
         {children}
       </body>
     </html>
-    </FormProvider>
   );
 }

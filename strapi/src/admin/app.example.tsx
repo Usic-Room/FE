@@ -1,35 +1,18 @@
+// Define a type for the 'app' object, or use 'unknown' if you are unsure
+type App = {
+  // Add properties and methods that are relevant to 'app' if you know them
+  use?: (...args: any[]) => void;
+};
+
 export default {
   config: {
     locales: [
       // 'ar',
       // 'fr',
-      // 'cs',
-      // 'de',
-      // 'dk',
-      // 'es',
-      // 'he',
-      // 'id',
-      // 'it',
-      // 'ja',
-      // 'ko',
-      // 'ms',
-      // 'nl',
-      // 'no',
-      // 'pl',
-      // 'pt-BR',
-      // 'pt',
-      // 'ru',
-      // 'sk',
-      // 'sv',
-      // 'th',
-      // 'tr',
-      // 'uk',
-      // 'vi',
-      // 'zh-Hans',
-      // 'zh',
+      // More locales...
     ],
   },
-  bootstrap(app) {
+  bootstrap(app: App) {
     console.log(app);
   },
 };
