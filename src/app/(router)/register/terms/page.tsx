@@ -8,11 +8,17 @@ import {
 import { RegisterTermsForm } from "@/app/(router)/register/terms/_components/clientComponents";
 
 export default function RegisterTerm() {
+  const registeUsernamerUrl =
+    process.env.NEXT_PUBLIC_REGISTRATION_USERNAME || "/register/username";
   return (
     <div className="flex flex-col items-center max-w-md mx-auto text-center bg-white min-h-screen font-bold">
       <HeaderSpotifyLogo />
       <ProgessBarAndSections width="100%" />
-      <BackToPreviousLevelPage level="3" title="약관" />
+      <BackToPreviousLevelPage
+        level="3"
+        title="약관"
+        backURL={registeUsernamerUrl}
+      />
       <RegisterTermsForm />
     </div>
   );

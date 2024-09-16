@@ -20,8 +20,8 @@ export function RegisterPasswordForm() {
   const [submitted, setSubmitted] = useState(false);
   const [isFormValid, setIsFormValid] = useState(false);
 
-  const registerDescriptionUrl =
-    process.env.NEXT_PUBLIC_REGISTERATION_USERNAME || "/error";
+  const registerUsernameUrl =
+    process.env.NEXT_PUBLIC_REGISTRATION_USERNAME || "/error";
 
   useEffect(() => {
     const isLengthValid = password.length >= 10;
@@ -78,7 +78,7 @@ export function RegisterPasswordForm() {
       />
       <PasswordSubmitButton
         isFormValid={isFormValid}
-        registerDescriptionUrl={registerDescriptionUrl}
+        registerUsernameUrl={registerUsernameUrl}
         handleSubmit={handleSubmit}
       />
     </form>
@@ -173,17 +173,17 @@ export function PasswordValidationErrors({
 
 interface PasswordSubmitButtonProps {
   isFormValid: boolean;
-  registerDescriptionUrl: string;
+  registerUsernameUrl: string;
   handleSubmit: () => void;
 }
 
 export function PasswordSubmitButton({
   isFormValid,
-  registerDescriptionUrl,
+  registerUsernameUrl,
   handleSubmit,
 }: PasswordSubmitButtonProps) {
   return isFormValid ? (
-    <Link href={registerDescriptionUrl}>
+    <Link href={registerUsernameUrl}>
       <button className="w-full p-3 mb-4 bg-purple-AC25FF text-white rounded-full hover:bg-[#ac44ff] font-normal">
         다음
       </button>
