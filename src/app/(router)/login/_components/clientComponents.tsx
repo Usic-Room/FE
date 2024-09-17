@@ -9,6 +9,7 @@ import { ShowPasswordIcon, HidePasswordIcon } from "@/public/icons/ErrorIcon";
 import { LoginByEmailAndPassword } from "@/router/login/api/router";
 
 // LoginForm component to submit API request and handle responses
+//TODO: 이메일, 비밀번호 REGEX 검사 추가
 export function LoginForm() {
   const [email, setEmail] = useState(""); // Email state
   const [password, setPassword] = useState(""); // Password state
@@ -105,7 +106,7 @@ export function PasswordInputField({
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="비밀번호"
-          className="w-full border border-gray-300 p-4 rounded"
+          className="w-full border border-gray-300 p-3 rounded"
         />
         <button
           type="button"
