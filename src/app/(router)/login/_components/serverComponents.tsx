@@ -2,8 +2,14 @@ import "server-only";
 import GoogleIcon from "@/public/images/google-24.svg"; // Correct import path
 import Link from "next/link";
 
+export function LoginPageTitle() {
+  return (
+    <h1 className="text-2xl font-bold mb-6 mt-3">Spotify에 로그인하기</h1>
+  )
+}
 
-export function Divider() {
+
+export function LoginPageTitleDivider() {
   return (
     <div className="w-80 border-t border-gray-300 mb-6 mt-6"></div>
   )
