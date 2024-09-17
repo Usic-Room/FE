@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useFormContext } from "@/app/(router)/register/_components/registerForm";
 
-// Regular expression for username validation (simple one for this case)
+// Regular expression for username verification (simple one for this case)
 const usernameRegex = /^.{3,}$/; // Minimum 3 characters required
 
 // Username form to validate the input

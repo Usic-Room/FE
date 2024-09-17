@@ -1,46 +1,38 @@
-import React from "react";
+import "server-only";
 import GoogleIcon from "@/public/images/google-24.svg"; // Correct import path
+import Link from "next/link";
 
-interface NewButtonProps {
-  label: string;
-  size: "small" | "large";
-  onClick?: () => void;
-}
 
-interface submitButtonProps {
-  label: string;
-  onClick?: () => void;
-}
-
-export function NewButton({ label, size, onClick }: NewButtonProps) {
+export function Divider() {
   return (
-    <button
-      onClick={onClick}
-      className={`w-full p-3 mb-4 ${
-        size === "small" ? "text-sm" : "text-lg"
-      } bg-purple-AC25FF text-white rounded-full hover:bg-[#ac44ff] font-normal`}
-    >
-      {label}
-    </button>
-  );
+    <div className="w-80 border-t border-gray-300 mb-6 mt-6"></div>
+  )
 }
 
-export function SubmitButton({ label, onClick }: submitButtonProps) {
-  return (
-    <button
-      onClick={onClick}
-      className="w-full p-3 mb-4 bg-purple-AC25FF text-white rounded-full hover:bg-[#ac44ff] font-normal "
-    >
-      다음
-    </button>
-  );
-}
 
 export function GoogleOauthButton() {
+  const googleClientId = process.env.NEXT_PUBLIC_GOOGLE_OAUTH_CLIENT_ID;
+  const redirectUri = process.env.NEXT_PUBLIC_GOOGLE_OAUTH_REDIRECT_URI;
+  const scope = process.env.NEXT_PUBLIC_GOOGLE_OAUTH_SCOPE;
+  const oauthUrl = `https://accounts.google.com/o/oauth2/auth?client_id=${googleClientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scope}`;
+
+
   return (
-    <button className="w-3/4 p-3 mb-4 flex items-center justify-center border border-gray-878787 rounded-full hover:border-black">
+    <Link
+      href={oauthUrl}
+      className="w-80 p-3 mb-4 flex items-center justify-center border border-gray-878787 rounded-full hover:border-black"
+    >
       <GoogleIcon className="w-5 h-4 mr-2" alt="Google Icon" />
       <span className="font-normal text-gray-700">Continue with Google</span>
-    </button>
+    </Link>
+  );
+}
+
+export function MoveToResetPasswordPage() {
+  const resetPasswordUrl = process.env.NEXT_PUBLIC_RESET_PASSWORD_EMAIL || "/login/reset-password";
+  return (
+    <Link href={resetPasswordUrl} className=" text-sm font-normal underline" >
+      비밀번호를 잊었나요?
+    </Link>
   );
 }

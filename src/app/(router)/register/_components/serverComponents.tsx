@@ -20,7 +20,7 @@ export function HeaderSpotifyLogo() {
 
 export function RegisterEmailTitle() {
   return (
-    <h1 className="text-black text-center font-bold text-[50px] leading-[60px] tracking-[-1.6px] mb-6 font-Pretendard ">
+    <h1 className="text-black text-center font-bold text-[50px] leading-[60px] tracking-[-1.6px] mb-6 ">
       가입하고
       <br />
       원하는 음악을
@@ -59,11 +59,11 @@ export function SeperateOtherLoginWay() {
 }
 
 export function MoveToLoginPageButton() {
-  const LogindUrl = process.env.NEXT_PUBLIC_LOGIN_URL;
+  const loginPageUrl = process.env.NEXT_PUBLIC_LOGIN;
   return (
     <p className="text-black mt-4 font-normal text-sm flex items-center">
       <span>이미 계정이 있나요?</span>
-      <Link href={LogindUrl!} className="text-black underline font-bold ml-1">
+      <Link href={loginPageUrl!} className="text-black underline font-bold ml-1">
         여기에서 로그인하세요
       </Link>
     </p>

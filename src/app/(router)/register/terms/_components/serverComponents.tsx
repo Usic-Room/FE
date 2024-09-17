@@ -1,28 +1,21 @@
-import {
-  ProgessBarAndSections,
-  BackToPreviousLevelPage,
-} from "@/router/register/password/_components/serverComponents"; // Correct import path
+import React from "react";
+import "server-only";
 
-export default {
-  title: "Components/Register/Terms/serverComponents", // Updated title for uniqueness
-  tags: ["autodocs"], // Enable automatic documentation
-};
+import Link from "next/link";
 
-// HeaderSpotifyLogo story
-export const DefaultProgessBarAndSections = {
-  render: () => <ProgessBarAndSections width="100%" />,
-};
-
-const registerUsernameUrl =
-  process.env.NEXT_PUBLIC_REGISTRATION_USERNAME || "/register/username";
-
-// RegisterEmailTitle story
-export const DefaultBackToPreviousLevelPage = {
-  render: () => (
-    <BackToPreviousLevelPage
-      level="3"
-      title="약관"
-      backURL={registerUsernameUrl}
-    />
-  ),
-};
+export function MoveToNextPageFromTermsButton() {
+  const registerVerificationUrl =
+    process.env.NEXT_PUBLIC_REGISTRATION_VERIFICATION ||
+    "/register/verification";
+  return (
+    <div className="w-full max-w-xs text-left mb-4">
+      <Link href={registerVerificationUrl}>
+        <button
+          className={`w-full p-3 mt-40 mb-4 bg-purple-AC25FF text-white rounded-full hover:bg-[#ac44ff] font-normal`}
+        >
+          가입하기
+        </button>
+      </Link>
+    </div>
+  );
+}
