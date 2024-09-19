@@ -3,7 +3,7 @@ import { RegisterEmailForm } from "@/router/register/_components/clientComponent
 import { FormProvider } from "@/app/(router)/register/_components/registerForm";
 import Link from "next/link";
 
-// Regular expression for email validation
+// Regular expression for email verification
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 export default {

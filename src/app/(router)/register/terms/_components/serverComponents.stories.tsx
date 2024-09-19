@@ -3,6 +3,8 @@ import {
   BackToPreviousLevelPage,
 } from "@/router/register/password/_components/serverComponents"; // Correct import path
 
+import { MoveToNextPageFromTermsButton } from "@/router/register/terms/_components/serverComponents";
+
 export default {
   title: "Components/Register/Terms/serverComponents", // Updated title for uniqueness
   tags: ["autodocs"], // Enable automatic documentation
@@ -25,4 +27,8 @@ export const DefaultBackToPreviousLevelPage = {
       backURL={registerUsernameUrl}
     />
   ),
+};
+
+export const DefaultMoveToNextPageFromTermsButton = () => {
+  render: () => <MoveToNextPageFromTermsButton />;
 };
