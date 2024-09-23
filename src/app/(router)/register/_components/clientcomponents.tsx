@@ -72,8 +72,14 @@ export function EmailInputField({ error, submitted }: EmailInputFieldProps) {
             : "border-gray-400"
         } border rounded font-normal`}
       />
-      {submitted && error.empty && <p className="text-red-500 text-xs mb-1">이메일을 입력해 주세요.</p>}
-      {submitted && error.invalid && <p className="text-red-500 text-xs mb-1">올바른 이메일 형식을 입력해 주세요.</p>}
+      {submitted && error.empty && (
+        <p className="text-red-500 text-xs mb-1">이메일을 입력해 주세요.</p>
+      )}
+      {submitted && error.invalid && (
+        <p className="text-red-500 text-xs mb-1">
+          올바른 이메일 형식을 입력해 주세요.
+        </p>
+      )}
     </div>
   );
 }
@@ -88,7 +94,8 @@ export function EmailSubmitButton({
   isEmailValid,
   handleSubmit,
 }: EmailSubmitButtonProps) {
-  const registrationUrl = process.env.NEXT_PUBLIC_REGISTRATION_PASSWORD || "/error";
+  const registrationUrl =
+    process.env.NEXT_PUBLIC_REGISTRATION_PASSWORD || "/error";
 
   return isEmailValid ? (
     <Link href={registrationUrl}>
