@@ -4,7 +4,6 @@ import Link from "next/link";
 import GoogleIcon from "@/public/images/google-24.svg";
 import SpotifyIcon from "@/public/images/spotify.svg";
 
-
 //// Dynamically import the SpotifyLogo component
 //const SpotifyLogo = dynamic(() => import("@/public/images/spotify.svg"), {
 //  ssr: true // Enable Server-Side Rendering (true enables SSR, false disables it)
@@ -13,7 +12,7 @@ import SpotifyIcon from "@/public/images/spotify.svg";
 export function HeaderSpotifyLogo() {
   return (
     <header className="flex justify-center py-8 bg-white">
-      <SpotifyIcon/>
+      <SpotifyIcon />
     </header>
   );
 }
@@ -47,7 +46,6 @@ export function GoogleOauthButton() {
   );
 }
 
-
 export function SeperateOtherLoginWay() {
   return (
     <div className="w-full flex items-center my-4">
@@ -59,11 +57,11 @@ export function SeperateOtherLoginWay() {
 }
 
 export function MoveToLoginPageButton() {
-  const loginPageUrl = process.env.NEXT_PUBLIC_LOGIN;
+  const loginPageUrl = process.env.NEXT_PUBLIC_LOGIN || "/error";
   return (
     <p className="text-black mt-4 font-normal text-sm flex items-center">
       <span>이미 계정이 있나요?</span>
-      <Link href={loginPageUrl!} className="text-black underline font-bold ml-1">
+      <Link href={loginPageUrl} className="text-black underline font-bold ml-1">
         여기에서 로그인하세요
       </Link>
     </p>

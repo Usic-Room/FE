@@ -31,7 +31,7 @@ export function BackToPreviousLevelPage({
 }: BackToPreviousLevelPageProps) {
   return (
     <div className="w-full flex items-center mb-8">
-      <Link href={backURL}>
+      <Link href={backURL ?? "/error"}>
         <button className="text-black p-4">
           <ChevronLeft className="w-7 h-7" alt="Back Arrow"></ChevronLeft>
         </button>

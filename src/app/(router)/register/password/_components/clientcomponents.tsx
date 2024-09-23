@@ -20,9 +20,6 @@ export function RegisterPasswordForm() {
   const [submitted, setSubmitted] = useState(false);
   const [isFormValid, setIsFormValid] = useState(false);
 
-  const registerUsernameUrl =
-    process.env.NEXT_PUBLIC_REGISTRATION_USERNAME || "/error";
-
   useEffect(() => {
     const isLengthValid = password.length >= 10;
     const hasUppercase = /[A-Z]/.test(password);
@@ -64,7 +61,10 @@ export function RegisterPasswordForm() {
   };
 
   return (
-    <form className="w-full max-w-xs text-left mb-4" onSubmit={(e) => e.preventDefault()}>
+    <form
+      className="w-full max-w-xs text-left mb-4"
+      onSubmit={(e) => e.preventDefault()}
+    >
       <PasswordInput
         password={password}
         setPassword={setPassword}
@@ -78,7 +78,6 @@ export function RegisterPasswordForm() {
       />
       <PasswordSubmitButton
         isFormValid={isFormValid}
-        registerUsernameUrl={registerUsernameUrl}
         handleSubmit={handleSubmit}
       />
     </form>
@@ -141,7 +140,9 @@ export function PasswordValidationErrors({
 }: PasswordValidationErrorsProps) {
   return (
     <div className="w-full mb-8">
-      <p className="text-sm mb-2 font-bold">비밀번호에는 다음 문자가 반드시 포함되어야 합니다:</p>
+      <p className="text-sm mb-2 font-bold">
+        비밀번호에는 다음 문자가 반드시 포함되어야 합니다:
+      </p>
       <div className="text-xs">
         <label
           className={`flex items-center mb-2 ${
@@ -173,15 +174,16 @@ export function PasswordValidationErrors({
 
 interface PasswordSubmitButtonProps {
   isFormValid: boolean;
-  registerUsernameUrl: string;
   handleSubmit: () => void;
 }
 
 export function PasswordSubmitButton({
   isFormValid,
-  registerUsernameUrl,
   handleSubmit,
 }: PasswordSubmitButtonProps) {
+  const registerUsernameUrl =
+    process.env.NEXT_PUBLIC_REGISTRATION_USERNAME || "/error";
+
   return isFormValid ? (
     <Link href={registerUsernameUrl}>
       <button className="w-full p-3 mb-4 bg-purple-AC25FF text-white rounded-full hover:bg-[#ac44ff] font-normal">
