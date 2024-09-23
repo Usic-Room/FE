@@ -1,12 +1,12 @@
 import { JSX, useState } from "react";
-import { RegisterPasswordForm } from "@/router/register/password/_components/clientComponents"; // Correct import path
 import { FormProvider } from "@/app/(router)/register/_components/registerForm";
 
 import {
+  RegisterPasswordForm,
   PasswordInput,
   PasswordValidationErrors,
   PasswordSubmitButton,
-} from "@/app/(router)/register/password/_components/clientComponents"; // Correct import path
+} from "@/router/register/password/_components/clientcomponents"; // Correct import path
 
 import { RegisterPasswordErrorIcon } from "@/public/icons/ErrorIcon";
 

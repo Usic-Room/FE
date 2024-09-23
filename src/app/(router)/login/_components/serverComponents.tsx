@@ -3,25 +3,18 @@ import GoogleIcon from "@/public/images/google-24.svg"; // Correct import path
 import Link from "next/link";
 
 export function LoginPageTitle() {
-  return (
-    <h1 className="text-2xl font-bold mb-6 mt-3">Spotify에 로그인하기</h1>
-  )
+  return <h1 className="text-2xl font-bold mb-6 mt-3">Spotify에 로그인하기</h1>;
 }
-
 
 export function LoginPageTitleDivider() {
-  return (
-    <div className="w-80 border-t border-gray-300 mb-6 mt-6"></div>
-  )
+  return <div className="w-80 border-t border-gray-300 mb-6 mt-6"></div>;
 }
-
 
 export function GoogleOauthButton() {
   const googleClientId = process.env.NEXT_PUBLIC_GOOGLE_OAUTH_CLIENT_ID;
   const redirectUri = process.env.NEXT_PUBLIC_GOOGLE_OAUTH_REDIRECT_URI;
   const scope = process.env.NEXT_PUBLIC_GOOGLE_OAUTH_SCOPE;
   const oauthUrl = `https://accounts.google.com/o/oauth2/auth?client_id=${googleClientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scope}`;
-
 
   return (
     <Link
@@ -35,9 +28,10 @@ export function GoogleOauthButton() {
 }
 
 export function MoveToResetPasswordPage() {
-  const resetPasswordUrl = process.env.NEXT_PUBLIC_RESET_PASSWORD_EMAIL || "/login/reset-password";
+  const resetPasswordUrl =
+    process.env.NEXT_PUBLIC_RESET_PASSWORD_EMAIL || "/login/reset-password";
   return (
-    <Link href={resetPasswordUrl} className=" text-sm font-normal underline" >
+    <Link href={resetPasswordUrl} className=" text-sm font-normal underline">
       비밀번호를 잊었나요?
     </Link>
   );

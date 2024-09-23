@@ -20,7 +20,7 @@ export default {
     },
   },
   decorators: [
-    (Story) => (
+    (Story: React.FC) => (
       <FormProvider>
         <Story />
       </FormProvider>
