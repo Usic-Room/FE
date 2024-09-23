@@ -69,3 +69,4 @@ next-env.d.ts
 *storybook.log
 
 strapi/*
+/strapi
