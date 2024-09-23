@@ -67,3 +67,5 @@ next-env.d.ts
 .next/*
 .next
 *storybook.log
+
+.strapi/*
