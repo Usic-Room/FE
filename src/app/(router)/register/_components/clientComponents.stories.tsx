@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { RegisterEmailForm } from "@/router/register/_components/clientComponents"; // Correct import path
+import { RegisterEmailForm } from "@/app/(router)/register/_components/clientComponents"; // Correct import path
 import { FormProvider } from "@/app/(router)/register/_components/registerForm";
 import Link from "next/link";
 
