@@ -1,5 +1,10 @@
 import { NextPage } from "next";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Not found",
+};
 
 const NotFound: NextPage = () => {
   return (

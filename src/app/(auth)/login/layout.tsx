@@ -1,20 +1,11 @@
+// layout.tsx
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
 import localFont from "next/font/local";
-import { Metadata } from "next";
-
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: {
-    template: "%s | Music for everyone",
-    default: "Musicroom",
-  },
-  description: "The best music experience for everyone.",
-}
+import SpotifyLogo from "@/public/images/spotify.svg"; // Correct import path
 
 const pretendard = localFont({
-  src: "../../public/fonts/PretendardVariable.woff2",
+  src: "../../../../public/fonts/PretendardVariable.woff2",
   display: "swap",
   weight: "45 920",
   variable: "--font-pretendard",
