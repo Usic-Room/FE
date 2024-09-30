@@ -1,4 +1,4 @@
-import { Navigation } from "@/components/home/navigation";
+import { Navigation, SideBar } from "@/components/home/navigation";
 
 export default function HomeLayout({
     children,
@@ -9,6 +9,7 @@ export default function HomeLayout({
         <html lang="kr">
             <body>
                 <Navigation isLogin={false} />
+                <SideBar isLogin={false} />
                 {children}
             </body>
         </html>

@@ -3,9 +3,32 @@ import { SearchBar } from "./searchBar";
 import { NavRegisterButtons } from "./navRegisterButtons"
 import { NavProfileButtons } from "./navProfileButtons";
 import Link from "next/link";
-
+import LibraryLogo from "@/public/images/library.svg";
+import { AddLibrary, Library, DummyLibrary } from "./library";
 interface NavigationProps {
     isLogin: Boolean;
+}
+
+interface SideBarProps {
+    isLogin: Boolean;
+}
+
+export function SideBar({
+    isLogin
+}: SideBarProps) {
+    return (
+        <aside className="fixed top-0 left-0 h-screen bg-[#121212]" aria-label="Left Sidebar Navigation">
+            <div className="flex flex-row gap-2">
+                <LibraryLogo />
+                내 라이브러리
+                <AddLibrary />
+            </div>
+            {/* {
+            isLogin ? <Library />
+            : <DummyLibrary />
+            } */}
+        </aside>
+    );
 }
 
 export function NavLogo() {
