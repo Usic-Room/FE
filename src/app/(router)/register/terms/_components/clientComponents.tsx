@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useFormContext } from "@/app/(router)/register/_components/registerForm";
+import { useFormContext } from "@/contexts/registerFormContext";
 
 export function RegisterTermsForm() {
   return (

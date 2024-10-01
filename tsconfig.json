@@ -20,7 +20,9 @@
     "paths": {
       "@/*": ["./src/*"],
       "@/public/*": ["./public/*"],
-      "@/router/*": ["./src/app/(router)/*"]
+      "@/router/*": ["./src/app/(router)/*"],
+      "@/hooks/*": ["./src/app/_hooks/*"],
+      "@/contexts/*": ["./src/app/_contexts/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

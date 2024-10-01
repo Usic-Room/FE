@@ -2,8 +2,7 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
 import localFont from "next/font/local";
-import { FormProvider } from "@/app/(router)/register/_components/registerForm";
-
+import { RegisterFormProvider } from "@/contexts/registerFormContext";
 
 const pretendard = localFont({
   src: "../../../../public/fonts/PretendardVariable.woff2",
@@ -24,13 +23,13 @@ export default function RegisterVerificationLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <FormProvider>
-    <html lang="kr" className={`${pretendard.variable}`}>
-      <body className={pretendard.className}>
-        {/*<HeaderSpotifyLogo />*/}
-        {children}
-      </body>
-    </html>
-    </FormProvider>
+    <RegisterFormProvider>
+      <html lang="kr" className={`${pretendard.variable}`}>
+        <body className={pretendard.className}>
+          {/*<HeaderSpotifyLogo />*/}
+          {children}
+        </body>
+      </html>
+    </RegisterFormProvider>
   );
 }

@@ -7,38 +7,21 @@ import { useRouter } from "next/navigation"; // For redirection after success
 import { ShowPasswordIcon, HidePasswordIcon } from "@/public/icons/ErrorIcon";
 
 import { LoginByEmailAndPassword } from "@/router/login/api/router";
+import { useLoginForm } from "@/hooks/useLoginForm";
 
 // LoginForm component to submit API request and handle responses
 //TODO: 이메일, 비밀번호 REGEX 검사 추가
+
 export function LoginForm() {
-  const [email, setEmail] = useState(""); // Email state
-  const [password, setPassword] = useState(""); // Password state
-  const [errorMessage, setErrorMessage] = useState(""); // Error message state
-  const [isSubmitting, setIsSubmitting] = useState(false); // Track form submission
-  const router = useRouter(); // For page navigation
-
-  const handleLogin = async () => {
-    setIsSubmitting(true); // Start loading
-
-    try {
-      // API call to authenticate the user
-      const response = await LoginByEmailAndPassword(email, password);
-
-      if (response.ok) {
-        // Redirect to main page if successful
-        router.push("/main");
-      } else if (response.status === 409) {
-        setErrorMessage("이미 기존 계정과 연결된 주소입니다.");
-      } else {
-        setErrorMessage("이메일 또는 비밀번호가 잘못되었습니다.");
-      }
-    } catch (error) {
-      console.error("Login failed:", error);
-      setErrorMessage("서버 오류가 발생했습니다. 나중에 다시 시도해 주세요.");
-    } finally {
-      setIsSubmitting(false); // End loading
-    }
-  };
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    errorMessage,
+    isSubmitting,
+    handleLogin,
+  } = useLoginForm();
 
   return (
     <div className="w-full max-w-xs mx-auto">
