@@ -5,22 +5,20 @@ import localFont from "next/font/local";
 import SpotifyLogo from "@/public/images/spotify.svg"; // Correct import path
 
 const pretendard = localFont({
-  src: "../../../../public/fonts/PretendardVariable.woff2",
-  display: "swap",
-  weight: "45 920",
-  variable: "--font-pretendard",
+	src: "../../../../public/fonts/PretendardVariable.woff2",
+	display: "swap",
+	weight: "45 920",
+	variable: "--font-pretendard",
 });
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang="kr" className={`${pretendard.variable}`}>
-      <body className={pretendard.className}>
-        {children}
-      </body>
-    </html>
-  );
+	return (
+		<html lang="kr" className={`${pretendard.variable}`}>
+			<body className={`${pretendard.className} bg-white`}>{children}</body>
+		</html>
+	);
 }

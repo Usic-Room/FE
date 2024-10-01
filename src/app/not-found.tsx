@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 const NotFound: NextPage = () => {
 	return (
-		<div className="block absolute flex flex-col gap-5 items-center inset-x-1/4 inset-y-1/4 text-white">
+		<div className="bg-black min-h-screen flex flex-col gap-5 items-center justify-center text-white">
 			<p className="font-bold text-2xl p-3">페이지를 찾을 수 없음</p>
 			<p className="font-thin text-sm">원하는 페이지를 찾지 못했습니다.</p>
 			<Link href="/home">

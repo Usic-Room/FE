@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="kr" className={`${pretendard.variable}`}>
-			<body className={`${pretendard.className} bg-black`}>{children}</body>
+			<body className={`${pretendard.className}`}>{children}</body>
 		</html>
 	);
 }
