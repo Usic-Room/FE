@@ -1,12 +1,12 @@
 import { JSX, useState } from "react";
-import { FormProvider } from "@/app/(router)/register/_components/registerForm";
+import { RegisterFormProvider } from "@/contexts/registerFormContext"; // Correct import path
 
 import {
   RegisterPasswordForm,
   PasswordInput,
   PasswordValidationErrors,
   PasswordSubmitButton,
-} from "@/router/register/password/_components/clientcomponents"; // Correct import path
+} from "@/router/register/password/_components/clientComponents"; // Correct import path
 
 import { RegisterPasswordErrorIcon } from "@/public/icons/ErrorIcon";
 
@@ -16,9 +16,9 @@ export default {
   tags: ["autodocs"], // Enable automatic documentation
   decorators: [
     (Story: React.FC) => (
-      <FormProvider>
+      <RegisterFormProvider>
         <Story />
-      </FormProvider>
+      </RegisterFormProvider>
     ),
   ],
 };

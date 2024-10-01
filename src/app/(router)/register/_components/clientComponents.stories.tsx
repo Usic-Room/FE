@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { RegisterEmailForm } from "@/router/register/_components/clientComponents"; // Correct import path
-import { FormProvider } from "@/app/(router)/register/_components/registerForm";
+import { RegisterFormProvider } from "@/contexts/registerFormContext"; // Correct import path
 import Link from "next/link";
 
 // Regular expression for email verification
@@ -21,9 +21,9 @@ export default {
   },
   decorators: [
     (Story: React.FC) => (
-      <FormProvider>
+      <RegisterFormProvider>
         <Story />
-      </FormProvider>
+      </RegisterFormProvider>
     ),
   ],
 };

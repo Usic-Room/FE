@@ -1,6 +1,3 @@
-import { JSX, useState } from "react";
-import { FormProvider } from "@/app/(router)/register/_components/registerForm";
-
 import { VerificationCodeForm } from "@/app/(router)/register/verification/_components/clientComponents"; // Correct import path
 
 export default {

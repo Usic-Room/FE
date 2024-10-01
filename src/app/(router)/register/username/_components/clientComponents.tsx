@@ -2,42 +2,13 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useFormContext } from "@/app/(router)/register/_components/registerForm";
+import { useFormContext } from "@/contexts/registerFormContext";
+import { useRegisterUsernameForm } from "@/hooks/useRegisterUsernameForm";
 
-// Regular expression for username verification (simple one for this case)
-const usernameRegex = /^.{3,}$/; // Minimum 3 characters required
-
-// Username form to validate the input
+// Main component to manage the username form
 export function RegisterUsernameForm() {
-  const { username, setUsername } = useFormContext(); // Use context to manage username state
-  const [error, setError] = useState({
-    empty: true,
-    invalid: true,
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [isUsernameValid, setIsUsernameValid] = useState(false);
-
-  // Validate the username
-  useEffect(() => {
-    const trimmedUsername = username.trim();
-    const isEmpty = !trimmedUsername;
-    const isInvalid = !usernameRegex.test(trimmedUsername);
-
-    const newErrorState = {
-      empty: isEmpty,
-      invalid: isInvalid && !isEmpty,
-    };
-
-    setError(newErrorState);
-
-    // Set form validity
-    const isValidForm = !newErrorState.empty && !newErrorState.invalid;
-    setIsUsernameValid(isValidForm);
-  }, [username]);
-
-  const handleSubmit = () => {
-    setSubmitted(true);
-  };
+  const { error, submitted, isUsernameValid, handleSubmit } =
+    useRegisterUsernameForm();
 
   return (
     <div className="w-full max-w-xs text-left mb-4">

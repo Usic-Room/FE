@@ -1,5 +1,5 @@
 import { JSX, useState } from "react";
-import { FormProvider } from "@/app/(router)/register/_components/registerForm";
+import { RegisterFormProvider } from "@/contexts/registerFormContext"; // Correct import path
 
 import { RegisterUsernameForm } from "@/app/(router)/register/username/_components/clientComponents"; // Correct import path
 
@@ -9,9 +9,9 @@ export default {
   tags: ["autodocs"], // Enable automatic documentation
   decorators: [
     (Story: React.FC) => (
-      <FormProvider>
+      <RegisterFormProvider>
         <Story />
-      </FormProvider>
+      </RegisterFormProvider>
     ),
   ],
 };

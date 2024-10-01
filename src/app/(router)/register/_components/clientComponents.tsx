@@ -1,43 +1,13 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
-import { useFormContext } from "@/app/(router)/register/_components/registerForm";
+import { useFormContext } from "@/contexts/registerFormContext";
+import { useRegisterEmailForm } from "@/hooks/useRegisterEmailForm";
 
-// Regular expression for email validation
-const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-// Email form to validate the input
 export function RegisterEmailForm() {
-  const { email, setEmail } = useFormContext(); // Use context to manage email state
-  const [error, setError] = useState({
-    empty: true,
-    invalid: true,
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [isEmailValid, setIsEmailValid] = useState(false);
-
-  // Validate the email
-  useEffect(() => {
-    const trimmedEmail = email.trim();
-    const isEmpty = !trimmedEmail;
-    const isInvalid = !emailRegex.test(trimmedEmail);
-
-    const newErrorState = {
-      empty: isEmpty,
-      invalid: isInvalid && !isEmpty,
-    };
-
-    setError(newErrorState);
-
-    // Set form validity
-    const isValidForm = !newErrorState.empty && !newErrorState.invalid;
-    setIsEmailValid(isValidForm);
-  }, [email]);
-
-  const handleSubmit = () => {
-    setSubmitted(true);
-  };
+  const { email, setEmail, error, submitted, isEmailValid, handleSubmit } =
+    useRegisterEmailForm();
 
   return (
     <div className="w-full mb-4">
