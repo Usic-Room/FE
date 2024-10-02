@@ -35,7 +35,7 @@ export default function HomeLayout({
 						<Navigation isLogin={false} />
 					</div>
 					<div
-						className="h-screen bg-[#121212] rounded-lg"
+						className="h-screen bg-black-121212 rounded-lg"
 						style={{ gridArea: "sidebar" }}
 					>
 						<SideBar isLogin={false} />

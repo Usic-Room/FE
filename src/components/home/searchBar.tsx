@@ -6,7 +6,7 @@ export function SearchInputBar() {
 		<input
 			type="search"
 			id="default-search"
-			className="peer block w-full p-4 ps-14 text-m text-white border rounded-full border-black bg-[#1F1F1F] outline-none focus:ring-2 focus:ring-white focus:border-white"
+			className="peer block w-full p-4 ps-14 text-m text-white border rounded-full border-black bg-black-1F1F1F outline-none focus:ring-2 focus:ring-white focus:border-white"
 			placeholder="어떤 음악을 듣고 싶으세요?"
 			onFocus={(e) => e.target.click()}
 			required

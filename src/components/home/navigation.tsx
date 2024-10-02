@@ -4,7 +4,6 @@ import { NavRegisterButtons } from "./navRegisterButtons";
 import { NavProfileButtons } from "./navProfileButtons";
 import Link from "next/link";
 import LibraryLogo from "@/public/images/library.svg";
-import { AddLibrary } from "./library";
 interface NavigationProps {
 	isLogin: boolean;
 }
@@ -15,7 +14,7 @@ interface SideBarProps {
 
 export function MainView({ children }: { children: React.ReactNode }) {
 	return (
-		<div className="relative bg-[#121212] text-white p-4 overflow-y-scroll h-full">
+		<div className="relative bg-black-121212 text-white p-4 overflow-y-scroll h-full">
 			<div className="relative main-content">{children}</div>
 			<footer>2024 MusicRoom</footer>
 		</div>
@@ -23,16 +22,15 @@ export function MainView({ children }: { children: React.ReactNode }) {
 }
 
 export function NowPlaying() {
-	return <div className="bg-[#121212] text-white">now playing....</div>;
+	return <div className="bg-black-121212 text-white">now playing....</div>;
 }
 
 export function SideBar({ isLogin }: SideBarProps) {
 	return (
 		<aside aria-label="Left Sidebar Navigation" className="relative">
-			<div className="flex flex-row gap-3 items-center p-5 font-lg font-bold text-[#FFFFFF]">
+			<div className="flex flex-row gap-3 items-center p-5 font-lg font-bold text-white">
 				<LibraryLogo />
 				<p className="mr-10">내 라이브러리</p>
-				<AddLibrary />
 			</div>
 			{/* {
             isLogin ? <Library />
