@@ -1,6 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useResetPasswordForm } from "@/hooks/useResetPasswordForm";
+import { usePasswordVisibility } from "@/app/_hooks/usePasswordVisibility";
+import { useConfirmPasswordVisibility } from "@/hooks/useConfirmPasswordVisibility";
+
 import {
   RegisterPasswordErrorIcon,
   ShowPasswordIcon,
@@ -8,49 +12,16 @@ import {
 } from "@/public/icons/ErrorIcon";
 
 export function ResetPasswordForm() {
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState({
-    length: true,
-    uppercase: true,
-    specialChar: true,
-  });
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const [isFormValid, setIsFormValid] = useState(false);
-  const [confirmError, setConfirmError] = useState(false);
-
-  useEffect(() => {
-    const isLengthValid = password.length >= 10;
-    const hasUppercase = /[A-Z]/.test(password);
-    const hasSpecialChar = /[!@#$%^&*]/.test(password);
-    const passwordsMatch = confirmPassword === password;
-
-    const newErrorState = {
-      length: !isLengthValid,
-      uppercase: !hasUppercase,
-      specialChar: !hasSpecialChar,
-    };
-
-    setError(newErrorState);
-    setConfirmError(!passwordsMatch);
-
-    const isValidForm =
-      !newErrorState.length &&
-      !newErrorState.uppercase &&
-      !newErrorState.specialChar &&
-      passwordsMatch;
-
-    setIsFormValid(isValidForm);
-  }, [password, confirmPassword]);
-
-  const handleSubmit = async () => {
-    setSubmitted(true);
-
-    //TODO: API call to reset password
-    if (isFormValid) {
-      // Handle form submission
-    }
-  };
+  const {
+    password,
+    setPassword,
+    confirmPassword,
+    setConfirmPassword,
+    error,
+    submitted,
+    confirmError,
+    handleSubmit,
+  } = useResetPasswordForm();
 
   const getErrorIcon = (conditionMet: boolean) => {
     return (
@@ -106,7 +77,7 @@ export function PasswordInput({
   error,
   submitted,
 }: PasswordInputProps) {
-  const [showPassword, setShowPassword] = useState(false);
+  const { showPassword, togglePasswordVisibility } = usePasswordVisibility();
 
   return (
     <div className="w-full mb-4">
@@ -125,7 +96,7 @@ export function PasswordInput({
         />
         <button
           type="button"
-          onClick={() => setShowPassword(!showPassword)}
+          onClick={togglePasswordVisibility}
           className="absolute inset-y-0 right-3 flex items-center"
           style={{ top: "50%", transform: "translateY(-50%)" }}
         >
@@ -181,18 +152,21 @@ export function PasswordValidationErrors({
   );
 }
 
+interface ConfirmPasswordInputProps {
+  confirmPassword: string;
+  setConfirmPassword: (confirmPassword: string) => void;
+  confirmError: boolean;
+  submitted: boolean;
+}
+
 export function ConfirmPasswordInput({
   confirmPassword,
   setConfirmPassword,
   confirmError,
   submitted,
-}: {
-  confirmPassword: string;
-  setConfirmPassword: (confirmPassword: string) => void;
-  confirmError: boolean;
-  submitted: boolean;
-}) {
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+}: ConfirmPasswordInputProps) {
+  const { showConfirmPassword, toggleConfirmPasswordVisibility } =
+    useConfirmPasswordVisibility();
 
   return (
     <div className="mb-4">
@@ -209,7 +183,7 @@ export function ConfirmPasswordInput({
         />
         <button
           type="button"
-          onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+          onClick={toggleConfirmPasswordVisibility}
           className="absolute inset-y-0 right-3 flex items-center"
           style={{ top: "50%", transform: "translateY(-50%)" }}
         >
