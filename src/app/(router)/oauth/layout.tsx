@@ -25,12 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="kr" className={`${pretendard.variable}`}>
-      <body className={pretendard.className}>
-        <header className="flex justify-center pt-8 bg-white">
-          <SpotifyLogo alt="Spotify Logo" />
-        </header>
-        {children}
-      </body>
+      <body className={pretendard.className}>{children}</body>
     </html>
   );
 }
