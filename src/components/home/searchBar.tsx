@@ -1,29 +1,26 @@
 "use client";
+import Link from "next/link";
 
-import { useRouter } from "next/navigation";
-import React from "react";
-import { usePathname } from "next/navigation";
+export function SearchInputBar() {
+	return (
+		<input
+			type="search"
+			id="default-search"
+			className="peer block w-full p-4 ps-14 text-m text-white border rounded-full border-black bg-[#1F1F1F] outline-none focus:ring-2 focus:ring-white focus:border-white"
+			placeholder="어떤 음악을 듣고 싶으세요?"
+			onFocus={(e) => e.target.click()}
+			required
+		/>
+	);
+}
 
 export function SearchBar() {
-	const router = useRouter();
-	const path = usePathname();
-	const onSearchClick = () => {
-		if (path !== "/home/search") {
-			router.push("/home/search");
-		}
-	};
-
 	return (
 		<form className="w-1/2 mx-auto">
 			<div className="relative">
-				<input
-					type="search"
-					id="default-search"
-					className="peer block w-full p-4 ps-14 text-m text-white border rounded-full border-black bg-[#1F1F1F] outline-none focus:ring-2 focus:ring-white focus:border-white"
-					placeholder="어떤 음악을 듣고 싶으세요?"
-					onFocus={onSearchClick}
-					required
-				/>
+				<Link href="/home/search">
+					<SearchInputBar />
+				</Link>
 				<button
 					type="submit"
 					className="peer-focus:text-white text-gray-500 absolute inset-y-0 start-0 flex items-center ps-4"

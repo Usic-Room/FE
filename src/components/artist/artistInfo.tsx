@@ -1,5 +1,3 @@
-import ProfileSample from "@/public/images/sample.svg";
-
 interface ArtistBoxProps {
 	id: number;
 	username: string;
