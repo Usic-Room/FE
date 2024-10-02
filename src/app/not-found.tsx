@@ -1,13 +1,23 @@
 import { NextPage } from "next";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Not found",
+};
 
 const NotFound: NextPage = () => {
-  return (
-    <div>
-      <h1>404 - Page Not Found</h1>
-      <Link href="/"></Link>
-    </div>
-  );
+	return (
+		<div className="bg-black min-h-screen flex flex-col gap-5 items-center justify-center text-white">
+			<p className="font-bold text-2xl p-3">페이지를 찾을 수 없음</p>
+			<p className="font-thin text-sm">원하는 페이지를 찾지 못했습니다.</p>
+			<Link href="/home">
+				<button className="py-4 px-8 rounded-full bg-white text-black p-4 font-bold">
+					홈
+				</button>
+			</Link>
+		</div>
+	);
 };
 export default NotFound;
 
