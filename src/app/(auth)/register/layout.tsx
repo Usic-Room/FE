@@ -1,28 +1,27 @@
-// layout.tsx
 import "@/app/globals.css";
 import localFont from "next/font/local";
-import { FormProvider } from "@/app/(auth)/register/_components/registerForm";
+import { RegisterFormProvider } from "@/contexts/registerFormContext";
 
 const pretendard = localFont({
-	src: "../../../../public/fonts/PretendardVariable.woff2",
-	display: "swap",
-	weight: "45 920",
-	variable: "--font-pretendard",
+  src: "../../../../public/fonts/PretendardVariable.woff2",
+  display: "swap",
+  weight: "45 920",
+  variable: "--font-pretendard",
 });
 
 export default function RegisterVerificationLayout({
-	children,
+  children,
 }: Readonly<{
-	children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-	return (
-		<FormProvider>
-			<html lang="kr" className={`${pretendard.variable}`}>
-				<body className={`${pretendard.className} bg-white`}>
-					{/*<HeaderSpotifyLogo />*/}
-					{children}
-				</body>
-			</html>
-		</FormProvider>
-	);
+  return (
+    <RegisterFormProvider>
+      <html lang="kr" className={`${pretendard.variable}`}>
+        <body className={pretendard.className}>
+          {/*<HeaderSpotifyLogo />*/}
+          {children}
+        </body>
+      </html>
+    </RegisterFormProvider>
+  );
 }

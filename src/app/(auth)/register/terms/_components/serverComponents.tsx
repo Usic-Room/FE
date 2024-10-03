@@ -1,6 +1,4 @@
 import React from "react";
-import "server-only";
-
 import Link from "next/link";
 
 export function MoveToNextPageFromTermsButton() {

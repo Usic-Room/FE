@@ -1,7 +1,7 @@
 import {
   ResetPasswordForm,
   ConfirmPasswordInput,
-} from "@/app/(auth)/login/reset-password/_components/clientComponents";
+} from "@/auth/login/reset-password/_components/clientComponents";
 
 export default {
   title: "Components/Login/ResetPassword/clientComponents",
@@ -17,7 +17,7 @@ export const DefaultConfirmPasswordInput = {
   render: () => (
     <ConfirmPasswordInput
       confirmPassword={""}
-      setConfirmPassword={(confirmPassword) => { }}
+      setConfirmPassword={(confirmPassword) => {}}
       confirmError={false}
       submitted={false}
     />

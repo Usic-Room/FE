@@ -1,6 +1,4 @@
 import React from "react";
-import "server-only";
-
 import ChevronLeft from "@/public/images/chevron-left.svg"; // Correct import path
 import Link from "next/link";
 

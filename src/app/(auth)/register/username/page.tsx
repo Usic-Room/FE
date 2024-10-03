@@ -1,7 +1,7 @@
 import React from "react";
-import { RegisterUsernameForm } from "@/app/(auth)/register/username/_components/clientComponents"; // Correct import path
+import { RegisterUsernameForm } from "@/auth/register/username/_components/clientComponents"; // Correct import path
 import { Metadata } from "next";
-import { HeaderSpotifyLogo } from "@/app/(auth)/register/_components/serverComponents";
+import { HeaderSpotifyLogo } from "@/auth/register/_components/serverComponents";
 import {
   ProgessBarAndSections,
   BackToPreviousLevelPage,

@@ -1,7 +1,7 @@
 import {
   ProgessBarAndSections,
   BackToPreviousLevelPage,
-} from "@/app/(auth)/register/password/_components/serverComponents"; // Correct import path
+} from "@/auth/register/password/_components/serverComponents"; // Correct import path
 
 export default {
   title: "Components/Register/Password/serverComponents", // Updated title for uniqueness

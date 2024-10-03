@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { verifyEmailCode, createEmailCode } from "@/router/register/api/router";
+import { verifyEmailCode, createEmailCode } from "@/auth/register/api/router";
 
 export const useRegisterVerificationCodeForm = () => {
   const [code, setCode] = useState(""); // Code entered by user
