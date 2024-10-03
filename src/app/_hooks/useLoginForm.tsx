@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { LoginByEmailAndPassword } from "@/router/login/api/router";
+import { LoginByEmailAndPassword } from "@/auth/login/api/router";
 
 export const useLoginForm = () => {
   const [email, setEmail] = useState(""); // Email state

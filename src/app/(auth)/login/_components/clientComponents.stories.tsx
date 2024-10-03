@@ -1,7 +1,7 @@
 import {
   LoginForm,
   LoginSubmitButton,
-} from "@/app/(auth)/login/_components/clientComponents"; // Correct import path
+} from "@/auth/login/_components/clientComponents"; // Correct import path
 
 export default {
   title: "Components/Login/clientComponents", // Updated title for uniqueness
@@ -15,12 +15,12 @@ export const DefaultLoginForm = {
 
 export const LoginSubmittingButton = {
   render: () => (
-    <LoginSubmitButton handleSubmit={() => { }} isSubmitting={true} />
+    <LoginSubmitButton handleSubmit={() => {}} isSubmitting={true} />
   ),
 };
 
 export const DefaultLoginSubmitButton = {
   render: () => (
-    <LoginSubmitButton handleSubmit={() => { }} isSubmitting={false} />
+    <LoginSubmitButton handleSubmit={() => {}} isSubmitting={false} />
   ),
 };

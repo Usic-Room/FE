@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
-import { createResetPasswordCode } from "@/app/(auth)/login/api/router";
+import { createResetPasswordCode } from "@/auth/login/api/router";
 
 // Regular expression for email validation
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -81,10 +81,11 @@ export function EmailInputField({ error, submitted }: EmailInputFieldProps) {
         placeholder="이메일"
         value={email}
         onChange={(e) => setEmail(e.target.value)} // Update context state
-        className={`w-full p-3 mb-3 ${submitted && (error.empty || error.invalid)
-          ? "border-red-500"
-          : "border-gray-400"
-          } border rounded font-normal`}
+        className={`w-full p-3 mb-3 ${
+          submitted && (error.empty || error.invalid)
+            ? "border-red-500"
+            : "border-gray-400"
+        } border rounded font-normal`}
       />
       {submitted && error.empty && (
         <p className="text-red-500 text-xs mb-1">이메일을 입력해 주세요.</p>

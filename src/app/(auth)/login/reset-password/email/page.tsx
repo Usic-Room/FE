@@ -1,11 +1,11 @@
-import { HeaderSpotifyLogo } from "@/app/(auth)/register/_components/serverComponents";
+import { HeaderSpotifyLogo } from "@/auth/register/_components/serverComponents";
 
 import {
   ResetPasswordEmailPageTitle,
   ResetPasswordEmailPageDescription,
-} from "@/app/(auth)/login/reset-password/email/_components/serverComponents";
+} from "@/auth/login/reset-password/email/_components/serverComponents";
 import { Metadata } from "next";
-import { ResetPasswordEmailForm } from "@/app/(auth)/login/reset-password/email/_components/clientComponents";
+import { ResetPasswordEmailForm } from "@/auth/login/reset-password/email/_components/clientComponents";
 
 export const metadata: Metadata = {
   title: "Enter email for register",

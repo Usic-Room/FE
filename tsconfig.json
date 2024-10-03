@@ -20,7 +20,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "@/public/*": ["./public/*"],
-      "@/router/*": ["./src/app/(router)/*"],
+      "@/auth/*": ["./src/app/(auth)/*"],
       "@/hooks/*": ["./src/app/_hooks/*"],
       "@/contexts/*": ["./src/app/_contexts/*"]
     }

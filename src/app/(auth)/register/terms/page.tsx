@@ -1,13 +1,13 @@
 import React from "react";
-import { HeaderSpotifyLogo } from "@/app/(auth)/register/_components/serverComponents";
+import { HeaderSpotifyLogo } from "@/auth/register/_components/serverComponents";
 
 import {
   ProgessBarAndSections,
   BackToPreviousLevelPage,
-} from "@/app/(auth)/register/password/_components/serverComponents";
-import { RegisterTermsForm } from "@/app/(auth)/register/terms/_components/clientComponents";
+} from "@/auth/register/password/_components/serverComponents";
+import { RegisterTermsForm } from "@/auth/register/terms/_components/clientComponents";
 import { Metadata } from "next";
-import { MoveToNextPageFromTermsButton } from "@/app/(auth)/register/terms/_components/serverComponents";
+import { MoveToNextPageFromTermsButton } from "@/auth/register/terms/_components/serverComponents";
 
 export const metadata: Metadata = {
   title: "Register Term",
