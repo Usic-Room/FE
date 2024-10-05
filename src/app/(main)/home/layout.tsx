@@ -16,11 +16,11 @@ export default function HomeLayout({
     <html lang="kr">
       <body>
         <div
-          className="bg-black min-h-screen p-2"
+          className="fixed bg-black p-2 w-full z-10"
           style={{
             display: "grid",
             gap: "1rem",
-            gridTemplateColumns: "auto 1fr",
+            gridTemplateColumns: "minmax(200px, auto) 1fr",
             gridTemplateRows: "auto 1fr auto",
             gridTemplateAreas: `
 					"navbar navbar navbar"
@@ -48,7 +48,7 @@ export default function HomeLayout({
           </div>
 
           <div
-            className="fixed bottom-0 w-full z-5"
+            className="bottom-0 w-full z-5"
             style={{ gridArea: "nowplaying" }}
           >
             <NowPlaying />
