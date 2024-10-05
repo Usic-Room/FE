@@ -42,7 +42,7 @@ export function SideBar({ isLogin }: SideBarProps) {
 
 export function NavLogo() {
   return (
-    <div className="flex-shrink-0">
+    <div className="absolute left-4 flex-shrink-0 w-16">
       <Link href="/home">
         <SpotifyWhiteIcon />
       </Link>
@@ -71,19 +71,19 @@ export function NavLogo() {
 
 export function Navigation({ isLogin }: NavigationProps) {
   return (
-    <div className="relative flex h-14 items-center justify-between px-4 bg-black">
-      {/* Logo - Always positioned left */}
-      <div className="flex-shrink-0 w-10">
-        <NavLogo />
-      </div>
+    <div className="relative flex items-center justify-between px-4 bg-black h-14">
+      {/* Logo - fixed to the left with absolute positioning */}
 
-      {/* Search Bar */}
-      <div className="flex-grow mx-4 sm:mx-2 w-full">
+      <NavLogo />
+      {/* Search Bar - flexible, adjusts size based on available space */}
+      <div className="flex-grow mx-4 w-full">
         <SearchBar />
       </div>
 
-      {/* Buttons */}
-      <div className="flex space-x-2 mt-2 md:mt-0">
+      {/* Buttons - fixed width, doesn't move */}
+      <div className="flex-shrink-0 space-x-2 mt-2 flex items-center">
+        {" "}
+        {/* Fixed width */}
         {isLogin ? <NavProfileButtons /> : <NavRegisterButtons />}
       </div>
     </div>
