@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { VerificationSubmitButton } from "@/auth/register/verification/_components/serverComponents"; // Import the button component
+import { VerificationSubmitButton } from "@/app/_components/(auth)/register/verification/serverComponents"; // Import the button component
 import { useRegisterVerificationCodeForm } from "@/hooks/useRegisterVerificationCodeForm";
 
 export function VerificationCodeForm() {

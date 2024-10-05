@@ -1,9 +1,9 @@
 import {
   ProgessBarAndSections,
   BackToPreviousLevelPage,
-} from "@/auth/register/password/_components/serverComponents";
-import { RegisterPasswordForm } from "@/auth/register/password/_components/clientComponents";
-import { HeaderSpotifyLogo } from "@/auth/register/_components/serverComponents";
+} from "@/components/(auth)/register/password/serverComponents";
+import { RegisterPasswordForm } from "@/components/(auth)/register/password/clientComponents";
+import { HeaderSpotifyLogo } from "@/components/(auth)/register/serverComponents";
 import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Password",

@@ -1,8 +1,7 @@
-import { HeaderSpotifyLogo } from "@/auth/register/_components/serverComponents";
+import { HeaderSpotifyLogo } from "@/components/(auth)/register/serverComponents";
 
-import { OAuthLodingAnimation } from "@/auth/oauth/_components/clientComponents";
-
-import { OAuthPageDescription } from "@/auth/oauth/_components/serverComponents";
+import { OAuthLodingAnimation } from "@/components/(auth)/oauth/clientComponents";
+import { OAuthPageDescription } from "@/components/(auth)/oauth/serverComponents";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

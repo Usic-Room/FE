@@ -1,11 +1,11 @@
 import React from "react";
-import { RegisterUsernameForm } from "@/auth/register/username/_components/clientComponents"; // Correct import path
+import { RegisterUsernameForm } from "@/components/(auth)/register/username/clientComponents"; // Correct import path
 import { Metadata } from "next";
-import { HeaderSpotifyLogo } from "@/auth/register/_components/serverComponents";
+import { HeaderSpotifyLogo } from "@/components/(auth)/register/serverComponents";
 import {
   ProgessBarAndSections,
   BackToPreviousLevelPage,
-} from "../password/_components/serverComponents";
+} from "../../../../components/(auth)/register/password/serverComponents";
 
 export const metadata: Metadata = {
   title: "User information",
