@@ -1,78 +1,139 @@
 "use client";
 
-import { Metadata } from "next";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { useRef } from "react";
 
-//export const metadata: Metadata = {
-//  title: "Search",
-//};
+import superNaturalImage from "@/public/images/supernatural.jpg";
 
+// TODO: Filter Button 타입화
 export default function Search() {
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const searchParams = useSearchParams();
+  const [results, setResults] = useState<
+    {
+      id: number;
+      title: string;
+      artist: string;
+      album: string;
+      duration: string;
+    }[]
+  >([]);
 
-  const scrollLeft = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollLeft -= 200; // Adjust the scroll amount as needed
+  // Simulate a search function, fetching or filtering based on the searchQuery
+  useEffect(() => {
+    if (searchParams.get("search")) {
+      fetchSearchResults(searchParams.get("search") as string);
+    } else {
+      setResults([]);
     }
-  };
+  }, [searchParams.get("search")]);
 
-  const scrollRight = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollLeft += 200; // Adjust the scroll amount as needed
-    }
+  const fetchSearchResults = (query: string) => {
+    const dummyResults = [
+      {
+        id: 1,
+        title: "Supernatural",
+        artist: "NewJeans",
+        album: "Supernatural",
+        duration: "3:14",
+      },
+      {
+        id: 2,
+        title: "How Sweet",
+        artist: "NewJeans",
+        album: "How Sweet",
+        duration: "3:14",
+      },
+      {
+        id: 3,
+        title: "Ditto",
+        artist: "NewJeans",
+        album: "Ditto",
+        duration: "3:14",
+      },
+      {
+        id: 4,
+        title: "OMG",
+        artist: "NewJeans",
+        album: "OMG",
+        duration: "3:14",
+      },
+    ];
+
+    const filteredResults = dummyResults.filter((song) =>
+      song.title.toLowerCase().includes(query.toLowerCase())
+    );
+    setResults(filteredResults.slice(0, 4)); // Limit to 4 results
   };
 
   return (
-    <div className="flex h-screen bg-black-121212 text-white">
-      {/* Main Content Area */}
-      <div className="flex-grow p-4 overflow-y-scroll">
-        {/* Search Filters */}
-        <div className="flex space-x-2 my-4 overflow-x-auto whitespace-nowrap scrollbar-hide">
+    <div className="flex flex-col h-full bg-black-121212 text-white">
+      {/* Sticky Filter Button Section */}
+      <div className="sticky top-0 z-10 bg-black-121212 py-4">
+        <div className="flex space-x-2 overflow-x-auto whitespace-nowrap scrollbar-hide">
           {["모두", "곡", "아티스트", "앨범", "이벤트", "플레이리스트"].map(
             (filter) => (
               <FilterButton key={filter} label={filter} />
             )
           )}
         </div>
+      </div>
 
-        {/* Responsive Grid Layout for Sections */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* 상위결과 Section */}
-          <div className="col-span-1">
-            <h2 className="text-2xl font-bold mb-4">상위결과</h2>
-            <div className="flex items-center space-x-4">
-              <Image
-                src="/path/to/image.jpg"
-                alt="Supernatural"
-                width={100}
-                height={100}
-                className="rounded"
-              />
-              <div>
-                <h3 className="text-xl font-bold">Supernatural</h3>
-                <p className="text-gray-400">곡 · NewJeans</p>
+      {/* Main Content Area */}
+      <div className="flex-grow overflow-y-auto scrollbar-hide p-4">
+        {searchParams.get("search") ? (
+          <>
+            <h2 className="text-2xl font-bold mb-4">
+              Search Results for: {searchParams.get("search")}
+            </h2>
+            {results.length > 0 ? (
+              <SongList songs={results} />
+            ) : (
+              <p>No results found for "{searchParams.get("search")}".</p>
+            )}
+          </>
+        ) : (
+          <>
+            {/* Grid for "상위결과" and "곡" Section */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {/* 상위결과 Section */}
+              <div className="lg:col-span-1">
+                <h2 className="text-2xl font-bold mb-4">상위결과</h2>
+                <div className="flex-col items-center bg-gray-900 p-4 rounded-lg max-h-[300px] overflow-hidden">
+                  <Image
+                    src={superNaturalImage}
+                    alt="Supernatural"
+                    width={100}
+                    height={100}
+                    className="rounded max-h-[100px] max-w-[100px] object-cover"
+                  />
+                  <div className="ml-auto ">
+                    <p className="text-xl font-bold">Supernatural</p>
+                    <p className="text-gray-400">곡 · NewJeans</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 곡 Section */}
+              <div className="lg:col-span-2">
+                <h2 className="text-2xl font-bold mb-4">곡</h2>
+                <div className="bg-gray-900 p-4 rounded-lg">
+                  <SongList songs={dummyResults} />
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* 곡 Section */}
-          <div className="col-span-1 sm:col-span-2 lg:col-span-2">
-            <h2 className="text-2xl font-bold mb-4">곡</h2>
-            <SongList />
-          </div>
-        </div>
-
-        {/* 이벤트 Section */}
-        <div className="mt-8">
-          <h2 className="text-2xl font-bold mb-4">이벤트</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {/* Repeating Event Cards */}
-            {[1, 2, 3].map((event) => (
-              <EventCard key={event} />
-            ))}
-          </div>
-        </div>
+            {/* 이벤트 Section */}
+            <div className="mt-8">
+              <h2 className="text-2xl font-bold mb-4">이벤트</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {[1, 2, 3].map((event) => (
+                  <EventCard key={event} />
+                ))}
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
@@ -87,57 +148,39 @@ function FilterButton({ label }: { label: string }) {
   );
 }
 
-// Song List Component
-function SongList() {
-  const songs = [
-    {
-      id: 1,
-      title: "Supernatural",
-      artist: "NewJeans",
-      album: "Supernatural",
-      duration: "3:14",
-    },
-    {
-      id: 2,
-      title: "How Sweet",
-      artist: "NewJeans",
-      album: "How Sweet",
-      duration: "3:14",
-    },
-  ];
-
+// Song List Component (Updated layout for song list)
+function SongList({
+  songs,
+}: {
+  songs: {
+    id: number;
+    title: string;
+    artist: string;
+    album: string;
+    duration: string;
+  }[];
+}) {
   return (
-    <table className="w-full text-left text-white">
-      <thead>
-        <tr className="flex">
-          <th>#</th>
-          <th>제목</th>
-          <th>앨범</th>
-          <th>시간</th>
-        </tr>
-      </thead>
-      <tbody>
-        {songs.map((song) => (
-          <tr key={song.id} className="border-b border-gray-800">
-            <td className="py-2">{song.id}</td>
-            <td className="flex items-center py-2">
-              <Image
-                src="/path/to/image.jpg"
-                alt={song.title}
-                width={40}
-                height={40}
-              />
-              <div className="ml-3">
-                <p>{song.title}</p>
-                <p className="text-sm text-gray-400">{song.artist}</p>
-              </div>
-            </td>
-            <td>{song.album}</td>
-            <td>{song.duration}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div className="flex flex-col space-y-4">
+      {songs.map((song, index) => (
+        <div key={song.id} className="flex items-center justify-between">
+          <div className="flex items-center">
+            <Image
+              src={superNaturalImage}
+              alt={song.title}
+              width={50}
+              height={50}
+              className="rounded"
+            />
+            <div className="ml-4">
+              <p className="text-lg font-bold">{song.title}</p>
+              <p className="text-sm text-gray-400">{song.artist}</p>
+            </div>
+          </div>
+          <p className="text-gray-400">{song.duration}</p>
+        </div>
+      ))}
+    </div>
   );
 }
 
@@ -156,3 +199,35 @@ function EventCard() {
     </div>
   );
 }
+
+// Dummy data for default song list
+const dummyResults = [
+  {
+    id: 1,
+    title: "Supernatural",
+    artist: "NewJeans",
+    album: "Supernatural",
+    duration: "3:14",
+  },
+  {
+    id: 2,
+    title: "How Sweet",
+    artist: "NewJeans",
+    album: "How Sweet",
+    duration: "3:14",
+  },
+  {
+    id: 3,
+    title: "Ditto",
+    artist: "NewJeans",
+    album: "Ditto",
+    duration: "3:14",
+  },
+  {
+    id: 4,
+    title: "OMG",
+    artist: "NewJeans",
+    album: "OMG",
+    duration: "3:14",
+  },
+];

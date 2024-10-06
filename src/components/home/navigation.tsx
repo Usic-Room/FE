@@ -12,11 +12,12 @@ interface SideBarProps {
   isLogin: boolean;
 }
 
+// TODO: Scrollbar CSS 처리
 export function MainView({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative bg-black-121212 text-white p-4 overflow-y-scroll h-full">
-      <div className="relative main-content">{children}</div>
-      <footer>2024 MusicRoom</footer>
+    <div className="bg-black-121212 text-white h-full flex flex-col">
+      <div className="flex-grow p-4 overflow-y-auto">{children}</div>
+      <footer className="p-4">2024 MusicRoom</footer>
     </div>
   );
 }
