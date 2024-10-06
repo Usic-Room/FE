@@ -5,7 +5,7 @@ export function NavRegisterButtons() {
   const loginUrl = process.env.NEXT_PUBLIC_LOGIN_URL || "/error";
 
   return (
-    <div className="flex items-center justify-center gap-2">
+    <div className="flex item-center justify-center gap-2">
       <Link href={registrationUrl}>
         <RegisterButton
           name={"가입하기"}
@@ -36,7 +36,7 @@ export function RegisterButton({
 }: RegisterButtonProps) {
   return (
     <div
-      className={`py-2 px-4 rounded-full ${backgroundColor} ${fontColor} w-auto text-sm whitespace-nowrap`}
+      className={`py-4 px-7 rounded-full ${backgroundColor} ${fontColor} w-auto text-sm whitespace-nowrap`}
     >
       {name}
     </div>
