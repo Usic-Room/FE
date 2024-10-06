@@ -162,7 +162,7 @@ function SongList({
 }) {
   return (
     <div className="flex flex-col space-y-4">
-      {songs.map((song, index) => (
+      {songs.map((song) => (
         <div key={song.id} className="flex items-center justify-between">
           <div className="flex items-center">
             <Image
@@ -177,13 +177,12 @@ function SongList({
               <p className="text-sm text-gray-400">{song.artist}</p>
             </div>
           </div>
-          <p className="text-gray-400">{song.duration}</p>
+          <p className="text-gray-400 hidden md:block">{song.duration}</p>
         </div>
       ))}
     </div>
   );
 }
-
 // Event Card Component
 function EventCard() {
   return (

@@ -18,7 +18,9 @@ interface SideBarProps {
 export function MainView({ children }: { children: React.ReactNode }) {
   return (
     <div className="bg-black-121212 text-white h-full flex flex-col">
-      <div className="flex-grow p-4 overflow-y-auto">{children}</div>
+      <div className="flex-grow p-4 overflow-y-auto scrollbar-hide">
+        {children}
+      </div>
       <footer className="p-4">2024 MusicRoom</footer>
     </div>
   );
