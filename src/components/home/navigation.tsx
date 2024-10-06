@@ -4,6 +4,8 @@ import { NavRegisterButtons } from "./navRegisterButtons";
 import { NavProfileButtons } from "./navProfileButtons";
 import Link from "next/link";
 import LibraryLogo from "@/public/images/library.svg";
+import PlusLogo from "@/public/images/plus.svg";
+
 interface NavigationProps {
   isLogin: boolean;
 }
@@ -32,6 +34,7 @@ export function SideBar({ isLogin }: SideBarProps) {
       <div className="flex flex-row gap-3 items-center p-5 font-lg font-bold text-white">
         <LibraryLogo />
         <p className="mr-10">내 라이브러리</p>
+        <PlusLogo />
       </div>
       {/* {
             isLogin ? <Library />

@@ -189,13 +189,12 @@ function EventCard() {
   return (
     <div className="bg-gray-800 p-4 rounded-lg">
       <Image
-        src="/path/to/event-image.jpg"
+        src={superNaturalImage}
         alt="Event"
         width={150}
         height={150}
         className="rounded"
       />
-      <h3 className="mt-2 text-lg font-bold">Daily Mix 1</h3>
     </div>
   );
 }
