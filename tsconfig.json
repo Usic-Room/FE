@@ -22,7 +22,9 @@
       "@/public/*": ["./public/*"],
       "@/auth/*": ["./src/app/(auth)/*"],
       "@/hooks/*": ["./src/app/_hooks/*"],
-      "@/contexts/*": ["./src/app/_contexts/*"]
+      "@/contexts/*": ["./src/app/_contexts/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/stories/*": ["./src/stories/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
