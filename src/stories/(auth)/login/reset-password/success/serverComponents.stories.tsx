@@ -1,4 +1,4 @@
-import { BackToLoginPageButton } from "@/app/(auth)/login/reset-password/success/_components/serverComponents";
+import { BackToLoginPageButton } from "@/components/(auth)/login/reset-password/success/serverComponents";
 
 export default {
   title: "Components/Login/ResetPassword/Success/serverComponents",

@@ -1,4 +1,4 @@
-import { VerificationCodeForm } from "@/auth/register/verification/_components/clientComponents"; // Correct import path
+import { VerificationCodeForm } from "@/components/(auth)/register/verification/clientComponents";
 
 export default {
   title: "Components/Register/Verification/clientComponents", // Updated title for uniqueness

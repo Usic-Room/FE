@@ -1,7 +1,7 @@
 import { JSX, useState } from "react";
 import { RegisterFormProvider } from "@/contexts/registerFormContext"; // Correct import path
 
-import { RegisterUsernameForm } from "@/auth/register/username/_components/clientComponents"; // Correct import path
+import { RegisterUsernameForm } from "@/components/(auth)/register/username/clientComponents";
 
 export default {
   title: "Components/Register/Username/clientComponents", // Updated title for uniqueness

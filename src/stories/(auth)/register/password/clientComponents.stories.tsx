@@ -4,11 +4,7 @@ import { RegisterFormProvider } from "@/contexts/registerFormContext"; // Correc
 import {
   RegisterPasswordForm,
   PasswordInput,
-  PasswordValidationErrors,
-  PasswordSubmitButton,
-} from "@/auth/register/password/_components/clientComponents"; // Correct import path
-
-import { RegisterPasswordErrorIcon } from "@/public/icons/ErrorIcon";
+} from "@/components/(auth)/register/password/clientComponents";
 
 export default {
   title: "Components/Register/Password/clientComponents", // Updated title for uniqueness
