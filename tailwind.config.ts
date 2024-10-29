@@ -27,9 +27,11 @@ const config: Config = {
         "gray-878787": "#878787",
         "gray-6A6A6A": "#6A6A6A",
         "gray-727272": "#727272",
+        "black-121212": "#121212", // main page's layer background
+        "black-1F1F1F": "#1F1F1F", // main page's component background
       },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-radial": "radial-gradi2ent(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
