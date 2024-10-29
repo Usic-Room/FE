@@ -1,7 +1,7 @@
 import {
   LoginForm,
   LoginSubmitButton,
-} from "@/auth/login/_components/clientComponents"; // Correct import path
+} from "@/components/(auth)/login/clientComponents";
 
 export default {
   title: "Components/Login/clientComponents", // Updated title for uniqueness

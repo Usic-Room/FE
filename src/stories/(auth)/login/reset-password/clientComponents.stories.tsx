@@ -1,7 +1,7 @@
 import {
   ResetPasswordForm,
   ConfirmPasswordInput,
-} from "@/auth/login/reset-password/_components/clientComponents";
+} from "@/components/(auth)/login/reset-password/clientComponents";
 
 export default {
   title: "Components/Login/ResetPassword/clientComponents",
