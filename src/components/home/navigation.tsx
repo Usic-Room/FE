@@ -4,6 +4,8 @@ import { NavRegisterButtons } from "./navRegisterButtons";
 import { NavProfileButtons } from "./navProfileButtons";
 import Link from "next/link";
 import LibraryLogo from "@/public/images/library.svg";
+import PlusLogo from "@/public/images/plus.svg";
+
 interface NavigationProps {
   isLogin: boolean;
 }
@@ -12,11 +14,14 @@ interface SideBarProps {
   isLogin: boolean;
 }
 
+// TODO: Scrollbar CSS 처리
 export function MainView({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative bg-black-121212 text-white p-4 overflow-y-scroll h-full">
-      <div className="relative main-content">{children}</div>
-      <footer>2024 MusicRoom</footer>
+    <div className="bg-black-121212 text-white h-full flex flex-col">
+      <div className="flex-grow p-4 overflow-y-auto scrollbar-hide">
+        {children}
+      </div>
+      <footer className="p-4">2024 MusicRoom</footer>
     </div>
   );
 }
@@ -31,6 +36,7 @@ export function SideBar({ isLogin }: SideBarProps) {
       <div className="flex flex-row gap-3 items-center p-5 font-lg font-bold text-white">
         <LibraryLogo />
         <p className="mr-10">내 라이브러리</p>
+        <PlusLogo />
       </div>
       {/* {
             isLogin ? <Library />
@@ -42,7 +48,7 @@ export function SideBar({ isLogin }: SideBarProps) {
 
 export function NavLogo() {
   return (
-    <div className="flex-shrink-0">
+    <div className="absolute left-4 flex-shrink-0 w-16">
       <Link href="/home">
         <SpotifyWhiteIcon />
       </Link>
@@ -71,19 +77,19 @@ export function NavLogo() {
 
 export function Navigation({ isLogin }: NavigationProps) {
   return (
-    <div className="relative flex h-14 items-center justify-between px-4 bg-black">
-      {/* Logo - Always positioned left */}
-      <div className="flex-shrink-0 w-10">
-        <NavLogo />
-      </div>
+    <div className="relative flex items-center justify-between px-4 bg-black h-14">
+      {/* Logo - fixed to the left with absolute positioning */}
 
-      {/* Search Bar */}
-      <div className="flex-grow mx-4 sm:mx-2 w-full">
+      <NavLogo />
+      {/* Search Bar - flexible, adjusts size based on available space */}
+      <div className="flex-grow mx-4 w-full">
         <SearchBar />
       </div>
 
-      {/* Buttons */}
-      <div className="flex space-x-2 mt-2 md:mt-0">
+      {/* Buttons - fixed width, doesn't move */}
+      <div className="flex-shrink-0 space-x-2 mt-2 flex items-center">
+        {" "}
+        {/* Fixed width */}
         {isLogin ? <NavProfileButtons /> : <NavRegisterButtons />}
       </div>
     </div>

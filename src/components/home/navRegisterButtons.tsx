@@ -3,6 +3,7 @@ import Link from "next/link";
 export function NavRegisterButtons() {
   const registrationUrl = process.env.NEXT_PUBLIC_REGISTRATION || "/error";
   const loginUrl = process.env.NEXT_PUBLIC_LOGIN_URL || "/error";
+
   return (
     <div className="flex item-center justify-center gap-2">
       <Link href={registrationUrl}>
@@ -22,11 +23,10 @@ export function NavRegisterButtons() {
     </div>
   );
 }
-
 interface RegisterButtonProps {
-  name: String;
-  backgroundColor: String;
-  fontColor: String;
+  name: string;
+  backgroundColor: string;
+  fontColor: string;
 }
 
 export function RegisterButton({
@@ -35,7 +35,9 @@ export function RegisterButton({
   fontColor,
 }: RegisterButtonProps) {
   return (
-    <div className={`py-4 px-7 rounded-full ${backgroundColor} ${fontColor}`}>
+    <div
+      className={`py-4 px-7 rounded-full ${backgroundColor} ${fontColor} w-auto text-sm whitespace-nowrap`}
+    >
       {name}
     </div>
   );
