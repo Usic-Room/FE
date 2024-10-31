@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import SearchIcon from "@/public/images/search.svg";
 
 export function MobileInputBar() {
   return (
@@ -23,22 +24,6 @@ export function SearchInputBar() {
       onFocus={(e) => e.target.click()}
       required
     />
-  );
-}
-
-export function MobileSearchBar() {
-  return (
-    <form className="w-full">
-      <div className="relative">
-        <Link href="/home/search">
-          <MobileInputBar />
-        </Link>
-        <button
-          type="submit"
-          className="peer-focus:text-white text-gray-500 absolute flex items-center"
-        ></button>
-      </div>
-    </form>
   );
 }
 

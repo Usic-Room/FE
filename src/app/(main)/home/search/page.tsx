@@ -3,7 +3,6 @@
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-
 import superNaturalImage from "@/public/images/supernatural.jpg";
 
 // TODO: Filter Button 타입화
@@ -68,8 +67,9 @@ export default function Search() {
 
   return (
     <div className="flex flex-col h-full bg-black-121212 text-white">
+      <div className="sm:hidden absolute z-30">{/* <MobileSearchBar /> */}</div>
       {/* Sticky Filter Button Section */}
-      <div className="sticky top-0 z-10 bg-black-121212 py-4">
+      <div className="sticky top-5 sm:top-0 z-10 bg-black-121212 py-4">
         <div className="flex space-x-2 overflow-x-auto whitespace-nowrap scrollbar-hide">
           {["모두", "곡", "아티스트", "앨범", "이벤트", "플레이리스트"].map(
             (filter) => (

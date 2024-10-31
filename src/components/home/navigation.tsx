@@ -1,7 +1,7 @@
 import SpotifyWhiteIcon from "@/public/images/spotifyWhite.svg";
 import HomeIcon from "@/public/images/home.svg";
 import SearchIcon from "@/public/images/search.svg";
-import { MobileSearchBar, SearchBar } from "./searchBar";
+import { SearchBar } from "./searchBar";
 import { NavRegisterButtons } from "./navRegisterButtons";
 import { NavProfileButtons } from "./navProfileButtons";
 import Link from "next/link";
@@ -48,12 +48,6 @@ export function SideBar({ isLogin }: SideBarProps) {
           <p className="mr-10">내 라이브러리</p>
           <PlusLogo />
         </div>
-        <div className="text-white">
-          <h1>playlist 1</h1>
-        </div>
-        <div className="text-white">
-          <h1>playlist 2</h1>
-        </div>
         {/* {
             isLogin ? <Library />
             : <DummyLibrary />
@@ -73,25 +67,6 @@ export function NavLogo() {
   );
 }
 
-//export function Navigation({ isLogin }: NavigationProps) {
-//  return (
-//    <div className="relative flex h-14 items-center justify-between px-4 flex-wrap">
-//      {/* Logo */}
-//      <NavLogo />
-
-//      {/* Search Bar */}
-//      <div className="flex-grow mx-4 mt-2 md:mt-0">
-//        <SearchBar />
-//      </div>
-
-//      {/* Buttons */}
-//      <div className="flex space-x-2 mt-2 md:mt-0">
-//        {isLogin ? <NavProfileButtons /> : <NavRegisterButtons />}
-//      </div>
-//    </div>
-//  );
-//}
-
 export function NavigationBar() {
   return (
     <>
@@ -108,11 +83,10 @@ export function NavigationBar() {
 export function MobileNavigation({ isLogin }: NavigationProps) {
   return (
     <div className="grid h-full bg-black grid-cols-3 mx-auto text-white font-medium">
-      {/* <MobileSearchBar /> */}
       <Link href="/home">
         <button
           type="button"
-          className="inline-flex flex-col items-center justify-center px-5 group"
+          className="inline-flex flex-col items-center justify-center px-5"
         >
           <HomeIcon />
           <span className="text-sm">홈</span>
@@ -121,7 +95,7 @@ export function MobileNavigation({ isLogin }: NavigationProps) {
       <Link href="/home/search">
         <button
           type="button"
-          className="inline-flex flex-col items-center justify-center px-5 group"
+          className="inline-flex flex-col items-center justify-center px-5"
         >
           <SearchIcon />
           <span className="text-sm">검색</span>
@@ -130,7 +104,7 @@ export function MobileNavigation({ isLogin }: NavigationProps) {
       <Link href="#">
         <button
           type="button"
-          className="inline-flex flex-col items-center justify-center px-5 group"
+          className="inline-flex flex-col items-center justify-center px-5"
         >
           <PlusLargeIcon />
           <span className="text-sm">라이브러리</span>

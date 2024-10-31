@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function NavRegisterButtons() {
   const registrationUrl = process.env.NEXT_PUBLIC_REGISTRATION || "/error";
-  const loginUrl = process.env.NEXT_PUBLIC_LOGIN_URL || "/error";
+  const loginUrl = process.env.NEXT_PUBLIC_LOGIN || "/error";
 
   return (
     <div className="flex item-center justify-center gap-2">
