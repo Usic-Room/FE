@@ -1,6 +1,18 @@
 "use client";
 import Link from "next/link";
 
+export function MobileInputBar() {
+  return (
+    <input
+      type="search"
+      id="default-search"
+      className="peer block bg-black-1F1F1F outline-none"
+      onFocus={(e) => e.target.click()}
+      required
+    />
+  );
+}
+
 export function SearchInputBar() {
   return (
     <input
@@ -14,9 +26,25 @@ export function SearchInputBar() {
   );
 }
 
+export function MobileSearchBar() {
+  return (
+    <form className="w-full">
+      <div className="relative">
+        <Link href="/home/search">
+          <MobileInputBar />
+        </Link>
+        <button
+          type="submit"
+          className="peer-focus:text-white text-gray-500 absolute flex items-center"
+        ></button>
+      </div>
+    </form>
+  );
+}
+
 export function SearchBar() {
   return (
-    <form className="w-1/2 mx-auto">
+    <form className="max-w-md mx-auto px-10 md:px-8 lg:px-5">
       <div className="relative">
         <Link href="/home/search">
           <SearchInputBar />
