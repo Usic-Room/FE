@@ -1,11 +1,14 @@
 import SpotifyWhiteIcon from "@/public/images/spotifyWhite.svg";
 import HomeIcon from "@/public/images/home.svg";
+import SearchIcon from "@/public/images/search.svg";
 import { MobileSearchBar, SearchBar } from "./searchBar";
 import { NavRegisterButtons } from "./navRegisterButtons";
 import { NavProfileButtons } from "./navProfileButtons";
 import Link from "next/link";
 import LibraryLogo from "@/public/images/library.svg";
 import PlusLogo from "@/public/images/plus.svg";
+import PlusLargeIcon from "@/public/images/plus-lg.svg";
+import Home from "@/app/(main)/home/page";
 
 interface NavigationProps {
   isLogin: boolean;
@@ -18,12 +21,11 @@ interface SideBarProps {
 // TODO: Scrollbar CSS 처리
 export function MainView({ children }: { children: React.ReactNode }) {
   return (
-    <div className="h-full grow rounded-lg overflow-y-auto">
+    <div className="h-full grow rounded-lg overflow-y-auto md:pl-[19.5rem]">
       <div className="bg-black-121212 text-white h-full flex flex-col">
         <div className="flex-grow p-4 overflow-y-auto scrollbar-hide">
           {children}
         </div>
-        <footer className="p-4">2024 MusicRoom</footer>
       </div>
     </div>
   );
@@ -39,7 +41,7 @@ export function NowPlaying() {
 
 export function SideBar({ isLogin }: SideBarProps) {
   return (
-    <div className="hidden sm:block bg-black-121212 left-0 rounded-lg flex">
+    <div className="hidden h-full sm:block bg-black-121212 fixed left-0 right-auto w-[19rem] p-5 z-20 rounded-lg">
       <aside aria-label="Left Sidebar Navigation" className="relative">
         <div className="flex flex-row gap-3 items-center p-5 font-lg font-bold text-white">
           <LibraryLogo />
@@ -96,7 +98,7 @@ export function NavigationBar() {
       <div className="hidden sm:block w-full py-2 bg-black ">
         <Navigation isLogin={false} />
       </div>
-      <div className="bg-black w-full z-50 bottom-0 absolute fixed h-10 px-5 sm:hidden">
+      <div className="bg-black w-full z-50 left-0 bottom-0 absolute h-[4rem] px-2 pt-4 sm:hidden">
         <MobileNavigation isLogin={false} />
       </div>
     </>
@@ -105,24 +107,35 @@ export function NavigationBar() {
 
 export function MobileNavigation({ isLogin }: NavigationProps) {
   return (
-    <div className="bg-black flex flex-row justify-between text-white">
+    <div className="grid h-full bg-black grid-cols-3 mx-auto text-white font-medium">
       {/* <MobileSearchBar /> */}
-      <div className="flex flex-col">
-        <Link href="/home">
-          <PlusLogo />
-          <p>홈</p>
-        </Link>
-      </div>
-      <div className="flex flex-col">
-        <Link href="/home/search">
-          <PlusLogo />
-          <p>검색</p>
-        </Link>
-      </div>
-      <div className="flex flex-col">
-        <PlusLogo />
-        <p>라이브러리</p>
-      </div>
+      <Link href="/home">
+        <button
+          type="button"
+          className="inline-flex flex-col items-center justify-center px-5 group"
+        >
+          <HomeIcon />
+          <span className="text-sm">홈</span>
+        </button>
+      </Link>
+      <Link href="/home/search">
+        <button
+          type="button"
+          className="inline-flex flex-col items-center justify-center px-5 group"
+        >
+          <SearchIcon />
+          <span className="text-sm">검색</span>
+        </button>
+      </Link>
+      <Link href="#">
+        <button
+          type="button"
+          className="inline-flex flex-col items-center justify-center px-5 group"
+        >
+          <PlusLargeIcon />
+          <span className="text-sm">라이브러리</span>
+        </button>
+      </Link>
     </div>
   );
 }

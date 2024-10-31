@@ -13,12 +13,10 @@ export default function HomeLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="fixed bg-black p-2 w-full z-10 h-screen">
+    <div className="fixed bg-black p-2 w-full z-40 h-screen">
       <NavigationBar />
-      <div className="flex flex-row gap-1 ">
-        <SideBar isLogin={false} />
-        <MainView>{children}</MainView>
-      </div>
+      <SideBar isLogin={false} />
+      <MainView>{children}</MainView>
       {/* <NowPlaying /> */}
     </div>
   );
