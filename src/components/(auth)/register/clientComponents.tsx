@@ -9,7 +9,7 @@ export function RegisterEmailForm() {
   const { email, setEmail, error, submitted, isEmailValid, handleSubmit } =
     useRegisterEmailForm();
   return (
-    <div className="w-full mb-4">
+    <div className="w-3/4 sm:w-full mb-4">
       <EmailInputField error={error} submitted={submitted} />
       <EmailSubmitButton
         isEmailValid={isEmailValid}
