@@ -124,7 +124,7 @@ export function SearchBar() {
 
 export function MobileNavigation() {
   const homeUrl = process.env.NEXT_PUBLIC_HOME || "/error";
-  const searchUrl = process.env.NEXT_PUBLIC_SEARCH || "/error";
+  const searchUrl = process.env.NEXT_PUBLIC_HOME_SEARCH || "/error";
 
   return (
     <div className="bg-black w-full z-50 left-0 bottom-0 absolute h-[4rem] px-2 pt-4 sm:hidden">
