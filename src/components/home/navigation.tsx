@@ -121,7 +121,7 @@ export function Navigation({ isLogin }: NavigationProps) {
 
       <NavLogo />
       {/* Search Bar - flexible, adjusts size based on available space */}
-      <div className="grow w-full">
+      <div className="grow w-full ml-4">
         <SearchBar />
       </div>
 
