@@ -4,7 +4,7 @@ import {
   GoogleOauthButton,
   SeperateOtherLoginWay,
   MoveToLoginPageButton,
-} from "@/components/(auth)/register/serverComponents"; // Correct import path
+} from "@/app/_components/(auth)/register/serverComponents"; // Correct import path
 
 export default {
   title: "Components/Register/serverComponents", // Updated title for uniqueness

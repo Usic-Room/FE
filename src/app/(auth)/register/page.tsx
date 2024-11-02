@@ -6,8 +6,8 @@ import {
   GoogleOauthButton,
   SeperateOtherLoginWay,
   MoveToLoginPageButton,
-} from "@/components/(auth)/register/serverComponents";
-import { RegisterEmailForm } from "@/components/(auth)/register/clientComponents"; // Correct import path
+} from "@/app/_components/(auth)/register/serverComponents";
+import { RegisterEmailForm } from "@/app/_components/(auth)/register/clientComponents"; // Correct import path
 
 export const metadata: Metadata = {
   title: "Register",

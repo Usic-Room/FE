@@ -1,12 +1,12 @@
 import React from "react";
-import { HeaderSpotifyLogo } from "@/components/(auth)/register/serverComponents";
+import { HeaderSpotifyLogo } from "@/app/_components/(auth)/register/serverComponents";
 
 import {
   VerificationPageTitle,
   VerificationPageDescription,
-} from "@/components/(auth)/register/verification/serverComponents";
+} from "@/app/_components/(auth)/register/verification/serverComponents";
 import { Metadata } from "next";
-import { VerificationCodeForm } from "@/components/(auth)/register/verification/clientComponents";
+import { VerificationCodeForm } from "@/app/_components/(auth)/register/verification/clientComponents";
 
 export const metadata: Metadata = {
   title: "Verification",

@@ -1,11 +1,11 @@
-import { HeaderSpotifyLogo } from "@/components/(auth)/register/serverComponents";
+import { HeaderSpotifyLogo } from "@/app/_components/(auth)/register/serverComponents";
 import { Metadata } from "next";
 import {
   ResetPasswordPageTitle,
   ResetPasswordPageDescription,
-} from "@/components/(auth)/login/reset-password/serverComponents";
+} from "@/app/_components/(auth)/login/reset-password/serverComponents";
 
-import { ResetPasswordForm } from "@/components/(auth)/login/reset-password/clientComponents";
+import { ResetPasswordForm } from "@/app/_components/(auth)/login/reset-password/clientComponents";
 
 export const metadata: Metadata = {
   title: "Reset password",

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import sampleImage from "@/public/images/sample.svg";
 
 interface ArtistBoxProps {
   id: number;
@@ -18,6 +19,8 @@ export function ArtistBox({ id, username, image }: ArtistBoxProps) {
           src={image}
           alt="artist profile image"
           className="object-cover w-full h-full"
+          width={96} // 24 * 4 for tailwind size in pixels
+          height={96} // 24 * 4 for tailwind size in pixels
         />
       </div>
       <div className="flex flex-col gap-1 self-start">
@@ -32,32 +35,32 @@ export function TopArtists() {
     {
       id: 0,
       username: "아이유",
-      image: "/images/sample.svg",
+      image: "./images/sample.svg",
     },
     {
       id: 2,
       username: "소녀시대",
-      image: "/images/sample.svg",
+      image: "./images/sample.svg",
     },
     {
       id: 31,
       username: "NewJeans",
-      image: "/images/sample.svg",
+      image: "./images/sample.svg",
     },
     {
       id: 18,
       username: "빈지노",
-      image: "/images/sample.svg",
+      image: "./images/sample.svg",
     },
     {
       id: 4,
       username: "정재희",
-      image: "/images/sample.svg",
+      image: "./images/sample.svg",
     },
     {
       id: 9,
       username: "민영재",
-      image: "/images/sample.svg",
+      image: "./images/sample.svg",
     },
   ];
   return (
