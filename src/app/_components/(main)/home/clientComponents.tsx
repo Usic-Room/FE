@@ -68,7 +68,7 @@ export function ConditionalNavButtons() {
   return (
     <div className="flex-shrink-0 space-x-2 mt-2 flex items-center">
       {/* Fixed width */}
-      {isLogin ? <NavProfileButtons /> : <NavRegisterButtons />}
+      {isLogin ? <NavRegisterButtons /> : <NavProfileButtons />}
     </div>
   );
 }

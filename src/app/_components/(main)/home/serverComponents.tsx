@@ -73,29 +73,23 @@ export function NavigationBar() {
   return (
     <>
       <div className="hidden sm:block w-full py-2 bg-black ">
-        <Navigation />
+        <div className="relative flex items-center justify-between px-4 bg-black h-14">
+          {/* Logo - fixed to the left with absolute positioning */}
+
+          <NavLogo />
+          {/* Search Bar - flexible, adjusts size based on available space */}
+          <div className="grow w-full ml-4">
+            <SearchBar />
+          </div>
+          <ConditionalNavButtons />
+        </div>
       </div>
     </>
   );
 }
 
-export function Navigation() {
-  return (
-    <div className="relative flex items-center justify-between px-4 bg-black h-14">
-      {/* Logo - fixed to the left with absolute positioning */}
-
-      <NavLogo />
-      {/* Search Bar - flexible, adjusts size based on available space */}
-      <div className="grow w-full ml-4">
-        <SearchBar />
-      </div>
-      <ConditionalNavButtons />
-    </div>
-  );
-}
-
 export function SearchBar() {
-  const searchUrl = process.env.NEXT_PUBLIC_SEARCH || "/error";
+  const searchUrl = process.env.NEXT_PUBLIC_HOME_SEARCH || "/error";
 
   return (
     <form className="max-w-md mx-auto px-10 md:px-8 lg:px-5">
@@ -161,6 +155,59 @@ export function MobileNavigation() {
           <span className="text-sm">라이브러리</span>
         </button>
       </Link>
+    </div>
+  );
+}
+
+export function NavProfileButtons() {
+  return (
+    <div className="">
+      <button>가입하기</button>
+      <button>로그인하기</button>
+    </div>
+  );
+}
+
+export function NavRegisterButtons() {
+  const registrationUrl = process.env.NEXT_PUBLIC_REGISTRATION || "/error";
+  const loginUrl = process.env.NEXT_PUBLIC_LOGIN || "/error";
+
+  return (
+    <div className="flex item-center justify-center gap-2">
+      <Link href={registrationUrl}>
+        <RegisterButton
+          name={"가입하기"}
+          backgroundColor={"bg-gray-950"}
+          fontColor={"text-white"}
+        />
+      </Link>
+      <Link href={loginUrl}>
+        <RegisterButton
+          name={"로그인하기"}
+          backgroundColor={"bg-white"}
+          fontColor={"text-gray-950"}
+        />
+      </Link>
+    </div>
+  );
+}
+
+interface RegisterButtonProps {
+  name: string;
+  backgroundColor: string;
+  fontColor: string;
+}
+
+export function RegisterButton({
+  name,
+  backgroundColor,
+  fontColor,
+}: RegisterButtonProps) {
+  return (
+    <div
+      className={`py-4 px-7 rounded-full ${backgroundColor} ${fontColor} w-auto text-sm whitespace-nowrap`}
+    >
+      {name}
     </div>
   );
 }
