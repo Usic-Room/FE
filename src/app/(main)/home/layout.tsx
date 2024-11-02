@@ -2,6 +2,7 @@ import {
   SideBar,
   MainView,
   NowPlaying,
+  MobileNavigation,
 } from "@/app/_components/(main)/home/serverComponents";
 import { NavigationBar } from "@/app/_components/(main)/home/serverComponents";
 
@@ -21,6 +22,7 @@ export default function HomeLayout({
         <SideBar />
         <MainView>{children}</MainView>
         {/* <NowPlaying /> */}
+        <MobileNavigation />
       </div>
     </CookiesProvider>
   );
