@@ -1,12 +1,20 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
 import superNaturalImage from "@/public/images/supernatural.jpg";
 
 // TODO: Filter Button 타입화
 export default function Search() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SearchContent />
+    </Suspense>
+  );
+}
+
+function SearchContent() {
   const searchParams = useSearchParams();
   const [results, setResults] = useState<
     {
@@ -20,12 +28,13 @@ export default function Search() {
 
   // Simulate a search function, fetching or filtering based on the searchQuery
   useEffect(() => {
-    if (searchParams.get("search")) {
-      fetchSearchResults(searchParams.get("search") as string);
+    const searchQuery = searchParams.get("search");
+    if (searchQuery) {
+      fetchSearchResults(searchQuery);
     } else {
       setResults([]);
     }
-  }, [searchParams.get("search")]);
+  }, [searchParams]);
 
   const fetchSearchResults = (query: string) => {
     const dummyResults = [
@@ -89,7 +98,9 @@ export default function Search() {
             {results.length > 0 ? (
               <SongList songs={results} />
             ) : (
-              <p>No results found for "{searchParams.get("search")}".</p>
+              <p>
+                No results found for &quot;{searchParams.get("search")}&quot;.
+              </p>
             )}
           </>
         ) : (
@@ -183,6 +194,7 @@ function SongList({
     </div>
   );
 }
+
 // Event Card Component
 function EventCard() {
   return (

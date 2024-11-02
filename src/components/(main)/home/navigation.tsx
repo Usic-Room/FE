@@ -1,14 +1,13 @@
 import SpotifyWhiteIcon from "@/public/images/spotifyWhite.svg";
 import HomeIcon from "@/public/images/home.svg";
 import SearchIcon from "@/public/images/search.svg";
-import { SearchBar } from "./searchBar";
-import { NavRegisterButtons } from "./navRegisterButtons";
-import { NavProfileButtons } from "./navProfileButtons";
+import { SearchBar } from "@/components/(main)/home/searchBar";
+import { NavRegisterButtons } from "@/components/(main)/home/navRegisterButtons";
+import { NavProfileButtons } from "@/components/(main)/home/navProfileButtons";
 import Link from "next/link";
 import LibraryLogo from "@/public/images/library.svg";
 import PlusLogo from "@/public/images/plus.svg";
 import PlusLargeIcon from "@/public/images/plus-lg.svg";
-import Home from "@/app/(main)/home/page";
 
 interface NavigationProps {
   isLogin: boolean;

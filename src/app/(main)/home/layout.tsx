@@ -3,7 +3,7 @@ import {
   SideBar,
   MainView,
   NowPlaying,
-} from "@/components/home/navigation";
+} from "@/components/(main)/home/navigation";
 
 // TODO: login 여부 저장 or 가져오기
 
