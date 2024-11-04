@@ -1,4 +1,4 @@
-import { RegisterEmailForm } from "@/components/(auth)/register/clientComponents"; // Correct import path
+import { RegisterEmailForm } from "@/app/_components/(auth)/register/clientComponents"; // Correct import path
 import { RegisterFormProvider } from "@/contexts/registerFormContext"; // Correct import path
 
 // Regular expression for email verification

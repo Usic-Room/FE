@@ -1,4 +1,4 @@
-import { RegisterUsernameForm } from "@/components/(auth)/register/username/clientComponents";
+import { RegisterUsernameForm } from "@/app/_components/(auth)/register/username/clientComponents";
 
 export default {
   title: "Components/Register/Terms/clientComponents", // Updated title for uniqueness

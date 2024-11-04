@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { TopArtists } from "@/components/artist/artistInfo";
+import { TopArtists } from "@/app/_components/artist/artistInfo";
 
 export const metadata: Metadata = {
   title: "Musicroom",
