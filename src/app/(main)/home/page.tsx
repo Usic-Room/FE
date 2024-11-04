@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div>
+    <div className="overflow-y-scorll mb-12">
       <p className="font-lg font-bold">인기 아티스트</p>
       <TopArtists />
       <p className="font-lg font-bold">인기 아티스트</p>

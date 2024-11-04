@@ -5,7 +5,11 @@
 //} from "@/app/_components/(main)/home/serverComponents";
 
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+
 import { useIsLogin } from "@/app/_hooks/useIsLogin";
+
+import { useSearchQuery } from "@/app/_hooks/useSearch";
 
 //import { NavLogo } from "@/app/_components/(main)/home/serverComponents";
 
@@ -74,26 +78,50 @@ export function ConditionalNavButtons() {
 }
 
 export function MobileInputBar() {
+  const searchParams = useSearchParams();
+  const searchQuery = searchParams.get("search")!;
+
+  const responseResults = useSearchQuery(searchQuery);
+
   return (
     <input
       type="search"
       id="default-search"
+      value={searchQuery || ""}
       className="peer block bg-black-1F1F1F outline-none"
       placeholder="어떤 음악을 듣고 싶으세요?"
-      onFocus={(e) => e.target.click()}
       required
     />
   );
 }
 
 export function SearchInputBar() {
+  const searchParams = useSearchParams();
+  const initialQuery = searchParams.get("search") || "";
+
+  // 커스텀 훅 사용
+  const { query, updateQuery, handleSearch } = useSearchQuery(initialQuery);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    updateQuery(e.target.value);
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleSearch();
+    }
+  };
+
   return (
     <input
       type="search"
       id="default-search"
+      value={query}
+      onChange={handleInputChange}
+      onKeyPress={handleKeyPress}
       className="peer block w-full p-4 ps-14 text-m text-white border rounded-full border-black bg-black-1F1F1F outline-none focus:ring-2 focus:ring-white focus:border-white"
       placeholder="어떤 음악을 듣고 싶으세요?"
-      onFocus={(e) => e.target.click()}
       required
     />
   );

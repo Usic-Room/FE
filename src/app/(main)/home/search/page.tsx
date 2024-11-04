@@ -1,243 +1,55 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
-import Image from "next/image";
-import superNaturalImage from "@/public/images/supernatural.jpg";
+import { useState } from "react";
+import EventIcon from "@/public/images/event.svg";
+import ChartIcon from "@/public/images/chart.svg";
+import FocusIcon from "@/public/images/focus.svg";
+import JazzIcon from "@/public/images/jazz.svg";
+import KPopIcon from "@/public/images/k-pop.svg";
+import KoreanMusicIcon from "@/public/images/korean-music.svg";
+import PopIcon from "@/public/images/pop.svg";
+import RnBIcon from "@/public/images/rnb.svg";
+import SummerIcon from "@/public/images/summer.svg";
+import LatestSongIcon from "@/public/images/latest-song.svg";
 
-// TODO: Filter Button 타입화
-export default function Search() {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <SearchContent />
-    </Suspense>
-  );
+interface GenreCardProps {
+  title: string;
+  Icon: React.ElementType;
 }
 
-function SearchContent() {
-  const searchParams = useSearchParams();
-  const [results, setResults] = useState<
-    {
-      id: number;
-      title: string;
-      artist: string;
-      album: string;
-      duration: string;
-    }[]
-  >([]);
+const GenreCard = ({ title, Icon }: GenreCardProps) => {
+  return (
+    <div className="relative flex flex-col items-center justify-center w-full h-32 sm:h-52 bg-gray-700 rounded-md overflow-hidden text-white p-2">
+      <Icon className="relative inset-0 w-full h-full object-cover opacity-80" />
+      <div className="relative z-10 text-center text-lg font-semibold">
+        {title}
+      </div>
+    </div>
+  );
+};
 
-  // Simulate a search function, fetching or filtering based on the searchQuery
-  useEffect(() => {
-    const searchQuery = searchParams.get("search");
-    if (searchQuery) {
-      fetchSearchResults(searchQuery);
-    } else {
-      setResults([]);
-    }
-  }, [searchParams]);
-
-  const fetchSearchResults = (query: string) => {
-    const dummyResults = [
-      {
-        id: 1,
-        title: "Supernatural",
-        artist: "NewJeans",
-        album: "Supernatural",
-        duration: "3:14",
-      },
-      {
-        id: 2,
-        title: "How Sweet",
-        artist: "NewJeans",
-        album: "How Sweet",
-        duration: "3:14",
-      },
-      {
-        id: 3,
-        title: "Ditto",
-        artist: "NewJeans",
-        album: "Ditto",
-        duration: "3:14",
-      },
-      {
-        id: 4,
-        title: "OMG",
-        artist: "NewJeans",
-        album: "OMG",
-        duration: "3:14",
-      },
-    ];
-
-    const filteredResults = dummyResults.filter((song) =>
-      song.title.toLowerCase().includes(query.toLowerCase())
-    );
-    setResults(filteredResults.slice(0, 4)); // Limit to 4 results
-  };
+export default function SearchPage() {
+  const genres = [
+    { title: "이벤트", Icon: EventIcon },
+    { title: "최신 음악", Icon: LatestSongIcon },
+    { title: "팝", Icon: PopIcon },
+    { title: "차트", Icon: ChartIcon },
+    { title: "집중", Icon: FocusIcon },
+    { title: "R&B", Icon: RnBIcon },
+    { title: "가요", Icon: KoreanMusicIcon },
+    { title: "케이팝", Icon: KPopIcon },
+    { title: "재즈", Icon: JazzIcon },
+    { title: "여름", Icon: SummerIcon },
+  ];
 
   return (
-    <div className="flex flex-col h-full bg-black-121212 text-white">
-      <div className="sm:hidden absolute z-30">{/* <MobileSearchBar /> */}</div>
-      {/* Sticky Filter Button Section */}
-      <div className="sticky top-5 sm:top-0 z-10 bg-black-121212 py-4">
-        <div className="flex space-x-2 overflow-x-auto whitespace-nowrap scrollbar-hide">
-          {["모두", "곡", "아티스트", "앨범", "이벤트", "플레이리스트"].map(
-            (filter) => (
-              <FilterButton key={filter} label={filter} />
-            )
-          )}
-        </div>
-      </div>
-
-      {/* Main Content Area */}
-      <div className="flex-grow overflow-y-auto scrollbar-hide p-4">
-        {searchParams.get("search") ? (
-          <>
-            <h2 className="text-2xl font-bold mb-4">
-              Search Results for: {searchParams.get("search")}
-            </h2>
-            {results.length > 0 ? (
-              <SongList songs={results} />
-            ) : (
-              <p>
-                No results found for &quot;{searchParams.get("search")}&quot;.
-              </p>
-            )}
-          </>
-        ) : (
-          <>
-            {/* Grid for "상위결과" and "곡" Section */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* 상위결과 Section */}
-              <div className="lg:col-span-1">
-                <h2 className="text-2xl font-bold mb-4">상위결과</h2>
-                <div className="flex-col items-center bg-gray-900 p-4 rounded-lg max-h-[300px] overflow-hidden">
-                  <Image
-                    src={superNaturalImage}
-                    alt="Supernatural"
-                    width={100}
-                    height={100}
-                    className="rounded max-h-[100px] max-w-[100px] object-cover"
-                  />
-                  <div className="ml-auto ">
-                    <p className="text-xl font-bold">Supernatural</p>
-                    <p className="text-gray-400">곡 · NewJeans</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* 곡 Section */}
-              <div className="lg:col-span-2">
-                <h2 className="text-2xl font-bold mb-4">곡</h2>
-                <div className="bg-gray-900 p-4 rounded-lg">
-                  <SongList songs={dummyResults} />
-                </div>
-              </div>
-            </div>
-
-            {/* 이벤트 Section */}
-            <div className="mt-8">
-              <h2 className="text-2xl font-bold mb-4">이벤트</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {[1, 2, 3].map((event) => (
-                  <EventCard key={event} />
-                ))}
-              </div>
-            </div>
-          </>
-        )}
+    <div className="flex flex-col h-full bg-black-121212 text-white p-4">
+      <h1 className="text-xl font-bold mb-4">장르 리스트</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {genres.map((genre) => (
+          <GenreCard key={genre.title} title={genre.title} Icon={genre.Icon} />
+        ))}
       </div>
     </div>
   );
 }
-
-// Filter Button Component
-function FilterButton({ label }: { label: string }) {
-  return (
-    <button className="px-3 py-2 rounded-full bg-gray-800 text-white">
-      {label}
-    </button>
-  );
-}
-
-// Song List Component (Updated layout for song list)
-function SongList({
-  songs,
-}: {
-  songs: {
-    id: number;
-    title: string;
-    artist: string;
-    album: string;
-    duration: string;
-  }[];
-}) {
-  return (
-    <div className="flex flex-col space-y-4">
-      {songs.map((song) => (
-        <div key={song.id} className="flex items-center justify-between">
-          <div className="flex items-center">
-            <Image
-              src={superNaturalImage}
-              alt={song.title}
-              width={50}
-              height={50}
-              className="rounded"
-            />
-            <div className="ml-4">
-              <p className="text-lg font-bold">{song.title}</p>
-              <p className="text-sm text-gray-400">{song.artist}</p>
-            </div>
-          </div>
-          <p className="text-gray-400 hidden md:block">{song.duration}</p>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-// Event Card Component
-function EventCard() {
-  return (
-    <div className="bg-gray-800 p-4 rounded-lg">
-      <Image
-        src={superNaturalImage}
-        alt="Event"
-        width={150}
-        height={150}
-        className="rounded"
-      />
-    </div>
-  );
-}
-
-// Dummy data for default song list
-const dummyResults = [
-  {
-    id: 1,
-    title: "Supernatural",
-    artist: "NewJeans",
-    album: "Supernatural",
-    duration: "3:14",
-  },
-  {
-    id: 2,
-    title: "How Sweet",
-    artist: "NewJeans",
-    album: "How Sweet",
-    duration: "3:14",
-  },
-  {
-    id: 3,
-    title: "Ditto",
-    artist: "NewJeans",
-    album: "Ditto",
-    duration: "3:14",
-  },
-  {
-    id: 4,
-    title: "OMG",
-    artist: "NewJeans",
-    album: "OMG",
-    duration: "3:14",
-  },
-];
