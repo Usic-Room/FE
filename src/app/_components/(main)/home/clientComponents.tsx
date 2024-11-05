@@ -5,6 +5,8 @@
 //} from "@/app/_components/(main)/home/serverComponents";
 
 import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 
 import { useIsLogin } from "@/app/_hooks/useIsLogin";
@@ -96,21 +98,17 @@ export function MobileInputBar() {
 }
 
 export function SearchInputBar() {
-  const searchParams = useSearchParams();
-  const initialQuery = searchParams.get("search") || "";
+  const router = useRouter();
+  const [query, setQuery] = useState("");
 
-  // 커스텀 훅 사용
-  const { query, updateQuery, handleSearch } = useSearchQuery(initialQuery);
+  const searchUrl = process.env.NEXT_PUBLIC_HOME_SEARCH;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    updateQuery(e.target.value);
-  };
+    const newQuery = e.target.value;
+    setQuery(newQuery);
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      handleSearch();
-    }
+    // Navigate dynamically as the user types
+    router.push(`${searchUrl}/${encodeURIComponent(newQuery.trim())}`);
   };
 
   return (
@@ -119,7 +117,6 @@ export function SearchInputBar() {
       id="default-search"
       value={query}
       onChange={handleInputChange}
-      onKeyPress={handleKeyPress}
       className="peer block w-full p-4 ps-14 text-m text-white border rounded-full border-black bg-black-1F1F1F outline-none focus:ring-2 focus:ring-white focus:border-white"
       placeholder="어떤 음악을 듣고 싶으세요?"
       required

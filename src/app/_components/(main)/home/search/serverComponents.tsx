@@ -1,141 +1,68 @@
 import "server-only";
 
-import Image from "next/image";
-import superNaturalImage from "@/public/images/supernatural.jpg";
+import EventImage from "@/public/images/event.svg";
+import ChartImage from "@/public/images/chart.svg";
+import FocusImage from "@/public/images/focus.svg";
+import JazzImage from "@/public/images/jazz.svg";
+import KPopImage from "@/public/images/k-pop.svg";
+import KoreanMusicImage from "@/public/images/korean-music.svg";
+import PopImage from "@/public/images/pop.svg";
+import RnBImage from "@/public/images/rnb.svg";
+import SummerImage from "@/public/images/summer.svg";
+import LatestSongImage from "@/public/images/latest-song.svg";
 
-export function searchFilter() {
+interface GenreCardProps {
+  title: string;
+  Image: React.ElementType;
+  bgColor: string;
+}
+
+export function GenreRecommendTitle() {
+  return <h1 className="text-xl font-bold mb-4 mt-10">모두 둘러보기</h1>;
+}
+
+const GenreCard = ({ title, Image, bgColor }: GenreCardProps) => {
   return (
-    <div className="sticky top-5 sm:top-0 z-10 bg-black-121212 py-4">
-      <div className="flex space-x-2 overflow-x-auto whitespace-nowrap scrollbar-hide">
-        {["모두", "곡", "아티스트", "앨범", "이벤트", "플레이리스트"].map(
-          (filter) => (
-            <FilterButton key={filter} label={filter} />
-          )
-        )}
+    <div
+      className={`relative flex items-start justify-start w-full h-full min-w-[120px] min-h-[120px] sm:aspect-square overflow-hidden text-white rounded-xl ${bgColor}`}
+    >
+      <div className="absolute top-4 left-4 z-10 text-left text-lg font-semibold">
+        {title}
       </div>
+      <Image className="absolute right-[-16px] bottom-[-16px] w-28 h-28 transform rotate-[25deg] opacity-90" />
     </div>
   );
-}
+};
 
-// Filter Button Component
-export function FilterButton({ label }: { label: string }) {
-  return (
-    <button className="px-3 py-2 rounded-full bg-gray-800 text-white">
-      {label}
-    </button>
-  );
-}
-
-// Event Card Component
-export function EventCard() {
-  return (
-    <div className="bg-gray-800 p-4 rounded-lg">
-      <Image
-        src={superNaturalImage}
-        alt="Event"
-        width={150}
-        height={150}
-        className="rounded"
-      />
-    </div>
-  );
-}
-
-export function SearchTopResultSection() {
-  return (
-    <div className="lg:col-span-1">
-      <h2 className="text-2xl font-bold mb-4">상위결과</h2>
-      <div className="flex-col items-center bg-gray-900 p-4 rounded-lg max-h-[300px] overflow-hidden">
-        <Image
-          src={superNaturalImage}
-          alt="Supernatural"
-          width={100}
-          height={100}
-          className="rounded max-h-[100px] max-w-[100px] object-cover"
-        />
-        <div className="ml-auto ">
-          <p className="text-xl font-bold">Supernatural</p>
-          <p className="text-gray-400">곡 · NewJeans</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function SearchSongListSection() {
-  // Dummy data for default song list
-  const dummyResults = [
-    {
-      id: 1,
-      title: "Supernatural",
-      artist: "NewJeans",
-      album: "Supernatural",
-      duration: "3:14",
-    },
-    {
-      id: 2,
-      title: "How Sweet",
-      artist: "NewJeans",
-      album: "How Sweet",
-      duration: "3:14",
-    },
-    {
-      id: 3,
-      title: "Ditto",
-      artist: "NewJeans",
-      album: "Ditto",
-      duration: "3:14",
-    },
-    {
-      id: 4,
-      title: "OMG",
-      artist: "NewJeans",
-      album: "OMG",
-      duration: "3:14",
-    },
+export function GenreCardSection() {
+  const genres = [
+    { title: "이벤트", Image: EventImage, bgColor: "bg-green-27856A" },
+    { title: "최신 음악", Image: LatestSongImage, bgColor: "bg-blue-283EA3" },
+    { title: "팝", Image: PopImage, bgColor: "bg-blue-1E3264" },
+    { title: "차트", Image: ChartImage, bgColor: "bg-purple-8D67AB" },
+    { title: "집중", Image: FocusImage, bgColor: "bg-red-E8115B" },
+    { title: "R&B", Image: RnBImage, bgColor: "bg-purple-8D67AB" },
+    { title: "가요", Image: KoreanMusicImage, bgColor: "bg-blue-7358FF" },
+    { title: "케이팝", Image: KPopImage, bgColor: "bg-purple-8D67AB" },
+    { title: "재즈", Image: JazzImage, bgColor: "bg-pink-F037A5" },
+    { title: "여름", Image: SummerImage, bgColor: "bg-blue-9CF0E1" },
   ];
 
   return (
-    <div className="lg:col-span-2">
-      <h2 className="text-2xl font-bold mb-4">곡</h2>
-      <div className="bg-gray-900 p-4 rounded-lg">
-        <SongList songs={dummyResults} />
+    <div>
+      <div
+        style={{ gap: "2rem 1rem" }}
+        className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mx-auto"
+      >
+        {genres.map((genre) => (
+          <GenreCard
+            key={genre.title}
+            title={genre.title}
+            Image={genre.Image}
+            bgColor={genre.bgColor}
+          />
+        ))}
       </div>
-    </div>
-  );
-}
-
-export function SongList({
-  songs,
-}: {
-  songs: {
-    id: number;
-    title: string;
-    artist: string;
-    album: string;
-    duration: string;
-  }[];
-}) {
-  return (
-    <div className="flex flex-col space-y-4">
-      {songs.map((song) => (
-        <div key={song.id} className="flex items-center justify-between">
-          <div className="flex items-center">
-            <Image
-              src={superNaturalImage}
-              alt={song.title}
-              width={50}
-              height={50}
-              className="rounded"
-            />
-            <div className="ml-4">
-              <p className="text-lg font-bold">{song.title}</p>
-              <p className="text-sm text-gray-400">{song.artist}</p>
-            </div>
-          </div>
-          <p className="text-gray-400 hidden md:block">{song.duration}</p>
-        </div>
-      ))}
     </div>
   );
 }
