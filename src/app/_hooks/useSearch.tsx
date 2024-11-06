@@ -1,5 +1,9 @@
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+"use client";
+
+import { create } from "zustand";
+import useSWR from "swr";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 //import { useSearchParams } from "next/navigation";
 import { searchRequestByParams } from "@/app/(main)/home/api/router";
@@ -37,26 +41,73 @@ import { searchRequestByParams } from "@/app/(main)/home/api/router";
 //  );
 //}
 
-export function useSearchQuery(initialQuery: string = "") {
-  const [query, setQuery] = useState(initialQuery);
+//interface SearchStore {
+//  query: string;
+//  setQuery: (newQuery: string) => void;
+//  search: () => void;
+//}
+
+//export const useSearchStore = create<SearchStore>((set) => {
+//  const router = useRouter(); // Use router only within a function, not directly in the Zustand setup
+//  const searchUrl = process.env.NEXT_PUBLIC_HOME_SEARCH;
+
+//  return {
+//    query: "",
+//    setQuery: (newQuery) => set({ query: newQuery }),
+//    search: () => {
+//      set((state) => {
+//        if (state.query.trim()) {
+//          router.push(`${searchUrl}/${encodeURIComponent(state.query.trim())}`);
+//        }
+//        return state;
+//      });
+//    },
+//  };
+//});
+
+interface SearchStore {
+  query: string;
+  setQuery: (newQuery: string) => void;
+}
+
+export const useSearchStore = create<SearchStore>((set) => ({
+  query: "",
+  setQuery: (newQuery) => set({ query: newQuery }),
+}));
+
+export function useSearchResult() {
   const router = useRouter();
+  const query = useSearchStore((state) => state.query);
+  const setQuery = useSearchStore((state) => state.setQuery);
+  const searchUrl = process.env.NEXT_PUBLIC_HOME_SEARCH;
 
-  console.log("searchUrl:", initialQuery);
-
-  const handleSearch = () => {
-    if (query.trim() !== "") {
-      console.log("hello" + query);
-      const requestUrl = `${initialQuery}/${encodeURIComponent(query)}`;
-      console.log(initialQuery);
-      router.push(requestUrl);
-    }
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newQuery = e.target.value;
+    console.log("newQuery: " + newQuery);
+    setQuery(newQuery); // Update the query in Zustand store
+    router.push(`${searchUrl}/${encodeURIComponent(newQuery.trim())}`);
   };
 
-  const updateQuery = (newQuery: string) => setQuery(newQuery);
+  const handleSearchButtonClicked = () => {
+    console.log("query: " + query);
+    router.push(`${searchUrl}/${encodeURIComponent(query.trim())}`);
+  };
 
   return {
     query,
-    updateQuery,
-    handleSearch,
+    handleInputChange,
+    handleSearchButtonClicked,
   };
+}
+
+// Custom hook to manage and track the current path
+export function useIsSearchPath() {
+  const pathname = usePathname();
+  const searchUrl = process.env.NEXT_PUBLIC_HOME_SEARCH;
+
+  const isSearchPath = pathname && pathname.startsWith(`/home/search`);
+  console.log("pathname: " + pathname);
+  console.log("searchUrl: " + searchUrl);
+
+  return isSearchPath;
 }

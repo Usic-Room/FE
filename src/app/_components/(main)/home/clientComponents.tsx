@@ -11,7 +11,7 @@ import { useSearchParams } from "next/navigation";
 
 import { useIsLogin } from "@/app/_hooks/useIsLogin";
 
-import { useSearchQuery } from "@/app/_hooks/useSearch";
+import { useIsSearchPath, useSearchResult } from "@/app/_hooks/useSearch";
 
 //import { NavLogo } from "@/app/_components/(main)/home/serverComponents";
 
@@ -79,37 +79,46 @@ export function ConditionalNavButtons() {
   );
 }
 
-export function MobileInputBar() {
-  const searchParams = useSearchParams();
-  const searchQuery = searchParams.get("search")!;
+//export function MobileInputBar() {
+//  const searchParams = useSearchParams();
+//  const searchQuery = searchParams.get("search")!;
 
-  const responseResults = useSearchQuery(searchQuery);
+//  const responseResults = useSearchQuery(searchQuery);
+
+//  return (
+//    <input
+//      type="search"
+//      id="default-search"
+//      value={searchQuery || ""}
+//      className="peer block bg-black-1F1F1F outline-none"
+//      placeholder="어떤 음악을 듣고 싶으세요?"
+//      required
+//    />
+//  );
+//}
+
+export function SearchBar() {
+  const searchUrl = process.env.NEXT_PUBLIC_HOME_SEARCH || "/error";
+  const isSearchPath = useIsSearchPath();
 
   return (
-    <input
-      type="search"
-      id="default-search"
-      value={searchQuery || ""}
-      className="peer block bg-black-1F1F1F outline-none"
-      placeholder="어떤 음악을 듣고 싶으세요?"
-      required
-    />
+    <form className="max-w-md mx-auto px-10 md:px-8 lg:px-5">
+      <div className="relative">
+        {isSearchPath ? (
+          <SearchInputBar />
+        ) : (
+          <Link href={searchUrl}>
+            <SearchInputBar />
+          </Link>
+        )}
+        <SearchButton />
+      </div>
+    </form>
   );
 }
 
 export function SearchInputBar() {
-  const router = useRouter();
-  const [query, setQuery] = useState("");
-
-  const searchUrl = process.env.NEXT_PUBLIC_HOME_SEARCH;
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newQuery = e.target.value;
-    setQuery(newQuery);
-
-    // Navigate dynamically as the user types
-    router.push(`${searchUrl}/${encodeURIComponent(newQuery.trim())}`);
-  };
+  const { query, handleInputChange } = useSearchResult();
 
   return (
     <input
@@ -121,5 +130,33 @@ export function SearchInputBar() {
       placeholder="어떤 음악을 듣고 싶으세요?"
       required
     />
+  );
+}
+
+export function SearchButton() {
+  const { handleSearchButtonClicked } = useSearchResult();
+
+  return (
+    <button
+      type="button"
+      onClick={handleSearchButtonClicked}
+      className="peer-focus:text-white text-gray-500 absolute inset-y-0 start-0 flex items-center ps-4"
+    >
+      <svg
+        className="w-6 h-6"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 20 20"
+      >
+        <path
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+        />
+      </svg>
+    </button>
   );
 }

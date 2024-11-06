@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Search",
 };
 
-export default function SearchGenreRecommendPage() {
+export default function SearchPage() {
   return (
     <div className="flex flex-col h-full w-full bg-black-121212 text-white pl-2">
       <GenreRecommendTitle />
