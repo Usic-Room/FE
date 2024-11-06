@@ -17,7 +17,7 @@ export default function HomeLayout({
 }>) {
   return (
     <CookiesProvider>
-      <div className="fixed bg-black p-2 w-full z-40 h-screen">
+      <div className="fixed bg-black p-2 w-full h-screen z-40">
         <NavigationBar />
         <SideBar />
         <MainView>{children}</MainView>

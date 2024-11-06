@@ -44,6 +44,7 @@ export function useSearchResult() {
 
   const handleClearInput = () => {
     setQuery("");
+    router.push(`${searchUrl}`);
   };
 
   return {
@@ -58,4 +59,14 @@ export function useIsSearchPath() {
   const pathname = usePathname();
 
   return pathname && pathname.startsWith(`/home/search`);
+}
+
+export function useEscapePathname() {
+  const query = useSearchStore((state) => state.query);
+  const decodedPathname = decodeURIComponent(query).trim();
+
+  return {
+    query,
+    decodedPathname,
+  };
 }
