@@ -1,19 +1,12 @@
 "use client";
-//import {
-//  NavProfileButtons,
-//  NavRegisterButtons,
-//} from "@/app/_components/(main)/home/serverComponents";
-
 import Link from "next/link";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { useSearchParams } from "next/navigation";
 
 import { useIsLogin } from "@/app/_hooks/useIsLogin";
-
 import { useIsSearchPath, useSearchResult } from "@/app/_hooks/useSearch";
 
 //import { NavLogo } from "@/app/_components/(main)/home/serverComponents";
+
+import SearchButtonImage from "@/public/Images/searchButton.svg";
 
 interface RegisterButtonProps {
   name: string;
@@ -118,18 +111,33 @@ export function SearchBar() {
 }
 
 export function SearchInputBar() {
-  const { query, handleInputChange } = useSearchResult();
+  const { query, handleInputChange, handleClearInput } = useSearchResult();
 
   return (
-    <input
-      type="search"
-      id="default-search"
-      value={query}
-      onChange={handleInputChange}
-      className="peer block w-full p-4 ps-14 text-m text-white border rounded-full border-black bg-black-1F1F1F outline-none focus:ring-2 focus:ring-white focus:border-white"
-      placeholder="어떤 음악을 듣고 싶으세요?"
-      required
-    />
+    <div className="relative w-full">
+      {/* 검색 아이콘 */}
+
+      <input
+        type="search"
+        id="default-search"
+        value={query}
+        onChange={handleInputChange}
+        className="peer block w-full p-4 pl-12 pr-12 text-m text-white border rounded-full border-black bg-[#1F1F1F] outline-none focus:ring-2 focus:ring-white focus:border-white"
+        placeholder="어떤 음악을 듣고 싶으세요?"
+        required
+      />
+
+      {/* Clear (x) 버튼 */}
+      {query && (
+        <button
+          type="button"
+          onClick={handleClearInput}
+          className="absolute inset-y-0 right-4 flex items-center text-2xl  text-gray-878787 hover:text-white "
+        >
+          &#x2715;
+        </button>
+      )}
+    </div>
   );
 }
 
@@ -142,21 +150,7 @@ export function SearchButton() {
       onClick={handleSearchButtonClicked}
       className="peer-focus:text-white text-gray-500 absolute inset-y-0 start-0 flex items-center ps-4"
     >
-      <svg
-        className="w-6 h-6"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 20 20"
-      >
-        <path
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-        />
-      </svg>
+      <SearchButtonImage className="w-6 h-6" aria-hidden="true" />
     </button>
   );
 }

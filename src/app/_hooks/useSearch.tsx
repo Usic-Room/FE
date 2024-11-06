@@ -1,69 +1,7 @@
 "use client";
 
 import { create } from "zustand";
-import useSWR from "swr";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect } from "react";
-
-//import { useSearchParams } from "next/navigation";
-import { searchRequestByParams } from "@/app/(main)/home/api/router";
-
-//export function useSearchByParams() {
-//  const searchParams = useSearchParams();
-//  const searchQuery = searchParams.get("search");
-
-//  return (
-//    <div className="flex-grow overflow-y-auto scrollbar-hide p-4 mb-12">
-//      {searchParams.get("search") ? (
-//        <SearchResults searchQuery={searchQuery} />
-//      ) : (
-//        <>
-//          {/* Grid for "상위결과" and "곡" Section */}
-//          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-//            {/* 상위결과 Section */}
-//            <SearchTopResultSection />
-
-//            {/* 곡 Section */}
-//          </div>
-
-//          {/* 이벤트 Section */}
-//          <div className="mt-8">
-//            <h2 className="text-2xl font-bold mb-4">이벤트</h2>
-//            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-//              {[1, 2, 3].map((event) => (
-//                <EventCard key={event} />
-//              ))}
-//            </div>
-//          </div>
-//        </>
-//      )}
-//    </div>
-//  );
-//}
-
-//interface SearchStore {
-//  query: string;
-//  setQuery: (newQuery: string) => void;
-//  search: () => void;
-//}
-
-//export const useSearchStore = create<SearchStore>((set) => {
-//  const router = useRouter(); // Use router only within a function, not directly in the Zustand setup
-//  const searchUrl = process.env.NEXT_PUBLIC_HOME_SEARCH;
-
-//  return {
-//    query: "",
-//    setQuery: (newQuery) => set({ query: newQuery }),
-//    search: () => {
-//      set((state) => {
-//        if (state.query.trim()) {
-//          router.push(`${searchUrl}/${encodeURIComponent(state.query.trim())}`);
-//        }
-//        return state;
-//      });
-//    },
-//  };
-//});
 
 interface SearchStore {
   query: string;
@@ -77,6 +15,7 @@ export const useSearchStore = create<SearchStore>((set) => ({
 
 export function useSearchResult() {
   const router = useRouter();
+  const pathname = usePathname();
   const query = useSearchStore((state) => state.query);
   const setQuery = useSearchStore((state) => state.setQuery);
   const searchUrl = process.env.NEXT_PUBLIC_HOME_SEARCH;
@@ -89,25 +28,34 @@ export function useSearchResult() {
   };
 
   const handleSearchButtonClicked = () => {
-    console.log("query: " + query);
+    const decodedPathname = decodeURIComponent(pathname).trim();
+    const targetPath = `/home/search/${query}`.trim();
+
+    //console.log("query: " + query);
+    //console.log("pathname: " + decodedPathname);
+    //console.log(targetPath);
+    //console.log("test: " + typeof targetPath);
+    //console.log("test2: " + typeof decodedPathname);
+    //console.log("isSame: " + (decodedPathname === targetPath));
+
+    if (!query || decodedPathname === targetPath) return;
     router.push(`${searchUrl}/${encodeURIComponent(query.trim())}`);
+  };
+
+  const handleClearInput = () => {
+    setQuery("");
   };
 
   return {
     query,
     handleInputChange,
     handleSearchButtonClicked,
+    handleClearInput,
   };
 }
 
-// Custom hook to manage and track the current path
 export function useIsSearchPath() {
   const pathname = usePathname();
-  const searchUrl = process.env.NEXT_PUBLIC_HOME_SEARCH;
 
-  const isSearchPath = pathname && pathname.startsWith(`/home/search`);
-  console.log("pathname: " + pathname);
-  console.log("searchUrl: " + searchUrl);
-
-  return isSearchPath;
+  return pathname && pathname.startsWith(`/home/search`);
 }
