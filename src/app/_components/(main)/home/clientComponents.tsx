@@ -95,18 +95,17 @@ export function SearchBar() {
   const isSearchPath = useIsSearchPath();
 
   return (
-    <form className="max-w-md mx-auto px-10 md:px-8 lg:px-5">
-      <div className="relative">
-        {isSearchPath ? (
+    //<form className="max-w-md mx-auto px-10 md:px-8 lg:px-5">
+    <div className="relative max-w-md mx-auto px-10 md:px-8 lg:px-">
+      {isSearchPath ? (
+        <SearchInputBar />
+      ) : (
+        <Link href={searchUrl}>
           <SearchInputBar />
-        ) : (
-          <Link href={searchUrl}>
-            <SearchInputBar />
-          </Link>
-        )}
-        <SearchButton />
-      </div>
-    </form>
+        </Link>
+      )}
+    </div>
+    //</form>
   );
 }
 
@@ -115,8 +114,7 @@ export function SearchInputBar() {
 
   return (
     <div className="relative w-full">
-      {/* 검색 아이콘 */}
-
+      <SearchButton />
       <input
         type="search"
         id="default-search"
@@ -124,7 +122,6 @@ export function SearchInputBar() {
         onChange={handleInputChange}
         className="peer block w-full p-4 pl-12 pr-12 text-m text-white border rounded-full border-black bg-[#1F1F1F] outline-none focus:ring-2 focus:ring-white focus:border-white"
         placeholder="어떤 음악을 듣고 싶으세요?"
-        required
       />
 
       {/* Clear (x) 버튼 */}
@@ -148,9 +145,9 @@ export function SearchButton() {
     <button
       type="button"
       onClick={handleSearchButtonClicked}
-      className="peer-focus:text-white text-gray-500 absolute inset-y-0 start-0 flex items-center ps-4"
+      className="absolute inset-y-0 left-4 flex items-center text-gray-500"
     >
-      <SearchButtonImage className="w-6 h-6" aria-hidden="true" />
+      <SearchButtonImage className="w-5 h-5" aria-hidden="true" />
     </button>
   );
 }
