@@ -18,7 +18,7 @@ interface searchFilterProps {
   filterList: searchResultFilterTypes[];
 }
 
-export function SearchFilter({ filterList }: searchFilterProps) {
+function SearchFilter({ filterList }: searchFilterProps) {
   const filterLink = {
     모두: "",
     이벤트: "events",
@@ -165,11 +165,11 @@ function SongList({
   );
 }
 
-export function SearchResultNotFound() {
+function SearchResultNotFound() {
   return <p>No results found;</p>;
 }
 
-export async function SearchContent() {
+async function SearchContent() {
   const { query, decodedPathname } = useEscapePathname();
   const searchResult: searchResultDto = await searchRequestByQuery(query);
   console.log(searchResult);
