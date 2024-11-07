@@ -43,7 +43,7 @@ export function SearchFilter({ filterList }: searchFilterProps) {
 }
 
 // Filter Button Component
-export function FilterButton({ label }: { label: string }) {
+function FilterButton({ label }: { label: string }) {
   return (
     <button className="px-3 py-2 rounded-full bg-gray-800 text-white">
       {label}
@@ -52,7 +52,7 @@ export function FilterButton({ label }: { label: string }) {
 }
 
 // Event Card Component
-export function EventCard() {
+function EventCard() {
   return (
     <div className="bg-gray-800 p-4 rounded-lg">
       <Image
@@ -66,7 +66,7 @@ export function EventCard() {
   );
 }
 
-export function SearchTopResultSection() {
+function SearchTopResultSection() {
   return (
     <div className="lg:col-span-1">
       <h2 className="text-2xl font-bold mb-4">상위결과</h2>
@@ -87,7 +87,7 @@ export function SearchTopResultSection() {
   );
 }
 
-export function SearchSongListSection() {
+function SearchSongListSection() {
   // Dummy data for default song list
   const dummyResults = [
     {
@@ -130,7 +130,7 @@ export function SearchSongListSection() {
   );
 }
 
-export function SongList({
+function SongList({
   songs,
 }: {
   songs: {
