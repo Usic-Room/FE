@@ -6,7 +6,7 @@ import { useIsSearchPath, useSearchResult } from "@/app/_hooks/useSearch";
 
 //import { NavLogo } from "@/app/_components/(main)/home/serverComponents";
 
-import SearchButtonImage from "@/public/Images/searchButton.svg";
+import SearchButtonImage from "@/public/images/searchButton.svg";
 
 interface RegisterButtonProps {
   name: string;
