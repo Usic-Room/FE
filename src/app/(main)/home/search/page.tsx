@@ -1,13 +1,19 @@
+import React from "react";
 import { Metadata } from "next";
+import {
+  GenreRecommendTitle,
+  GenreCardSection,
+} from "@/components/(main)/home/search/serverComponents";
 
 export const metadata: Metadata = {
-	title: "Search",
+  title: "Search",
 };
 
-export default function Search() {
-	return (
-		<div>
-			<p className="font-lg p-4">검색 페이지 입니다. 당신의 상상력.. 펼쳐..</p>
-		</div>
-	);
+export default function SearchPage() {
+  return (
+    <div className="flex flex-col h-full w-full bg-black-121212 text-white pl-2">
+      <GenreRecommendTitle />
+      <GenreCardSection />
+    </div>
+  );
 }

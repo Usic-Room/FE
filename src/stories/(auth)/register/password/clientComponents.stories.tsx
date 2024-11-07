@@ -4,7 +4,7 @@ import { RegisterFormProvider } from "@/contexts/registerFormContext"; // Correc
 import {
   RegisterPasswordForm,
   PasswordInput,
-} from "@/components/(auth)/register/password/clientComponents";
+} from "@/app/_components/(auth)/register/password/clientComponents";
 
 export default {
   title: "Components/Register/Password/clientComponents", // Updated title for uniqueness

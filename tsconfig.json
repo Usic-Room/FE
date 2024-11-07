@@ -23,7 +23,7 @@
       "@/auth/*": ["./src/app/(auth)/*"],
       "@/hooks/*": ["./src/app/_hooks/*"],
       "@/contexts/*": ["./src/app/_contexts/*"],
-      "@/components/*": ["./src/components/*"],
+      "@/components/*": ["./src/app/_components/*"],
       "@/stories/*": ["./src/stories/*"]
     }
   },

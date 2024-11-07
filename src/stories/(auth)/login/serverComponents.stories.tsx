@@ -1,7 +1,7 @@
 import {
   GoogleOauthButton,
   MoveToResetPasswordPage,
-} from "@/components/(auth)/login/serverComponents";
+} from "@/app/_components/(auth)/login/serverComponents";
 
 export default {
   title: "Components/Login/serverComponents", // Updated title for uniqueness

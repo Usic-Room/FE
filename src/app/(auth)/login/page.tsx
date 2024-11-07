@@ -3,10 +3,10 @@ import {
   LoginPageTitleDivider,
   GoogleOauthButton,
   MoveToResetPasswordPage,
-} from "@/components/(auth)/login/serverComponents";
-import { LoginForm } from "@/components/(auth)/login/clientComponents";
+} from "@/app/_components/(auth)/login/serverComponents";
+import { LoginForm } from "@/app/_components/(auth)/login/clientComponents";
 import { Metadata } from "next";
-import { HeaderSpotifyLogo } from "@/components/(auth)/register/serverComponents";
+import { HeaderSpotifyLogo } from "@/app/_components/(auth)/register/serverComponents";
 
 export const metadata: Metadata = {
   title: "Login",
