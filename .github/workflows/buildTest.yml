@@ -30,7 +30,7 @@ jobs:
         run: npm i -g vercel@latest
 
       - name: Pull Vercel
-        run: vercel pull --token ${{ secrets.VERCEL_TOKEN }} --yes
+        run: vercel pull --token ${{ secrets.VERCEL_TOKEN }} --yes --name usic-room
 
       - name: Build Vercel
-        run: vercel build --token ${{ secrets.VERCEL_TOKEN }} --yes
+        run: vercel build --token ${{ secrets.VERCEL_TOKEN }} --yes --name usic-room
