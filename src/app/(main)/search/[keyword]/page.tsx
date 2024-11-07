@@ -4,7 +4,7 @@ import Link from "next/link";
 
 //import { headers } from "next/headers";
 
-import superNaturalImage from "@/public/images/supernatural.jpg";
+import superNaturalImage from "@/public/images/superNatural.jpg";
 import { Suspense, useEffect, useState } from "react";
 
 import { searchRequestByQuery } from "@/app/(main)/search/api/router";
