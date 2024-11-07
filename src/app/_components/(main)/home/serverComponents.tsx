@@ -8,9 +8,10 @@ import SearchIcon from "@/public/images/search.svg";
 import PlusLargeIcon from "@/public/images/plus-lg.svg";
 
 import Link from "next/link";
+import { headers } from "next/headers";
 
 import {
-  SearchBar,
+  SearchInputBar,
   ConditionalNavButtons,
 } from "@/components/(main)/home/clientComponents";
 
@@ -176,6 +177,42 @@ export function RegisterButton({
       className={`py-4 px-7 rounded-full ${backgroundColor} ${fontColor} w-auto text-sm whitespace-nowrap`}
     >
       {name}
+    </div>
+  );
+}
+
+export function useSSRIsSearchPath() {
+  const headersList = headers();
+  const referer = headersList.get("referer") || "";
+  const searchPath = "/home/search"; // 원하는 검색 경로 설정
+
+  //console.log("referer: ", referer);
+  //console.log("searchPath: ", searchPath);
+
+  // 현재 URL이 searchPath로 시작하는지 확인
+  const isSearchPath = referer.includes(searchPath);
+
+  return isSearchPath;
+}
+
+export default async function SearchBar() {
+  const searchUrl = process.env.NEXT_PUBLIC_HOME_SEARCH || "/error";
+
+  const isSearchPathHeader = headers().get("x-is-search-path");
+  const isSearchPath = isSearchPathHeader === "true";
+
+  console.log("isSearchPathHeader: ", isSearchPathHeader);
+  console.log("isSearchPath: ", isSearchPath);
+
+  return (
+    <div className="relative max-w-md mx-auto px-10 md:px-8 lg:px-5">
+      {isSearchPath ? (
+        <SearchInputBar />
+      ) : (
+        <Link href={searchUrl}>
+          <SearchInputBar />
+        </Link>
+      )}
     </div>
   );
 }

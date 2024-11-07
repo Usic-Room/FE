@@ -1,8 +1,10 @@
 "use client";
-
 import Image from "next/image";
+import Link from "next/link";
+
+//import { headers } from "next/headers";
+
 import superNaturalImage from "@/public/images/supernatural.jpg";
-import { useSearchParams, usePathname } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 
 import { searchRequestByQuery } from "@/app/(main)/home/api/router";
@@ -17,11 +19,23 @@ interface searchFilterProps {
 }
 
 export function SearchFilter({ filterList }: searchFilterProps) {
+  const filterLink = {
+    모두: "",
+    이벤트: "events",
+    곡: "songs",
+    플레이리스트: "playlists",
+    장르: "genres",
+    앨범: "albums",
+    프로필: "profiles",
+  };
+
   return (
     <div className="sticky top-5 sm:top-0 z-10 bg-black-121212 py-4">
       <div className="flex space-x-2 overflow-x-auto whitespace-nowrap scrollbar-hide">
         {filterList.map((filter) => (
+          //<Link href={`${}/${filterLink[filter]}`}>
           <FilterButton key={filter} label={filter} />
+          //</Link>
         ))}
       </div>
     </div>
@@ -151,10 +165,12 @@ export function SongList({
   );
 }
 
-export function SearchResultNotFound() {
-  const searchParams = useSearchParams();
-
-  return <p>No results found for &quot;{searchParams.get("search")}&quot;.</p>;
+export function SearchResultNotFound(query) {
+  return (
+    <p>
+      No results found for &quot;{query !== undefined ? null : query}&quot;.
+    </p>
+  );
 }
 
 export async function SearchContent() {
@@ -165,7 +181,7 @@ export async function SearchContent() {
   return (
     <div className="flex flex-col h-full bg-black-121212 text-white">
       {typeof searchResult === undefined || !searchResult ? (
-        <SearchResultNotFound />
+        <SearchResultNotFound query={query} />
       ) : (
         <>
           <SearchFilter filterList={searchResult.filterList} />
@@ -243,6 +259,14 @@ export async function SearchContent() {
 }
 
 export default function SearchResultPage() {
+  //const headersList = headers();
+  //const referer = headersList.get("referer") || "";
+  //const searchPath = "/home/search";
+  //const isSearchPath = referer.includes(searchPath);
+
+  //console.log("referer: ", referer);
+  //console.log("searchPath: ", searchPath);
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <SearchContent />

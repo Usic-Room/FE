@@ -23,7 +23,15 @@ export async function searchRequestByParams(searchUrl: string) {
 export async function searchRequestByQuery(searchParams: string) {
   try {
     const firstResponseMock: searchResultDto = {
-      filterList: ["이벤트", "곡", "플레이리스트", "장르", "앨범", "프로필"],
+      filterList: [
+        "모두",
+        "이벤트",
+        "곡",
+        "플레이리스트",
+        "장르",
+        "앨범",
+        "프로필",
+      ],
       events: [
         {
           eventImage: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",
@@ -85,7 +93,7 @@ export async function searchRequestByQuery(searchParams: string) {
     };
 
     const secondResponseMock: searchResultDto = {
-      filterList: ["이벤트", "곡", "플레이리스트", "장르", "프로필"],
+      filterList: ["모두", "이벤트", "곡", "플레이리스트", "장르", "프로필"],
       events: [
         {
           eventImage: "http://dummyimage.com/100x100.png/5fa2dd/ffffff",

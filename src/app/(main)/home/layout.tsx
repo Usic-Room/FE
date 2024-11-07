@@ -10,11 +10,17 @@ import { CookiesProvider } from "next-client-cookies/server"; //2.0.0 버전은 
 
 // TODO: login 여부 저장 or 가져오기
 
-export default function HomeLayout({
+//import { pathname } from "next-extra/pathname";
+
+export default async function HomeLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  //const route = await pathname();
+
+  //console.log("Route:", route);
+
   return (
     <CookiesProvider>
       <div className="fixed bg-black p-2 w-full h-screen z-40">

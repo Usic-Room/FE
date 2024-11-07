@@ -1,6 +1,7 @@
 import { genreTypes } from "@/types/genreTypes";
 
 export type searchResultFilterTypes =
+  | "모두"
   | "이벤트"
   | "곡"
   | "플레이리스트"

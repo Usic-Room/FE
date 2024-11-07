@@ -13,6 +13,10 @@ export const useSearchStore = create<SearchStore>((set) => ({
   setQuery: (newQuery) => set({ query: newQuery }),
 }));
 
+interface SearchPathSSR {
+  (): boolean;
+}
+
 export function useSearchResult() {
   const router = useRouter();
   const pathname = usePathname();
