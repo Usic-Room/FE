@@ -165,12 +165,8 @@ export function SongList({
   );
 }
 
-export function SearchResultNotFound(query) {
-  return (
-    <p>
-      No results found for &quot;{query !== undefined ? null : query}&quot;.
-    </p>
-  );
+export function SearchResultNotFound() {
+  return <p>No results found;</p>;
 }
 
 export async function SearchContent() {
@@ -181,7 +177,7 @@ export async function SearchContent() {
   return (
     <div className="flex flex-col h-full bg-black-121212 text-white">
       {typeof searchResult === undefined || !searchResult ? (
-        <SearchResultNotFound query={query} />
+        <SearchResultNotFound />
       ) : (
         <>
           <SearchFilter filterList={searchResult.filterList} />
