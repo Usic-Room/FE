@@ -29,7 +29,10 @@ const GenreCard = ({ title, Image, bgColor }: GenreCardProps) => {
       <div className="absolute top-4 left-4 z-10 text-left text-lg font-semibold">
         {title}
       </div>
-      <Image className="absolute right-[-16px] bottom-[-16px] w-28 h-28 transform rotate-[25deg] opacity-90" />
+      <Image
+        className="absolute right-[-16px] bottom-[-16px] w-28 h-28 transform rotate-[25deg] opacity-90"
+        alt="genreCardImage"
+      />
     </div>
   );
 };
