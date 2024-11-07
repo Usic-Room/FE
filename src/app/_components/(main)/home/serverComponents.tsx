@@ -10,7 +10,7 @@ import PlusLargeIcon from "@/public/images/plus-lg.svg";
 import Link from "next/link";
 
 import {
-  SearchInputBar,
+  SearchBar,
   ConditionalNavButtons,
 } from "@/components/(main)/home/clientComponents";
 
@@ -29,7 +29,7 @@ export function NowPlaying() {
 // TODO: Scrollbar CSS 처리
 export function MainView({ children }: { children: React.ReactNode }) {
   return (
-    <div className="h-full grow rounded-lg overflow-y-auto md:pl-[19.5rem]">
+    <div className="h-full grow rounded-lg overflow-y-auto sm:pl-[19.5rem]">
       <div className="bg-black-121212 text-white h-full flex flex-col">
         <div className="flex-grow p-4 overflow-y-auto scrollbar-hide">
           {children}
@@ -41,7 +41,7 @@ export function MainView({ children }: { children: React.ReactNode }) {
 
 export function SideBar() {
   return (
-    <div className="hidden h-full sm:block bg-black-121212 fixed left-0 right-auto w-[19rem] p-5 z-20 rounded-lg">
+    <div className="hidden h-full sm:block bg-black-121212 fixed left-0 w-[19rem] p-5 z-20 rounded-lg">
       <aside aria-label="Left Sidebar Navigation" className="relative">
         <div className="flex flex-row gap-3 items-center p-5 font-lg font-bold text-white">
           <LibraryLogo />
@@ -49,9 +49,9 @@ export function SideBar() {
           <PlusLogo />
         </div>
         {/* {
-                isLogin ? <Library />
-                : <DummyLibrary />
-                } */}
+          isLogin ? <Library />
+          : <DummyLibrary />
+        } */}
       </aside>
     </div>
   );
@@ -85,40 +85,6 @@ export function NavigationBar() {
         </div>
       </div>
     </>
-  );
-}
-
-export function SearchBar() {
-  const searchUrl = process.env.NEXT_PUBLIC_HOME_SEARCH || "/error";
-
-  return (
-    <form className="max-w-md mx-auto px-10 md:px-8 lg:px-5">
-      <div className="relative">
-        <Link href={searchUrl}>
-          <SearchInputBar />
-        </Link>
-        <button
-          type="submit"
-          className="peer-focus:text-white text-gray-500 absolute inset-y-0 start-0 flex items-center ps-4"
-        >
-          <svg
-            className="w-6 h-6"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 20 20"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-            />
-          </svg>
-        </button>
-      </div>
-    </form>
   );
 }
 

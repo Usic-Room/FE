@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-	html,
+  html,
   body,
   div,
   span,
@@ -105,55 +105,60 @@
   menu,
   nav,
   section {
-		display: block;
-	}
-	body {
-		line-height: 1;
-	}
-	ol,
-	ul {
-		list-style: none;
-	}
-	blockquote,
-	q {
-		quotes: none;
-	}
-	blockquote:before,
-	blockquote:after,
-	q:before,
-	q:after {
-		content: "";
-		content: none;
-	}
-	table {
-		border-collapse: collapse;
-		border-spacing: 0;
-	}
+    display: block;
+  }
+  body {
+    line-height: 1;
+  }
+  ol,
+  ul {
+    list-style: none;
+  }
+  blockquote,
+  q {
+    quotes: none;
+  }
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
+    content: "";
+    content: none;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
 
-	/*a {
+  /*a {
     text-decoration: none;
   }*/
 
-	h2 {
-		font-size: 1.2rem;
-		font-weight: 600;
-	}
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+  }
 }
 
 @font-face {
-	font-family: "Pretendard";
-	font-weight: 200;
-	font-style: normal;
-	src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraLight.eot");
-	src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraLight.eot?#iefix")
-			format("embedded-opentype"),
-		url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraLight.woff2")
-			format("woff2"),
-		url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraLight.woff")
-			format("woff"),
-		url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraLight.ttf")
-			format("truetype");
-	font-display: swap;
+  font-family: "Pretendard";
+  font-weight: 200;
+  font-style: normal;
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraLight.eot");
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraLight.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraLight.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraLight.woff")
+      format("woff"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraLight.ttf")
+      format("truetype");
+  font-display: swap;
 }
 
 /*:root {
