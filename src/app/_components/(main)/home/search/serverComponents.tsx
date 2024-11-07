@@ -37,7 +37,7 @@ const GenreCard = ({ title, enTitle, Image, bgColor }: GenreCardProps) => {
         className="absolute right-[-16px] bottom-[-16px] w-28 h-28 transform rotate-[25deg] opacity-90"
         alt="genreCardImage"
       />
-    </div>
+    </Link>
   );
 };
 
@@ -45,61 +45,61 @@ export function GenreCardSection() {
   const genres = [
     {
       title: "이벤트",
-      enTitle: `${process.env.NEXT_PUBLIC_HOME_GENRE}/event`,
+      enTitle: `${process.env.NEXT_PUBLIC_MAIN_GENRE}/event`,
       Image: EventImage,
       bgColor: "bg-green-27856A",
     },
     {
       title: "최신 음악",
-      enTitle: `${process.env.NEXT_PUBLIC_HOME_GENRE}/new-release`,
+      enTitle: `${process.env.NEXT_PUBLIC_MAIN_GENRE}/new-release`,
       Image: LatestSongImage,
       bgColor: "bg-blue-283EA3",
     },
     {
       title: "팝",
       Image: PopImage,
-      enTitle: `${process.env.NEXT_PUBLIC_HOME_GENRE}/pop`,
+      enTitle: `${process.env.NEXT_PUBLIC_MAIN_GENRE}/pop`,
       bgColor: "bg-blue-1E3264",
     },
     {
       title: "차트",
-      enTitle: `${process.env.NEXT_PUBLIC_HOME_GENRE}/chart`,
+      enTitle: `${process.env.NEXT_PUBLIC_MAIN_GENRE}/chart`,
       Image: ChartImage,
       bgColor: "bg-purple-8D67AB",
     },
     {
       title: "집중",
-      enTitle: `${process.env.NEXT_PUBLIC_HOME_GENRE}/focus`,
+      enTitle: `${process.env.NEXT_PUBLIC_MAIN_GENRE}/focus`,
       Image: FocusImage,
       bgColor: "bg-red-E8115B",
     },
     {
       title: "R&B",
-      enTitle: `${process.env.NEXT_PUBLIC_HOME_GENRE}/rnb`,
+      enTitle: `${process.env.NEXT_PUBLIC_MAIN_GENRE}/rnb`,
       Image: RnBImage,
       bgColor: "bg-purple-8D67AB",
     },
     {
       title: "가요",
-      enTitle: `${process.env.NEXT_PUBLIC_HOME_GENRE}/korean-music`,
+      enTitle: `${process.env.NEXT_PUBLIC_MAIN_GENRE}/korean-music`,
       Image: KoreanMusicImage,
       bgColor: "bg-blue-7358FF",
     },
     {
       title: "케이팝",
-      enTitle: `${process.env.NEXT_PUBLIC_HOME_GENRE}/k-pop`,
+      enTitle: `${process.env.NEXT_PUBLIC_MAIN_GENRE}/k-pop`,
       Image: KPopImage,
       bgColor: "bg-purple-8D67AB",
     },
     {
       title: "재즈",
-      enTitle: `${process.env.NEXT_PUBLIC_HOME_GENRE}/jazz`,
+      enTitle: `${process.env.NEXT_PUBLIC_MAIN_GENRE}/jazz`,
       Image: JazzImage,
       bgColor: "bg-blue-1E3264",
     },
     {
       title: "여름",
-      enTitle: `${process.env.NEXT_PUBLIC_HOME_GENRE}/summer`,
+      enTitle: `${process.env.NEXT_PUBLIC_MAIN_GENRE}/summer`,
       Image: SummerImage,
       bgColor: "bg-blue-9CF0E1",
     },

@@ -1,11 +1,22 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
+import { TopArtists } from "@/app/_components/artist/artistInfo";
 
 export const metadata: Metadata = {
-  title: "MusicRoom",
+  title: "Musicroom",
 };
 
-export default function Main() {
+export default async function Home() {
   return (
-    <h1>Main</h1>
+    <div className="overflow-y-scorll mb-12">
+      <p className="font-lg font-bold">인기 아티스트</p>
+      <TopArtists />
+      <p className="font-lg font-bold">인기 아티스트</p>
+      <TopArtists />
+      <p className="font-lg font-bold">인기 아티스트</p>
+      <TopArtists />
+      <p className="font-lg font-bold">인기 아티스트</p>
+      <TopArtists />
+      {/* <TopAlbums /> */}
+    </div>
   );
 }

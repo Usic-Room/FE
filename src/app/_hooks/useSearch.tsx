@@ -22,7 +22,7 @@ export function useSearchResult() {
   const pathname = usePathname();
   const query = useSearchStore((state) => state.query);
   const setQuery = useSearchStore((state) => state.setQuery);
-  const searchUrl = process.env.NEXT_PUBLIC_HOME_SEARCH;
+  const searchUrl = process.env.NEXT_PUBLIC_MAIN_SEARCH;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newQuery = e.target.value;
@@ -62,7 +62,7 @@ export function useSearchResult() {
 export function useIsSearchPath() {
   const pathname = usePathname();
 
-  return pathname && pathname.startsWith(`/home/search`);
+  return pathname && pathname.startsWith(`/search`);
 }
 
 export function useEscapePathname() {

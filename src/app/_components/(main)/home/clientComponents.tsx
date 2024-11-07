@@ -132,3 +132,21 @@ export function SearchButton() {
     </button>
   );
 }
+
+export function SearchBar() {
+  const searchUrl = process.env.NEXT_PUBLIC_MAIN_SEARCH || "/error";
+
+  const isSearchPath = useIsSearchPath();
+
+  return (
+    <div className="relative max-w-md mx-auto px-10 md:px-8 lg:px-5">
+      {isSearchPath ? (
+        <SearchInputBar />
+      ) : (
+        <Link href={searchUrl}>
+          <SearchInputBar />
+        </Link>
+      )}
+    </div>
+  );
+}

@@ -11,7 +11,7 @@ import Link from "next/link";
 import { headers } from "next/headers";
 
 import {
-  SearchInputBar,
+  SearchBar,
   ConditionalNavButtons,
 } from "@/components/(main)/home/clientComponents";
 
@@ -59,7 +59,7 @@ export function SideBar() {
 }
 
 export function NavLogo() {
-  const homeUrl = process.env.NEXT_PUBLIC_HOME || "/error";
+  const homeUrl = process.env.NEXT_PUBLIC_MAIN || "/error";
 
   return (
     <div className="absolute left-4 flex-shrink-0 w-16">
@@ -90,8 +90,8 @@ export function NavigationBar() {
 }
 
 export function MobileNavigation() {
-  const homeUrl = process.env.NEXT_PUBLIC_HOME || "/error";
-  const searchUrl = process.env.NEXT_PUBLIC_HOME_SEARCH || "/error";
+  const homeUrl = process.env.NEXT_PUBLIC_MAIN || "/error";
+  const searchUrl = process.env.NEXT_PUBLIC_MAIN_SEARCH || "/error";
 
   return (
     <div className="bg-black w-full z-50 left-0 bottom-0 absolute h-[4rem] px-2 pt-4 sm:hidden">
@@ -193,26 +193,4 @@ export function useSSRIsSearchPath() {
   const isSearchPath = referer.includes(searchPath);
 
   return isSearchPath;
-}
-
-export default async function SearchBar() {
-  const searchUrl = process.env.NEXT_PUBLIC_HOME_SEARCH || "/error";
-
-  const isSearchPathHeader = headers().get("x-is-search-path");
-  const isSearchPath = isSearchPathHeader === "true";
-
-  console.log("isSearchPathHeader: ", isSearchPathHeader);
-  console.log("isSearchPath: ", isSearchPath);
-
-  return (
-    <div className="relative max-w-md mx-auto px-10 md:px-8 lg:px-5">
-      {isSearchPath ? (
-        <SearchInputBar />
-      ) : (
-        <Link href={searchUrl}>
-          <SearchInputBar />
-        </Link>
-      )}
-    </div>
-  );
 }

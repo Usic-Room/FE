@@ -7,7 +7,7 @@ import Link from "next/link";
 import superNaturalImage from "@/public/images/supernatural.jpg";
 import { Suspense, useEffect, useState } from "react";
 
-import { searchRequestByQuery } from "@/app/(main)/home/api/router";
+import { searchRequestByQuery } from "@/app/(main)/search/api/router";
 import { searchResultDto } from "@/app/_types/searchResultDto";
 
 import { useEscapePathname } from "@/hooks/useSearch";
