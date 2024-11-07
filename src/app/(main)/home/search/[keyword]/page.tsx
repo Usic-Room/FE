@@ -5,7 +5,7 @@ import superNaturalImage from "@/public/images/supernatural.jpg";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export function SearchFilter() {
+function SearchFilter() {
   return (
     <div className="sticky top-5 sm:top-0 z-10 bg-black-121212 py-4">
       <div className="flex space-x-2 overflow-x-auto whitespace-nowrap scrollbar-hide">
@@ -20,7 +20,7 @@ export function SearchFilter() {
 }
 
 // Filter Button Component
-export function FilterButton({ label }: { label: string }) {
+function FilterButton({ label }: { label: string }) {
   return (
     <button className="px-3 py-2 rounded-full bg-gray-800 text-white">
       {label}
@@ -29,7 +29,7 @@ export function FilterButton({ label }: { label: string }) {
 }
 
 // Event Card Component
-export function EventCard() {
+function EventCard() {
   return (
     <div className="bg-gray-800 p-4 rounded-lg">
       <Image
@@ -43,7 +43,7 @@ export function EventCard() {
   );
 }
 
-export function SearchTopResultSection() {
+function SearchTopResultSection() {
   return (
     <div className="lg:col-span-1">
       <h2 className="text-2xl font-bold mb-4">상위결과</h2>
@@ -64,7 +64,7 @@ export function SearchTopResultSection() {
   );
 }
 
-export function SearchSongListSection() {
+function SearchSongListSection() {
   // Dummy data for default song list
   const dummyResults = [
     {
@@ -107,7 +107,7 @@ export function SearchSongListSection() {
   );
 }
 
-export function SongList({
+function SongList({
   songs,
 }: {
   songs: {
@@ -142,7 +142,7 @@ export function SongList({
   );
 }
 
-export function SearchResultNotFound() {
+function SearchResultNotFound() {
   const searchParams = useSearchParams();
 
   return <p>No results found for &quot;{searchParams.get("search")}&quot;.</p>;
