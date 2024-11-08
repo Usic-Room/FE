@@ -8,6 +8,7 @@ import SearchIcon from "@/public/images/search.svg";
 import PlusLargeIcon from "@/public/images/plus-lg.svg";
 
 import Link from "next/link";
+import { headers } from "next/headers";
 
 import {
   SearchBar,
@@ -58,7 +59,7 @@ export function SideBar() {
 }
 
 export function NavLogo() {
-  const homeUrl = process.env.NEXT_PUBLIC_HOME || "/error";
+  const homeUrl = process.env.NEXT_PUBLIC_MAIN || "/error";
 
   return (
     <div className="absolute left-4 flex-shrink-0 w-16">
@@ -89,8 +90,8 @@ export function NavigationBar() {
 }
 
 export function MobileNavigation() {
-  const homeUrl = process.env.NEXT_PUBLIC_HOME || "/error";
-  const searchUrl = process.env.NEXT_PUBLIC_HOME_SEARCH || "/error";
+  const homeUrl = process.env.NEXT_PUBLIC_MAIN || "/error";
+  const searchUrl = process.env.NEXT_PUBLIC_MAIN_SEARCH || "/error";
 
   return (
     <div className="bg-black w-full z-50 left-0 bottom-0 absolute h-[4rem] px-2 pt-4 sm:hidden">
@@ -178,4 +179,18 @@ export function RegisterButton({
       {name}
     </div>
   );
+}
+
+export function useSSRIsSearchPath() {
+  const headersList = headers();
+  const referer = headersList.get("referer") || "";
+  const searchPath = "/home/search"; // 원하는 검색 경로 설정
+
+  //console.log("referer: ", referer);
+  //console.log("searchPath: ", searchPath);
+
+  // 현재 URL이 searchPath로 시작하는지 확인
+  const isSearchPath = referer.includes(searchPath);
+
+  return isSearchPath;
 }

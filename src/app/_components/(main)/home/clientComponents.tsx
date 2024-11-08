@@ -90,25 +90,6 @@ export function ConditionalNavButtons() {
 //  );
 //}
 
-export function SearchBar() {
-  const searchUrl = process.env.NEXT_PUBLIC_HOME_SEARCH || "/error";
-  const isSearchPath = useIsSearchPath();
-
-  return (
-    //<form className="max-w-md mx-auto px-10 md:px-8 lg:px-5">
-    <div className="relative max-w-md mx-auto px-10 md:px-8 lg:px-">
-      {isSearchPath ? (
-        <SearchInputBar />
-      ) : (
-        <Link href={searchUrl}>
-          <SearchInputBar />
-        </Link>
-      )}
-    </div>
-    //</form>
-  );
-}
-
 export function SearchInputBar() {
   const { query, handleInputChange, handleClearInput } = useSearchResult();
 
@@ -149,5 +130,23 @@ export function SearchButton() {
     >
       <SearchButtonImage className="w-5 h-5" aria-hidden="true" />
     </button>
+  );
+}
+
+export function SearchBar() {
+  const searchUrl = process.env.NEXT_PUBLIC_MAIN_SEARCH || "/error";
+
+  const isSearchPath = useIsSearchPath();
+
+  return (
+    <div className="relative max-w-md mx-auto px-10 md:px-8 lg:px-5">
+      {isSearchPath ? (
+        <SearchInputBar />
+      ) : (
+        <Link href={searchUrl}>
+          <SearchInputBar />
+        </Link>
+      )}
+    </div>
   );
 }

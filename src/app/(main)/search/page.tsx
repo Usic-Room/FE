@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function SearchPage() {
   return (
-    <div className="flex flex-col h-full w-full bg-black-121212 text-white pl-2">
+    <div className="flex flex-col w-full h-screen bg-black-121212 text-white pl-2 overflow-y-scroll mb-12 scrollbar-hide">
       <GenreRecommendTitle />
       <GenreCardSection />
     </div>
