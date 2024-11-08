@@ -30,10 +30,7 @@ export function RegisterEmailTitle() {
 }
 
 export function GoogleOauthButton() {
-  const googleClientId = process.env.NEXT_PUBLIC_GOOGLE_OAUTH_CLIENT_ID;
-  const redirectUri = process.env.NEXT_PUBLIC_GOOGLE_OAUTH_REDIRECT_URI;
-  const scope = process.env.NEXT_PUBLIC_GOOGLE_OAUTH_SCOPE;
-  const oauthUrl = `https://accounts.google.com/o/oauth2/auth?client_id=${googleClientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scope}`;
+  const oauthUrl = process.env.NEXT_PUBLIC_BE_OAUTH || "/oauth";
 
   return (
     <Link
