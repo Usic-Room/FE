@@ -20,11 +20,11 @@ interface GenreCardProps {
   bgColor: string;
 }
 
-export function GenreRecommendTitle() {
+export function GenreRecommendTitleSC() {
   return <h1 className="text-xl font-bold mb-4 mt-10">모두 둘러보기</h1>;
 }
 
-const GenreCard = ({ title, enTitle, Image, bgColor }: GenreCardProps) => {
+function GenreCard({ title, enTitle, Image, bgColor }: GenreCardProps) {
   return (
     <Link
       href={`${enTitle}`}
@@ -39,9 +39,9 @@ const GenreCard = ({ title, enTitle, Image, bgColor }: GenreCardProps) => {
       />
     </Link>
   );
-};
+}
 
-export function GenreCardSection() {
+export function GenreCardSectionSC() {
   const genres = [
     {
       title: "이벤트",

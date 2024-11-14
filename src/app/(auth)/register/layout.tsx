@@ -18,7 +18,7 @@ export default function RegisterVerificationLayout({
     <RegisterFormProvider>
       <html lang="kr" className={`${pretendard.variable}`}>
         <body className={pretendard.className}>
-          {/*<HeaderSpotifyLogo />*/}
+          {/*<HeaderSpotifyLogoSC />*/}
           {children}
         </body>
       </html>

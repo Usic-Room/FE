@@ -9,6 +9,8 @@ export const useLoginForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false); // Track form submission
   const router = useRouter(); // For page navigation
 
+  const mainUrl = process.env.NEXT_PUBLIC_MAIN; // Main page URL
+
   const handleLogin = async () => {
     setIsSubmitting(true); // Start loading
     try {
@@ -16,7 +18,7 @@ export const useLoginForm = () => {
       const response = await LoginByEmailAndPassword(email, password);
       if (response.ok) {
         // Redirect to main page if successful
-        router.push("/main");
+        router.push(`${mainUrl}`);
       } else if (response.status === 409) {
         setErrorMessage("이미 기존 계정과 연결된 주소입니다.");
       } else {

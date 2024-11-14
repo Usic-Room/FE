@@ -22,7 +22,7 @@ export async function LoginByEmailAndPassword(email: string, password: string) {
 }
 
 export async function createResetPasswordCode(email: string) {
-  const apiUrl = process.env.NEXT_PUBLIC_BE_API_PASSWORD_RESET_CREATE;
+  const apiUrl = process.env.NEXT_PUBLIC_BE_API_PASSWORD_RESET_CODE_CREATE;
 
   try {
     const response = await fetch(apiUrl!, {

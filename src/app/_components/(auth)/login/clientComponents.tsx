@@ -4,7 +4,6 @@ import React, { useState } from "react";
 // Assuming ShowPasswordIcon and HidePasswordIcon are available components
 import { ShowPasswordIcon, HidePasswordIcon } from "@/public/icons/ErrorIcon";
 
-import { LoginByEmailAndPassword } from "@/auth/login/api/router";
 import { useLoginForm } from "@/hooks/useLoginForm";
 
 // LoginForm component to submit API request and handle responses
@@ -24,10 +23,10 @@ export function LoginForm() {
   return (
     <div className="w-full max-w-xs mx-auto">
       {/* Email Input Field */}
-      <EmailInputField email={email} setEmail={setEmail} />
+      <LoginEmailInputField email={email} setEmail={setEmail} />
 
       {/* Password Input Field */}
-      <PasswordInputField password={password} setPassword={setPassword} />
+      <LoginPasswordInputField password={password} setPassword={setPassword} />
 
       {/* Error message display */}
       {errorMessage && (
@@ -43,14 +42,13 @@ export function LoginForm() {
   );
 }
 
-// Email Input Field
-export function EmailInputField({
-  email,
-  setEmail,
-}: {
+interface LoginEmailInputFieldProps {
   email: string;
   setEmail: (email: string) => void;
-}) {
+}
+
+// Email Input Field
+function LoginEmailInputField({ email, setEmail }: LoginEmailInputFieldProps) {
   return (
     <div className="w-80 mb-4 text-left">
       <label className="block text-sm font-bold mb-2" htmlFor="email">
@@ -68,14 +66,16 @@ export function EmailInputField({
   );
 }
 
-// Password Input Field
-export function PasswordInputField({
-  password,
-  setPassword,
-}: {
+interface LoginPasswordInputFieldProps {
   password: string;
   setPassword: (password: string) => void;
-}) {
+}
+
+// Password Input Field
+function LoginPasswordInputField({
+  password,
+  setPassword,
+}: LoginPasswordInputFieldProps) {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -107,7 +107,7 @@ interface LoginSubmitButtonProps {
   isSubmitting: boolean; // To indicate loading state
 }
 
-export function LoginSubmitButton({
+function LoginSubmitButton({
   handleSubmit,
   isSubmitting,
 }: LoginSubmitButtonProps) {

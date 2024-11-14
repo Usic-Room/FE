@@ -8,17 +8,17 @@ import {
 import { AuthLinkButtonSC } from "@/components/(auth)/serverComponents";
 
 export const metadata: Metadata = {
-  title: "Register Reset Password success",
+  title: "Register Reset Password Send Code",
 };
 
-export default function ResetPassworSuccessdPage() {
+export default function ResetPasswordSendCodePage() {
   const loginPageUrl = process.env.NEXT_PUBLIC_LOGIN || "/error";
 
   return (
     <div className="flex flex-col items-center max-w-md mx-auto text-center bg-white min-h-screen font-bold">
       <HeaderSpotifyLogoSC />
-      <ResetPasswordPageTitleSC title="성공적으로 비밀번호가 변경되었습니다." />
-      <ResetPasswordPageDescriptionSC description="Spotify 계정에 로그인하세요." />
+      <ResetPasswordPageTitleSC title="받은 편지함을 확인하세요." />
+      <ResetPasswordPageDescriptionSC description="이메일을 보내드렸습니다. 지침에 따라 Spotify 계정에 로그인하세요." />
       <div className="w-full">
         <AuthLinkButtonSC
           href={loginPageUrl}

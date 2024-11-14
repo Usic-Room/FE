@@ -1,5 +1,6 @@
 import Link from "next/link";
 import GoogleIcon from "@/public/images/google-24.svg";
+import SpotifyIcon from "@/public/images/spotify.svg";
 
 interface AuthLinkButtonSCProps {
   href: string;
@@ -30,10 +31,6 @@ export function GoogleOauthButtonSC({ buttonSize }: GoogleOauthButtonSCProps) {
   const oauthUrl = `https://accounts.google.com/o/oauth2/auth?client_id=${googleClientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scope}`;
 
   return (
-    //<Link
-    //  href={oauthUrl}
-    //  className="w-3/4 sm:w-full p-3 mb-4 flex items-center justify-center border border-gray-878787 rounded-full hover:border-black"
-    //>
     <Link
       href={oauthUrl}
       className={`${buttonSize} p-3 mb-4 flex items-center justify-center border border-gray-878787 rounded-full hover:border-black`}
@@ -41,5 +38,13 @@ export function GoogleOauthButtonSC({ buttonSize }: GoogleOauthButtonSCProps) {
       <GoogleIcon className="w-5 h-4 mr-2" alt="Google Icon" />
       <span className="font-normal text-gray-700">Continue with Google</span>
     </Link>
+  );
+}
+
+export function HeaderSpotifyLogoSC() {
+  return (
+    <header className="flex justify-center py-8 bg-white">
+      <SpotifyIcon />
+    </header>
   );
 }

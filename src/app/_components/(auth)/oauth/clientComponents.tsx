@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 
-export function OAuthLodingAnimation() {
+export function OAuthLodingAnimationCC() {
   //const params = useSearchParams();
   //const router = useRouter();
   //const [oauthData, setOauthData] = useState(null);

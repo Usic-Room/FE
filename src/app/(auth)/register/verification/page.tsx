@@ -1,9 +1,9 @@
 import React from "react";
-import { HeaderSpotifyLogo } from "@/app/_components/(auth)/register/serverComponents";
+import { HeaderSpotifyLogoSC } from "@/components/(auth)/serverComponents";
 
 import {
-  VerificationPageTitle,
-  VerificationPageDescription,
+  VerificationPageTitleSC,
+  VerificationPageDescriptionSC,
 } from "@/app/_components/(auth)/register/verification/serverComponents";
 import { Metadata } from "next";
 import { VerificationCodeForm } from "@/app/_components/(auth)/register/verification/clientComponents";
@@ -17,9 +17,9 @@ export default function RegisterVerification() {
     process.env.NEXT_PUBLIC_REGISTRATION_USERNAME || "/register/username";
   return (
     <div className="flex flex-col items-center max-w-md mx-auto text-center bg-white min-h-screen font-bold">
-      <HeaderSpotifyLogo />
-      <VerificationPageTitle />
-      <VerificationPageDescription />
+      <HeaderSpotifyLogoSC />
+      <VerificationPageTitleSC />
+      <VerificationPageDescriptionSC />
       <VerificationCodeForm />
     </div>
   );

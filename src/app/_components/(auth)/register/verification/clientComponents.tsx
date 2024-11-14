@@ -1,8 +1,31 @@
 "use client";
 
 import React from "react";
-import { VerificationSubmitButton } from "@/app/_components/(auth)/register/verification/serverComponents"; // Import the button component
 import { useRegisterVerificationCodeForm } from "@/hooks/useRegisterVerificationCodeForm";
+
+interface VerificationSubmitButtonCCProps {
+  isCodeValid: boolean;
+  handleSubmit: () => void;
+}
+
+export function VerificationSubmitButtonCC({
+  isCodeValid,
+  handleSubmit,
+}: VerificationSubmitButtonCCProps) {
+  return (
+    <button
+      onClick={handleSubmit}
+      className={`w-full p-3 mt-20 ${
+        isCodeValid
+          ? "bg-purple-AC25FF hover:bg-[#ac44ff]"
+          : "bg-gray-400 cursor-not-allowed"
+      } text-white rounded-full font-normal`}
+      disabled={!isCodeValid}
+    >
+      확인
+    </button>
+  );
+}
 
 export function VerificationCodeForm() {
   const {
@@ -32,7 +55,7 @@ export function VerificationCodeForm() {
         <p className="text-red-500 text-xs mb-1">{errorMessage}</p>
       )}
       {/* Render the verification submit button */}
-      <VerificationSubmitButton
+      <VerificationSubmitButtonCC
         isCodeValid={isCodeValid}
         handleSubmit={handleSubmit}
       />

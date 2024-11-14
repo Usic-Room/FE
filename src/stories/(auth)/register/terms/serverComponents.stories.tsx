@@ -1,7 +1,7 @@
 import {
-  ProgessBarAndSections,
-  BackToPreviousLevelPage,
-} from "@/app/_components/(auth)/register/password/serverComponents"; // Correct import path
+  ProgessBarAndSectionsSC,
+  BackToPreviousLevelPageButtonSC,
+} from "@/components/(auth)/register/serverComponents"; // Correct import path
 
 import { MoveToNextPageFromTermsButton } from "@/app/_components/(auth)/register/terms/serverComponents";
 
@@ -10,18 +10,18 @@ export default {
   tags: ["autodocs"], // Enable automatic documentation
 };
 
-// HeaderSpotifyLogo story
-export const DefaultProgessBarAndSections = {
-  render: () => <ProgessBarAndSections width="100%" />,
+// HeaderSpotifyLogoSC story
+export const DefaultProgessBarAndSectionsSC = {
+  render: () => <ProgessBarAndSectionsSC width="100%" />,
 };
 
 const registerUsernameUrl =
   process.env.NEXT_PUBLIC_REGISTRATION_USERNAME || "/register/username";
 
-// RegisterEmailTitle story
-export const DefaultBackToPreviousLevelPage = {
+// RegisterEmailTitleSC story
+export const DefaultBackToPreviousLevelPageButtonSC = {
   render: () => (
-    <BackToPreviousLevelPage
+    <BackToPreviousLevelPageButtonSC
       level="3"
       title="약관"
       backURL={registerUsernameUrl}

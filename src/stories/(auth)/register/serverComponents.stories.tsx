@@ -1,37 +1,40 @@
 import {
-  HeaderSpotifyLogo,
-  RegisterEmailTitle,
-  GoogleOauthButton,
-  SeperateOtherLoginWay,
-  MoveToLoginPageButton,
-} from "@/app/_components/(auth)/register/serverComponents"; // Correct import path
+  RegisterEmailTitleSC,
+  SeperateOtherLoginWaySC,
+  MoveToLoginPageButtonSC,
+} from "@/components/(auth)/register/serverComponents"; // Correct import path
+
+import {
+  HeaderSpotifyLogoSC,
+  GoogleOauthButtonSC,
+} from "@/components/(auth)/serverComponents"; // Correct import path
 
 export default {
   title: "Components/Register/serverComponents", // Updated title for uniqueness
   tags: ["autodocs"], // Enable automatic documentation
-  component: HeaderSpotifyLogo, // Set the `component` key (could be any default component)
+  component: HeaderSpotifyLogoSC, // Set the `component` key (could be any default component)
 };
 
-// HeaderSpotifyLogo story
-export const DefaultHeaderSpotifyLogo = {
-  render: () => <HeaderSpotifyLogo />,
+// HeaderSpotifyLogoSC story
+export const DefaultHeaderSpotifyLogoSC = {
+  render: () => <HeaderSpotifyLogoSC />,
 };
 
-// RegisterEmailTitle story
-export const DefaultRegisterEmailTitle = {
-  render: () => <RegisterEmailTitle />,
+// RegisterEmailTitleSC story
+export const DefaultRegisterEmailTitleSC = {
+  render: () => <RegisterEmailTitleSC />,
 };
 
 export const RegisterDefaultGoogleOauthButton = {
-  render: () => <GoogleOauthButton />,
+  render: () => <GoogleOauthButtonSC buttonSize="w/34 sm:w-full" />,
 };
 
-// SeperateOtherLoginWay story
-export const DefaultSeperateOtherLoginWay = {
-  render: () => <SeperateOtherLoginWay />,
+// SeperateOtherLoginWaySC story
+export const DefaultSeperateOtherLoginWaySC = {
+  render: () => <SeperateOtherLoginWaySC />,
 };
 
-// MoveToLoginPageButton story
-export const DefaultMoveToLoginPageButton = {
-  render: () => <MoveToLoginPageButton />,
+// MoveToLoginPageButtonSC story
+export const DefaultMoveToLoginPageButtonSC = {
+  render: () => <MoveToLoginPageButtonSC />,
 };

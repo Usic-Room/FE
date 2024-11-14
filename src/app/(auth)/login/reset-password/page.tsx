@@ -1,4 +1,4 @@
-import { HeaderSpotifyLogo } from "@/app/_components/(auth)/register/serverComponents";
+import { HeaderSpotifyLogoSC } from "@/components/(auth)/serverComponents";
 import { Metadata } from "next";
 import {
   ResetPasswordPageTitleSC,
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function ResetPasswordPage() {
   return (
     <div className="flex flex-col items-center max-w-md mx-auto text-center bg-white min-h-screen font-bold">
-      <HeaderSpotifyLogo />
+      <HeaderSpotifyLogoSC />
       <ResetPasswordPageTitleSC title="비밀번호를 재설정합니다." />
       <ResetPasswordPageDescriptionSC description="새로운 비밀번호를 입력해주세요." />
       <ResetPasswordForm />

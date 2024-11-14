@@ -7,59 +7,32 @@ import { createResetPasswordCode } from "@/auth/login/api/router";
 import { AuthLinkButtonSC } from "../../../serverComponents";
 import { AuthHandleOnclickButtonCC } from "../../../clientComponents";
 
-// Regular expression for email validation
-const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+import { useResetPasswordEmail } from "@/hooks/useResetPasswordEmail";
 
 // Email form to validate the input
 //TODO: API CALL ERROR를 기반으로 에러 메시지 표현 코드 리팩토링 필요
 //TODO: 200시, /login/reset-password/success로 이동하는 코드 추가 필요
 export function ResetPasswordEmailForm() {
-  const [email, setEmail] = useState(""); // Use context to manage email state
-  const [error, setError] = useState({
-    empty: true,
-    invalid: true,
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [isEmailValid, setIsEmailValid] = useState(false);
-  const [apiErrorMessage, setApiErrorMessage] = useState(""); // State for API error messages
-
-  // Validate the email
-  useEffect(() => {
-    const trimmedEmail = email.trim();
-    const isEmpty = !trimmedEmail;
-    const isInvalid = !emailRegex.test(trimmedEmail);
-
-    const newErrorState = {
-      empty: isEmpty,
-      invalid: isInvalid && !isEmpty,
-    };
-
-    setError(newErrorState);
-
-    // Set form validity
-    const isValidForm = !newErrorState.empty && !newErrorState.invalid;
-    setIsEmailValid(isValidForm);
-  }, [email]);
-
-  const handleSubmit = async () => {
-    setSubmitted(true);
-
-    if (isEmailValid) {
-      try {
-        const response = await createResetPasswordCode(email); // Make the API call
-        console.log("Reset password link sent successfully:", response);
-        // You can show a success message or redirect the user here
-        alert("Reset password link has been sent to your email.");
-      } catch (error: Error | any) {
-        setApiErrorMessage(error.message || "Server error. Please try again.");
-      }
-    }
-  };
+  const {
+    email,
+    setEmail,
+    error,
+    submitted,
+    isEmailValid,
+    handleSubmit,
+    apiErrorMessage,
+  } = useResetPasswordEmail();
 
   return (
     <div className="w-full mb-4">
-      <EmailInputField error={error} submitted={submitted} />
-      <EmailSubmitButton
+      <ResetPasswordEmailInputField
+        email={email}
+        setEmail={setEmail}
+        error={error}
+        submitted={submitted}
+        apiErrorMessage={apiErrorMessage}
+      />
+      <ResetPasswordEmailSubmitButton
         isEmailValid={isEmailValid}
         handleSubmit={handleSubmit}
       />
@@ -67,14 +40,21 @@ export function ResetPasswordEmailForm() {
   );
 }
 
-interface EmailInputFieldProps {
+interface ResetPasswordEmailInputFieldProps {
+  email: string;
+  setEmail: (email: string) => void;
   error: { empty: boolean; invalid: boolean };
   submitted: boolean;
+  apiErrorMessage: string;
 }
 
-export function EmailInputField({ error, submitted }: EmailInputFieldProps) {
-  const [email, setEmail] = useState(""); // Use context to manage email state
-
+export function ResetPasswordEmailInputField({
+  email,
+  setEmail,
+  error,
+  submitted,
+  apiErrorMessage,
+}: ResetPasswordEmailInputFieldProps) {
   return (
     <div className="w-full text-left mt-14">
       <p className="mb-2 font-bold text-sm">이메일</p>
@@ -82,7 +62,7 @@ export function EmailInputField({ error, submitted }: EmailInputFieldProps) {
         type="email"
         placeholder="이메일"
         value={email}
-        onChange={(e) => setEmail(e.target.value)} // Update context state
+        onChange={(e) => setEmail(e.target.value)}
         className={`w-full p-3 mb-3 ${
           submitted && (error.empty || error.invalid)
             ? "border-red-500"
@@ -97,20 +77,21 @@ export function EmailInputField({ error, submitted }: EmailInputFieldProps) {
           올바른 이메일 형식을 입력해 주세요.
         </p>
       )}
+      {apiErrorMessage && (
+        <p className="text-red-500 text-xs mb-1">{apiErrorMessage}</p>
+      )}
     </div>
   );
 }
-
-interface EmailSubmitButtonProps {
+interface ResetPasswordEmailSubmitButtonProps {
   isEmailValid: boolean;
   handleSubmit: () => void;
 }
 
-// Submit button for the email input
-export function EmailSubmitButton({
+export function ResetPasswordEmailSubmitButton({
   isEmailValid,
   handleSubmit,
-}: EmailSubmitButtonProps) {
+}: ResetPasswordEmailSubmitButtonProps) {
   const registrationUrl =
     process.env.NEXT_PUBLIC_REGISTRATION_PASSWORD || "/error";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useResetPasswordForm } from "@/hooks/useResetPasswordForm";
+import { useResetPassword } from "@/app/_hooks/useResetPassword";
 import { usePasswordVisibility } from "@/app/_hooks/usePasswordVisibility";
 import { useConfirmPasswordVisibility } from "@/hooks/useConfirmPasswordVisibility";
 
@@ -21,7 +21,7 @@ export function ResetPasswordForm() {
     submitted,
     confirmError,
     handleSubmit,
-  } = useResetPasswordForm();
+  } = useResetPassword();
 
   const getErrorIcon = (conditionMet: boolean) => {
     return (

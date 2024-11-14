@@ -10,9 +10,10 @@ import { AuthHandleOnclickButtonCC } from "@/components/(auth)/clientComponents"
 export function RegisterEmailForm() {
   const { email, setEmail, error, submitted, isEmailValid, handleSubmit } =
     useRegisterEmailForm();
+
   return (
     <div className="w-3/4 sm:w-full mb-4">
-      <EmailInputField error={error} submitted={submitted} />
+      <RegisterEmailInputField error={error} submitted={submitted} />
       <EmailSubmitButton
         isEmailValid={isEmailValid}
         handleSubmit={handleSubmit}
@@ -20,11 +21,16 @@ export function RegisterEmailForm() {
     </div>
   );
 }
-interface EmailInputFieldProps {
+
+interface RegisterEmailInputFieldProps {
   error: { empty: boolean; invalid: boolean };
   submitted: boolean;
 }
-export function EmailInputField({ error, submitted }: EmailInputFieldProps) {
+
+function RegisterEmailInputField({
+  error,
+  submitted,
+}: RegisterEmailInputFieldProps) {
   const { email, setEmail } = useFormContext(); // Use context to get/set email
   return (
     <div className="w-full text-left mt-14">
@@ -56,12 +62,14 @@ interface EmailSubmitButtonProps {
   handleSubmit: () => void;
 }
 // Submit button for the email input
-export function EmailSubmitButton({
+
+function EmailSubmitButton({
   isEmailValid,
   handleSubmit,
 }: EmailSubmitButtonProps) {
   const registrationUrl =
     process.env.NEXT_PUBLIC_REGISTRATION_PASSWORD || "/error";
+
   return isEmailValid ? (
     <AuthLinkButtonSC href={registrationUrl} buttonDescription="다음" />
   ) : (

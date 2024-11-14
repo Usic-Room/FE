@@ -1,14 +1,15 @@
 import "server-only";
+import Image from "next/image";
+import Link from "next/link";
+import { headers } from "next/headers";
 
+import sampleImage from "@/public/images/sample.svg";
 import SpotifyWhiteIcon from "@/public/images/spotifyWhite.svg";
 import LibraryLogo from "@/public/images/library.svg";
 import PlusLogo from "@/public/images/plus.svg";
 import HomeIcon from "@/public/images/home.svg";
 import SearchIcon from "@/public/images/search.svg";
 import PlusLargeIcon from "@/public/images/plus-lg.svg";
-
-import Link from "next/link";
-import { headers } from "next/headers";
 
 import {
   SearchBar,
@@ -193,4 +194,81 @@ export function useSSRIsSearchPath() {
   const isSearchPath = referer.includes(searchPath);
 
   return isSearchPath;
+}
+
+interface ArtistBoxProps {
+  id: number;
+  username: string;
+  image: string;
+}
+
+export function ArtistBox({ id, username, image }: ArtistBoxProps) {
+  return (
+    <div
+      role="button"
+      key={id}
+      className="flex flex-col gap-2 justify-center items-center p-4"
+    >
+      <div className="w-24 h-24 rounded-full overflow-hidden">
+        <Image
+          src={image}
+          alt="artist profile image"
+          className="object-cover w-full h-full"
+          width={96} // 24 * 4 for tailwind size in pixels
+          height={96} // 24 * 4 for tailwind size in pixels
+        />
+      </div>
+      <div className="flex flex-col gap-1 self-start">
+        <div>{username}</div>
+        <div className="font-thin text-sm">아티스트</div>
+      </div>
+    </div>
+  );
+}
+
+export function TopArtistsSC() {
+  let data = [
+    {
+      id: 0,
+      username: "아이유",
+      image: "./images/sample.svg",
+    },
+    {
+      id: 2,
+      username: "소녀시대",
+      image: "./images/sample.svg",
+    },
+    {
+      id: 31,
+      username: "NewJeans",
+      image: "./images/sample.svg",
+    },
+    {
+      id: 18,
+      username: "빈지노",
+      image: "./images/sample.svg",
+    },
+    {
+      id: 4,
+      username: "정재희",
+      image: "./images/sample.svg",
+    },
+    {
+      id: 9,
+      username: "민영재",
+      image: "./images/sample.svg",
+    },
+  ];
+  return (
+    <div className="flex flex-row gap-3 p-4">
+      {data.map((artist) => (
+        <ArtistBox
+          key={artist.id}
+          id={artist.id}
+          username={artist.username}
+          image={artist.image}
+        />
+      ))}
+    </div>
+  );
 }

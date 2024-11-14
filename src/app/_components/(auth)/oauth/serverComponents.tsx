@@ -1,6 +1,6 @@
 import "server-only";
 
-export function OAuthPageDescription() {
+export function OAuthPageDescriptionSC() {
   return (
     <div>
       <h1>Loading...</h1>
