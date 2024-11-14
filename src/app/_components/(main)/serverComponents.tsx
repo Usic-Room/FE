@@ -13,7 +13,7 @@ import { headers } from "next/headers";
 import {
   SearchBar,
   ConditionalNavButtons,
-} from "@/components/(main)/home/clientComponents";
+} from "@/app/_components/(main)/clientComponents";
 
 export function Library() {
   return <h1>DummyLibrary</h1>;

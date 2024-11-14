@@ -2,8 +2,8 @@ import {
   SideBar,
   MainView,
   MobileNavigation,
-} from "@/app/_components/(main)/home/serverComponents";
-import { NavigationBar } from "@/app/_components/(main)/home/serverComponents";
+} from "@/app/_components/(main)/serverComponents";
+import { NavigationBar } from "@/app/_components/(main)/serverComponents";
 
 import { CookiesProvider } from "next-client-cookies/server"; //2.0.0 버전은 15버전을 사용해야 해서 1.1.1로 다운그레이드
 

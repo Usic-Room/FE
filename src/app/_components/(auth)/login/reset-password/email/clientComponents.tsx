@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 import { createResetPasswordCode } from "@/auth/login/api/router";
+import { AuthLinkButtonSC } from "../../../serverComponents";
+import { AuthHandleOnclickButtonCC } from "../../../clientComponents";
 
 // Regular expression for email validation
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -113,17 +115,11 @@ export function EmailSubmitButton({
     process.env.NEXT_PUBLIC_REGISTRATION_PASSWORD || "/error";
 
   return isEmailValid ? (
-    <Link href={registrationUrl}>
-      <button className="w-full p-3 mb-4 bg-purple-AC25FF text-white rounded-full hover:bg-[#ac44ff] font-normal">
-        링크 보내기
-      </button>
-    </Link>
+    <AuthLinkButtonSC href={registrationUrl} buttonDescription="링크 보내기" />
   ) : (
-    <button
-      onClick={handleSubmit}
-      className={`w-full p-3 mb-4 bg-purple-AC25FF text-white rounded-full hover:bg-[#ac44ff] font-normal`}
-    >
-      링크 보내기
-    </button>
+    <AuthHandleOnclickButtonCC
+      handleSubmit={handleSubmit}
+      buttonDescription="링크 보내기"
+    />
   );
 }

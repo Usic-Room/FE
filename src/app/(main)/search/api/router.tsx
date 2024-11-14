@@ -141,7 +141,12 @@ export async function searchRequestByQuery(searchParams: string) {
       ],
     };
 
-    return Math.random() < 0.5 ? firstResponseMock : secondResponseMock;
+    //TODO: status code + response 반환
+
+    const response =
+      Math.random() < 0.5 ? firstResponseMock : secondResponseMock;
+
+    return { response, status: 400 };
   } catch (error) {
     throw new Error("Server error during search.");
   }

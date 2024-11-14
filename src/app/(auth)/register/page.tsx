@@ -3,11 +3,12 @@ import { Metadata } from "next";
 import {
   HeaderSpotifyLogo,
   RegisterEmailTitle,
-  GoogleOauthButton,
   SeperateOtherLoginWay,
   MoveToLoginPageButton,
-} from "@/app/_components/(auth)/register/serverComponents";
-import { RegisterEmailForm } from "@/app/_components/(auth)/register/clientComponents"; // Correct import path
+} from "@/components/(auth)/register/serverComponents";
+import { RegisterEmailForm } from "@/components/(auth)/register/clientComponents"; // Correct import path
+
+import { GoogleOauthButtonSC } from "@/components/(auth)/serverComponents";
 
 export const metadata: Metadata = {
   title: "Register",
@@ -20,7 +21,7 @@ export default function RegisterEmail() {
       <RegisterEmailTitle />
       <RegisterEmailForm />
       <SeperateOtherLoginWay />
-      <GoogleOauthButton />
+      <GoogleOauthButtonSC buttonSize="w-3/4 sm:w-full" />
       <MoveToLoginPageButton />
     </div>
   );

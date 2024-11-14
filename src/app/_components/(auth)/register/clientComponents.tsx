@@ -4,6 +4,8 @@ import React from "react";
 import Link from "next/link";
 import { useFormContext } from "@/contexts/registerFormContext";
 import { useRegisterEmailForm } from "@/hooks/useRegisterEmailForm";
+import { AuthLinkButtonSC } from "@/components/(auth)/serverComponents";
+import { AuthHandleOnclickButtonCC } from "@/components/(auth)/clientComponents";
 
 export function RegisterEmailForm() {
   const { email, setEmail, error, submitted, isEmailValid, handleSubmit } =
@@ -61,17 +63,11 @@ export function EmailSubmitButton({
   const registrationUrl =
     process.env.NEXT_PUBLIC_REGISTRATION_PASSWORD || "/error";
   return isEmailValid ? (
-    <Link href={registrationUrl}>
-      <button className="w-full p-3 mb-4 bg-purple-AC25FF text-white rounded-full hover:bg-[#ac44ff] font-normal">
-        다음
-      </button>
-    </Link>
+    <AuthLinkButtonSC href={registrationUrl} buttonDescription="다음" />
   ) : (
-    <button
-      onClick={handleSubmit}
-      className={`w-full p-3 mb-4 bg-purple-AC25FF text-white rounded-full hover:bg-[#ac44ff] font-normal`}
-    >
-      다음
-    </button>
+    <AuthHandleOnclickButtonCC
+      handleSubmit={handleSubmit}
+      buttonDescription="다음"
+    />
   );
 }

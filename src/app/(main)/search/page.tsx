@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import {
   GenreRecommendTitle,
   GenreCardSection,
-} from "@/components/(main)/home/search/serverComponents";
+} from "@/app/_components/(main)/search/serverComponents";
 
 export const metadata: Metadata = {
   title: "Search",

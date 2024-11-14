@@ -5,7 +5,7 @@ import Link from "next/link";
 //import { headers } from "next/headers";
 
 import superNaturalImage from "@/public/images/superNatural.jpg";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useState, useMemo } from "react";
 
 import { searchRequestByQuery } from "@/app/(main)/search/api/router";
 import { searchResultDto } from "@/app/_types/searchResultDto";
@@ -13,6 +13,8 @@ import { searchResultDto } from "@/app/_types/searchResultDto";
 import { useEscapePathname } from "@/hooks/useSearch";
 
 import { searchResultFilterTypes } from "@/types/searchResultDto";
+
+import { debounce } from "lodash";
 
 interface searchFilterProps {
   filterList: searchResultFilterTypes[];
@@ -169,28 +171,64 @@ function SearchResultNotFound() {
   return <p>No results found;</p>;
 }
 
-async function SearchContent() {
-  const { query, decodedPathname } = useEscapePathname();
-  const searchResult: searchResultDto = await searchRequestByQuery(query);
-  console.log(searchResult);
+async function fetchSearchResults(query: string) {
+  if (!query) return null;
+  return await searchRequestByQuery(query);
+}
+
+function SearchContent() {
+  const { query } = useEscapePathname();
+  const [searchResult, setSearchResult] = useState<searchResultDto | null>(
+    null
+  );
+  const [isLoading, setIsLoading] = useState(false); // 로딩 상태 추가
+
+  // Memoize the debounced function using useMemo
+  const debouncedSearch = useMemo(
+    () =>
+      debounce(async (query: string) => {
+        setIsLoading(true); // 검색 시작 시 로딩 상태 활성화
+        try {
+          const result = await fetchSearchResults(query);
+          setSearchResult(result!.response); //TODO: ! is not safe
+        } catch (error) {
+          console.error("검색 중 에러 발생:", error);
+          // 에러 상태를 관리하려면 별도의 상태 추가 가능
+        } finally {
+          setIsLoading(false); // 검색 완료 시 로딩 상태 비활성화
+        }
+      }, 500),
+    [] // Empty dependency array since setState functions are stable
+  );
+
+  useEffect(() => {
+    if (query) {
+      debouncedSearch(query);
+    }
+    // Cleanup on unmount
+    return () => {
+      debouncedSearch.cancel();
+    };
+  }, [query, debouncedSearch]);
 
   return (
     <div className="flex flex-col h-full bg-black-121212 text-white">
-      {typeof searchResult === undefined || !searchResult ? (
-        <SearchResultNotFound />
+      {isLoading ? ( // 로딩 상태에 따라 조건부 렌더링
+        <div className="flex justify-center items-center h-full">
+          <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-white"></div>
+        </div>
+      ) : typeof searchResult === "undefined" || !searchResult ? (
+        //<SearchResultNotFound />
+        <div className="flex justify-center items-center h-full">
+          <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-white"></div>
+        </div>
       ) : (
         <>
           <SearchFilter filterList={searchResult.filterList} />
           <div className="flex-grow overflow-y-auto scrollbar-hide p-4 mb-12">
-            {/* Grid for "상위결과" and "곡" Section */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* 상위결과 Section */}
               <SearchTopResultSection />
-
-              {/* 곡 Section */}
             </div>
-
-            {/* 이벤트 Section */}
             <div className="mt-8">
               <h2 className="text-2xl font-bold mb-4">이벤트</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -199,54 +237,7 @@ async function SearchContent() {
                 ))}
               </div>
             </div>
-
-            {/* 곡 Section */}
             <SearchSongListSection />
-
-            {/* 장르 Section */}
-            <div className="mt-8">
-              <h2 className="text-2xl font-bold mb-4">장르</h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-                {[1, 2, 3, 4, 5].map((genre) => (
-                  <div
-                    key={genre}
-                    className="bg-gray-800 p-4 rounded-lg text-white"
-                  >
-                    {genre}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* 앨범 Section */}
-            <div className="mt-8">
-              <h2 className="text-2xl font-bold mb-4">앨범</h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-                {[1, 2, 3, 4, 5].map((album) => (
-                  <div
-                    key={album}
-                    className="bg-gray-800 p-4 rounded-lg text-white"
-                  >
-                    {album}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* 프로필 Section */}
-            <div className="mt-8">
-              <h2 className="text-2xl font-bold mb-4">프로필</h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-                {[1, 2, 3, 4, 5].map((profile) => (
-                  <div
-                    key={profile}
-                    className="bg-gray-800 p-4 rounded-lg text-white"
-                  >
-                    {profile}
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </>
       )}
@@ -255,17 +246,5 @@ async function SearchContent() {
 }
 
 export default function SearchResultPage() {
-  //const headersList = headers();
-  //const referer = headersList.get("referer") || "";
-  //const searchPath = "/home/search";
-  //const isSearchPath = referer.includes(searchPath);
-
-  //console.log("referer: ", referer);
-  //console.log("searchPath: ", searchPath);
-
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <SearchContent />
-    </Suspense>
-  );
+  return <SearchContent />;
 }
