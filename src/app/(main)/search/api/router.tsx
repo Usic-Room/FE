@@ -143,6 +143,7 @@ export async function searchRequestByQuery(searchParams: string) {
 
     //TODO: status code + response 반환
 
+    //setTimeout(() => {}, randomInt(1000, 3000));
     const response =
       Math.random() < 0.5 ? firstResponseMock : secondResponseMock;
 
