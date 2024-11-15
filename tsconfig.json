@@ -26,6 +26,7 @@
       "@/contexts/*": ["./src/app/_contexts/*"],
       "@/components/*": ["./src/app/_components/*"],
       "@/types/*": ["./src/app/_types/*"],
+      "@/utils/*": ["./src/app/_utils/*"],
       "@/stories/*": ["./src/stories/*"]
     }
   },

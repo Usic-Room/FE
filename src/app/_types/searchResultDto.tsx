@@ -10,12 +10,14 @@ export type searchResultFilterTypes =
   | "프로필";
 
 export type searchResultEventTypes = {
+  id: number;
   eventImage: string;
   eventName: string;
   eventDate: Date;
 };
 
 export type searchResultSongTypes = {
+  id: number;
   artwork: string;
   musicName: string;
   runningTime: number;
@@ -23,12 +25,14 @@ export type searchResultSongTypes = {
 };
 
 export type searchResultPlaylistTypes = {
+  id: number;
   artwork: string;
   title: string;
   username: string;
 };
 
 export type searchResultAlbumTypes = {
+  id: number;
   artwork: string;
   title: string;
   artistName: string[];
@@ -36,6 +40,7 @@ export type searchResultAlbumTypes = {
 };
 
 export type searchResultProfileTypes = {
+  id: number;
   profileImage: string;
   username: string;
 };
