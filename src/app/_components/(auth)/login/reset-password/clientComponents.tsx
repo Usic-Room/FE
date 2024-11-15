@@ -1,9 +1,11 @@
 "use client";
 
 import React from "react";
-import { useResetPassword } from "@/app/_hooks/useResetPassword";
+import { useResetPasswordForm } from "@/hooks/useResetPassword";
 import { usePasswordVisibility } from "@/app/_hooks/usePasswordVisibility";
 import { useConfirmPasswordVisibility } from "@/hooks/useConfirmPasswordVisibility";
+
+import { LoginSubmitButtonCC } from "@/app/_components/(auth)/login/clientComponents";
 
 import {
   RegisterPasswordErrorIcon,
@@ -21,7 +23,9 @@ export function ResetPasswordForm() {
     submitted,
     confirmError,
     handleSubmit,
-  } = useResetPassword();
+    isSubmitting,
+    submissionError,
+  } = useResetPasswordForm();
 
   const getErrorIcon = (conditionMet: boolean) => {
     return (
@@ -40,7 +44,10 @@ export function ResetPasswordForm() {
   return (
     <form
       className="w-full max-w-xs text-left mb-4"
-      onSubmit={(e) => e.preventDefault()}
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmit();
+      }}
     >
       <PasswordInput
         password={password}
@@ -59,7 +66,15 @@ export function ResetPasswordForm() {
         confirmError={confirmError}
         submitted={submitted}
       />
-      <PasswordSubmitButton handleSubmit={handleSubmit} />
+      {submissionError && (
+        <p className="text-red-500 text-xs mb-4">{submissionError}</p>
+      )}
+      <LoginSubmitButtonCC
+        handleSubmit={handleSubmit}
+        isSubmitting={isSubmitting}
+        buttonDescription="비밀번호 재설정"
+        buttonSubmittingDescription="비밀번호 재설정 중..."
+      />
     </form>
   );
 }
@@ -199,19 +214,27 @@ export function ConfirmPasswordInput({
   );
 }
 
-interface PasswordSubmitButtonProps {
-  handleSubmit: () => void;
-}
+//interface PasswordSubmitButtonProps {
+//  handleSubmit: () => void; // 제출 핸들러
+//  isSubmitting: boolean; // 제출 진행 상태
+//}
 
-export function PasswordSubmitButton({
-  handleSubmit,
-}: PasswordSubmitButtonProps) {
-  return (
-    <button
-      onClick={handleSubmit}
-      className={`w-full p-3 mb-4 bg-purple-AC25FF text-white rounded-full hover:bg-[#ac44ff] font-normal`}
-    >
-      로그인하기
-    </button>
-  );
-}
+//export function PasswordSubmitButton({
+//  handleSubmit,
+//  isSubmitting,
+//}: PasswordSubmitButtonProps) {
+//  return (
+//    <button
+//      onClick={handleSubmit}
+//      disabled={isSubmitting} // 제출 중일 때 버튼 비활성화
+//      // onClick 핸들러는 `form`의 onSubmit에서 처리하므로 제거해도 무방합니다.
+//      className={`w-80 p-3 text-white rounded-full font-bold mb-4 ${
+//        isSubmitting
+//          ? "bg-gray-400 cursor-not-allowed"
+//          : "bg-purple-AC25FF hover:bg-[#ac44ff]"
+//      }`}
+//    >
+//      {isSubmitting ? "비밀번호 재설정 중..." : "비밀번호 재설정"}
+//    </button>
+//  );
+//}

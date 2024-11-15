@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { useFormContext } from "@/contexts/registerFormContext";
+import { useFormContext } from "@/app/_contexts/RegisterFormContext";
 import { useRegisterEmailForm } from "@/hooks/useRegisterEmailForm";
 import { AuthLinkButtonSC } from "@/components/(auth)/serverComponents";
 import { AuthHandleOnclickButtonCC } from "@/components/(auth)/clientComponents";

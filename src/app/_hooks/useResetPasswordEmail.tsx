@@ -4,10 +4,24 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { createResetPasswordCode } from "@/auth/login/api/router";
 
+import { create } from "zustand";
+
+interface ResetPasswordStore {
+  email: string;
+  setEmail: (email: string) => void;
+}
+
+export const useResetPasswordStore = create<ResetPasswordStore>((set) => ({
+  email: "",
+  setEmail: (email) => set({ email }),
+}));
+
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 export function useResetPasswordEmail() {
-  const [email, setEmail] = useState("");
+  //const [email, setEmail] = useState("");
+  const email = useResetPasswordStore((state) => state.email);
+  const setEmail = useResetPasswordStore((state) => state.setEmail);
   const [error, setError] = useState({
     empty: false,
     invalid: false,
@@ -38,9 +52,9 @@ export function useResetPasswordEmail() {
       try {
         const response = await createResetPasswordCode(email);
         console.log("Reset password link sent successfully:", response);
-        // 성공 시 리디렉션
-        router.push("/login/reset-password/success");
+        //TODO: 성공 시 리디렉션
       } catch (error: any) {
+        router.push(`${process.env.NEXT_PUBLIC_RESET_PASSWORD_CODE}`);
         setApiErrorMessage(error.message || "서버 에러가 발생했습니다.");
       }
     }

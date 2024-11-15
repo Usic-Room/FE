@@ -88,19 +88,24 @@ interface ResetPasswordEmailSubmitButtonProps {
   handleSubmit: () => void;
 }
 
+//TODO: API 로 유효한 이메일인지 확인하는 코드 추가 필요
 export function ResetPasswordEmailSubmitButton({
   isEmailValid,
   handleSubmit,
 }: ResetPasswordEmailSubmitButtonProps) {
   const registrationUrl =
-    process.env.NEXT_PUBLIC_REGISTRATION_PASSWORD || "/error";
+    process.env.NEXT_PUBLIC_RESET_PASSWORD_CODE || "/error";
 
-  return isEmailValid ? (
-    <AuthLinkButtonSC href={registrationUrl} buttonDescription="링크 보내기" />
-  ) : (
+  return (
     <AuthHandleOnclickButtonCC
       handleSubmit={handleSubmit}
       buttonDescription="링크 보내기"
     />
   );
+
+  //return isEmailValid ? (
+  //  <AuthLinkButtonSC href={registrationUrl} buttonDescription="링크 보내기" />
+  //) : (
+
+  //);
 }

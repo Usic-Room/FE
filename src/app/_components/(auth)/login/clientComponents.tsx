@@ -34,9 +34,11 @@ export function LoginForm() {
       )}
 
       {/* Submit button */}
-      <LoginSubmitButton
+      <LoginSubmitButtonCC
         handleSubmit={handleLogin}
         isSubmitting={isSubmitting}
+        buttonDescription="로그인하기"
+        buttonSubmittingDescription="로그인 중..."
       />
     </div>
   );
@@ -102,15 +104,19 @@ function LoginPasswordInputField({
   );
 }
 
-interface LoginSubmitButtonProps {
+interface LoginSubmitButtonCCProps {
   handleSubmit: () => void;
   isSubmitting: boolean; // To indicate loading state
+  buttonDescription: string;
+  buttonSubmittingDescription: string;
 }
 
-function LoginSubmitButton({
+export function LoginSubmitButtonCC({
   handleSubmit,
   isSubmitting,
-}: LoginSubmitButtonProps) {
+  buttonDescription,
+  buttonSubmittingDescription,
+}: LoginSubmitButtonCCProps) {
   return (
     <button
       onClick={handleSubmit}
@@ -121,7 +127,8 @@ function LoginSubmitButton({
           : "bg-purple-AC25FF hover:bg-[#ac44ff]"
       }`}
     >
-      {isSubmitting ? "로그인 중..." : "로그인하기"}
+      {/*{isSubmitting ? "로그인 중..." : "로그인하기"}*/}
+      {isSubmitting ? buttonSubmittingDescription : buttonDescription}
     </button>
   );
 }

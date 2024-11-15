@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useFormContext } from "@/contexts/registerFormContext";
+import { useFormContext } from "@/app/_contexts/RegisterFormContext";
 
 // Regular expression for username verification (minimum 3 characters)
 const userRegisterUsernameRegex = /^.{3,}$/;

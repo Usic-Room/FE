@@ -7,10 +7,13 @@ import {
 } from "@/components/(auth)/login/reset-password/serverComponents";
 import { AuthLinkButtonSC } from "@/components/(auth)/serverComponents";
 
+import { ResetCodeResendButtonCC } from "@/components/(auth)/login/reset-password/code/clientComponents";
+
 export const metadata: Metadata = {
   title: "Register Reset Password Send Code",
 };
 
+//TODO: API로 이메일 코드 보내기
 export default function ResetPasswordSendCodePage() {
   const loginPageUrl = process.env.NEXT_PUBLIC_LOGIN || "/error";
 
@@ -25,6 +28,7 @@ export default function ResetPasswordSendCodePage() {
           buttonDescription="로그인 화면으로 돌아가기"
         />
       </div>
+      <ResetCodeResendButtonCC />
     </div>
   );
 }

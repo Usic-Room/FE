@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Register Reset Password success",
 };
 
-export default function ResetPassworSuccessdPage() {
+export default function ResetPassworSuccessPage() {
   const loginPageUrl = process.env.NEXT_PUBLIC_LOGIN || "/error";
 
   return (

@@ -1,6 +1,6 @@
 // hooks/useRegisterEmailForm.ts
 import { useState, useEffect } from "react";
-import { useFormContext } from "@/contexts/registerFormContext";
+import { useFormContext } from "@/app/_contexts/RegisterFormContext";
 
 // Regular expression for email validation
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;

@@ -1,5 +1,5 @@
 import { RegisterEmailForm } from "@/app/_components/(auth)/register/clientComponents"; // Correct import path
-import { RegisterFormProvider } from "@/contexts/registerFormContext"; // Correct import path
+import { RegisterFormProvider } from "@/app/_contexts/RegisterFormContext"; // Correct import path
 
 // Regular expression for email verification
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
