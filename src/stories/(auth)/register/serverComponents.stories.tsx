@@ -1,23 +1,19 @@
-import {
-  RegisterEmailTitleSC,
-  SeperateOtherLoginWaySC,
-  MoveToLoginPageButtonSC,
-} from "@/components/(auth)/register/serverComponents"; // Correct import path
+import { RegisterEmailTitleSC } from "@/components/(auth)/serverComponents/RegisterEmailTitleSC";
+import { RegisterSeperateOtherLoginWaySC } from "@/components/(auth)/serverComponents/RegisterSeperateOtherLoginWaySC";
+import { MoveToLoginPageButtonSC } from "@/components/(auth)/serverComponents/MoveToLoginPageButtonSC";
 
-import {
-  HeaderSpotifyLogoSC,
-  GoogleOauthButtonSC,
-} from "@/components/(auth)/serverComponents"; // Correct import path
+import { AuthHeaderSpotifyLogoSC } from "@/app/_components/(auth)/serverComponents/AuthHeaderSpotifyLogoSC";
+import { AuthGoogleOauthButtonSC } from "@/app/_components/(auth)/serverComponents/AuthGoogleOauthButtonSC";
 
 export default {
   title: "Components/Register/serverComponents", // Updated title for uniqueness
   tags: ["autodocs"], // Enable automatic documentation
-  component: HeaderSpotifyLogoSC, // Set the `component` key (could be any default component)
+  component: AuthHeaderSpotifyLogoSC, // Set the `component` key (could be any default component)
 };
 
 // HeaderSpotifyLogoSC story
 export const DefaultHeaderSpotifyLogoSC = {
-  render: () => <HeaderSpotifyLogoSC />,
+  render: () => <AuthHeaderSpotifyLogoSC />,
 };
 
 // RegisterEmailTitleSC story
@@ -26,12 +22,12 @@ export const DefaultRegisterEmailTitleSC = {
 };
 
 export const RegisterDefaultGoogleOauthButton = {
-  render: () => <GoogleOauthButtonSC buttonSize="w/34 sm:w-full" />,
+  render: () => <AuthGoogleOauthButtonSC buttonSize="w/34 sm:w-full" />,
 };
 
 // SeperateOtherLoginWaySC story
 export const DefaultSeperateOtherLoginWaySC = {
-  render: () => <SeperateOtherLoginWaySC />,
+  render: () => <RegisterSeperateOtherLoginWaySC />,
 };
 
 // MoveToLoginPageButtonSC story

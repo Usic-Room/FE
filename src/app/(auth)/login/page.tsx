@@ -1,16 +1,12 @@
 import { Metadata } from "next";
 
-import {
-  HeaderSpotifyLogoSC,
-  GoogleOauthButtonSC,
-} from "@/components/(auth)/serverComponents";
+import { AuthHeaderSpotifyLogoSC } from "@/components/(auth)/serverComponents/AuthHeaderSpotifyLogoSC";
+import { AuthGoogleOauthButtonSC } from "@/components/(auth)/serverComponents/AuthGoogleOauthButtonSC";
+import { LoginPageTitleSC } from "@/components/(auth)/serverComponents/LoginPageTitleSC";
+import { LoginPageTitleDividerSC } from "@/components/(auth)/serverComponents/LoginPageTitileDividerSC";
+import { MoveToResetPasswordPageButtonSC } from "@/components/(auth)/serverComponents/MoveToResetPasswordPageButtonSC";
 
-import {
-  LoginPageTitleSC,
-  LoginPageTitleDividerSC,
-  MoveToResetPasswordPageButtonSC,
-} from "@/components/(auth)/login/serverComponents";
-import { LoginForm } from "@/components/(auth)/login/clientComponents";
+import { LoginForm } from "@/components/(auth)/clientComponents/LoginForm";
 
 export const metadata: Metadata = {
   title: "Login",
@@ -19,9 +15,9 @@ export const metadata: Metadata = {
 export default function LoginPage() {
   return (
     <div className="flex flex-col items-center max-w-md mx-auto bg-white min-h-screen">
-      <HeaderSpotifyLogoSC />
+      <AuthHeaderSpotifyLogoSC />
       <LoginPageTitleSC />
-      <GoogleOauthButtonSC buttonSize="w-80" />
+      <AuthGoogleOauthButtonSC buttonSize="w-80" />
       <LoginPageTitleDividerSC />
       <LoginForm />
       <MoveToResetPasswordPageButtonSC />

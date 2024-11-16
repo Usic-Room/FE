@@ -22,6 +22,10 @@ export async function searchRequestByParams(searchUrl: string) {
 
 export async function searchRequestByQuery(searchParams: string) {
   try {
+    if (!searchParams) {
+      return null;
+    }
+
     const firstResponseMock: searchResultDto = {
       filterList: [
         "모두",

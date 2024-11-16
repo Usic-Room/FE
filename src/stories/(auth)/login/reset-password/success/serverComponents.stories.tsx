@@ -1,4 +1,4 @@
-import { AuthLinkButtonSC } from "@/components/(auth)/serverComponents";
+import { AuthLinkButtonSC } from "@/components/(auth)/serverComponents/AuthLinkButtonSC";
 
 export default {
   title: "Components/Login/ResetPassword/Success/serverComponents",

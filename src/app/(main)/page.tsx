@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import { TopArtistsSC } from "@/components/(main)/serverComponents";
+import { MainTopArtistsSC } from "@/components/(main)/serverComponents/MainTopArtistsSC";
 
 export const metadata: Metadata = {
   title: "Musicroom",
@@ -15,13 +15,13 @@ export default async function Home() {
   return (
     <div className="overflow-y-scroll mb-12">
       <p className="font-lg font-bold">인기 아티스트</p>
-      <TopArtistsSC />
+      <MainTopArtistsSC />
       <p className="font-lg font-bold">인기 아티스트</p>
-      <TopArtistsSC />
+      <MainTopArtistsSC />
       <p className="font-lg font-bold">인기 아티스트</p>
-      <TopArtistsSC />
+      <MainTopArtistsSC />
       <p className="font-lg font-bold">인기 아티스트</p>
-      <TopArtistsSC />
+      <MainTopArtistsSC />
       {/* <TopAlbums /> */}
     </div>
   );

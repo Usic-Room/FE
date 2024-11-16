@@ -1,6 +1,6 @@
-import { GoogleOauthButtonSC } from "@/app/_components/(auth)/serverComponents";
+import { AuthGoogleOauthButtonSC } from "@/app/_components/(auth)/serverComponents/AuthGoogleOauthButtonSC";
 
-import { MoveToResetPasswordPageButtonSC } from "@/app/_components/(auth)/login/serverComponents";
+import { MoveToResetPasswordPageButtonSC } from "@/app/_components/(auth)/serverComponents/MoveToResetPasswordPageButtonSC";
 
 export default {
   title: "Components/Login/serverComponents", // Updated title for uniqueness
@@ -9,7 +9,7 @@ export default {
 };
 
 export const DefaultGoogleOauthButton = {
-  render: () => <GoogleOauthButtonSC buttonSize="w-80" />,
+  render: () => <AuthGoogleOauthButtonSC buttonSize="w-80" />,
 };
 
 export const DefaultMoveToResetPasswordPage = {

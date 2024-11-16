@@ -1,7 +1,5 @@
-import {
-  ProgessBarAndSectionsSC,
-  BackToPreviousLevelPageButtonSC,
-} from "@/components/(auth)/register/serverComponents"; // Correct import path
+import { RegisterProgessBarAndSectionsSC } from "@/app/_components/(auth)/serverComponents/RegisterProgessBarAndSectionsSC";
+import { BackToPreviousLevelPageButtonSC } from "@/app/_components/(auth)/serverComponents/BackToPreviousLevelPageButtonSC";
 
 export default {
   title: "Components/Register/Password/serverComponents", // Updated title for uniqueness
@@ -10,7 +8,7 @@ export default {
 
 // HeaderSpotifyLogoSC story
 export const DefaultProgessBarAndSectionsSC = {
-  render: () => <ProgessBarAndSectionsSC width="33%" />,
+  render: () => <RegisterProgessBarAndSectionsSC width="33%" />,
 };
 
 const registerUrl = process.env.NEXT_PUBLIC_REGISTRATION || "/register";

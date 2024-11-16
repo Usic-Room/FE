@@ -1,10 +1,8 @@
 import { JSX, useState } from "react";
 import { RegisterFormProvider } from "@/app/_contexts/RegisterFormContext"; // Correct import path
 
-import {
-  RegisterPasswordForm,
-  PasswordInput,
-} from "@/app/_components/(auth)/register/password/clientComponents";
+import { RegisterPasswordForm } from "@/app/_components/(auth)/clientComponents/RegisterPasswordForm";
+import { PasswordInput } from "@/app/_components/(auth)/clientComponents/ResetPasswordForm";
 
 export default {
   title: "Components/Register/Password/clientComponents", // Updated title for uniqueness

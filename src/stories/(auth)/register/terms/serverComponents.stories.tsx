@@ -1,9 +1,7 @@
-import {
-  ProgessBarAndSectionsSC,
-  BackToPreviousLevelPageButtonSC,
-} from "@/components/(auth)/register/serverComponents"; // Correct import path
+import { RegisterProgessBarAndSectionsSC } from "@/app/_components/(auth)/serverComponents/RegisterProgessBarAndSectionsSC";
+import { BackToPreviousLevelPageButtonSC } from "@/app/_components/(auth)/serverComponents/BackToPreviousLevelPageButtonSC";
 
-import { MoveToNextPageFromTermsButton } from "@/app/_components/(auth)/register/terms/serverComponents";
+import { MoveToNextPageFromTermsButton } from "@/app/_components/(auth)/serverComponents/MoveToNextPageFromTermsButtonSC";
 
 export default {
   title: "Components/Register/Terms/serverComponents", // Updated title for uniqueness
@@ -11,8 +9,8 @@ export default {
 };
 
 // HeaderSpotifyLogoSC story
-export const DefaultProgessBarAndSectionsSC = {
-  render: () => <ProgessBarAndSectionsSC width="100%" />,
+export const DefaultRegisterProgessBarAndSectionsSC = {
+  render: () => <RegisterProgessBarAndSectionsSC width="100%" />,
 };
 
 const registerUsernameUrl =

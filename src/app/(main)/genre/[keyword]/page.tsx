@@ -1,6 +1,6 @@
 import { GenreResultDto } from "@/types/genreMusicDto";
 
-import { GenreMusicCardSection } from "@/components/(main)/genre/serverComponents";
+import { GenreMusicCardSectionSC } from "@/components/(main)/serverComponents/GenreMusicCardSectionSC";
 
 function GenreResultTitle() {
   return <h1 className="text-xl font-bold mb-4 mt-10">모두 둘러보기</h1>;
@@ -26,7 +26,7 @@ export default function genreResultPage() {
   return (
     <div className="overflow-y-scroll mb-12 scrollbar-hide">
       <GenreResultTitle />
-      <GenreMusicCardSection
+      <GenreMusicCardSectionSC
         router={router}
         genreMusicResultType={genreMusicResultType}
       />

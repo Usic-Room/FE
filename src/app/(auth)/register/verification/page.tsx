@@ -1,26 +1,25 @@
 import React from "react";
-import { HeaderSpotifyLogoSC } from "@/components/(auth)/serverComponents";
-
-import {
-  VerificationPageTitleSC,
-  VerificationPageDescriptionSC,
-} from "@/app/_components/(auth)/register/verification/serverComponents";
 import { Metadata } from "next";
-import { VerificationCodeForm } from "@/app/_components/(auth)/register/verification/clientComponents";
+
+import { AuthHeaderSpotifyLogoSC } from "@/components/(auth)/serverComponents/AuthHeaderSpotifyLogoSC";
+import { RegisterVerificationPageTitleSC } from "@/app/_components/(auth)/serverComponents/RegisterVerificationPageTitleSC";
+import { RegisterVerificationPageDescriptionSC } from "@/app/_components/(auth)/serverComponents/RegisterVerificationPageDescriptionSC";
+
+import { RegisterVerificationCodeForm } from "@/app/_components/(auth)/clientComponents/RegisterVerificationCodeForm";
 
 export const metadata: Metadata = {
   title: "Verification",
 };
 
-export default function RegisterVerification() {
+export default function RegisterVerificationPage() {
   const registeUsernamerUrl =
     process.env.NEXT_PUBLIC_REGISTRATION_USERNAME || "/register/username";
   return (
     <div className="flex flex-col items-center max-w-md mx-auto text-center bg-white min-h-screen font-bold">
-      <HeaderSpotifyLogoSC />
-      <VerificationPageTitleSC />
-      <VerificationPageDescriptionSC />
-      <VerificationCodeForm />
+      <AuthHeaderSpotifyLogoSC />
+      <RegisterVerificationPageTitleSC />
+      <RegisterVerificationPageDescriptionSC />
+      <RegisterVerificationCodeForm />
     </div>
   );
 }
