@@ -1,7 +1,7 @@
 import { RegisterProgessBarAndSectionsSC } from "@/app/_components/(auth)/serverComponents/RegisterProgessBarAndSectionsSC";
 import { RegisterBackToPreviousPageButtonSC } from "@/app/_components/(auth)/serverComponents/RegisterBackToPreviousPageButtonSC";
 
-import { MoveToNextPageFromTermsButton } from "@/app/_components/(auth)/serverComponents/MoveToNextPageFromTermsButtonSC";
+import { RegisterMoveToNextPageFromTermsButtonSC } from "@/app/_components/(auth)/serverComponents/RegisterMoveToNextPageFromTermsButtonSC";
 
 export default {
   title: "Components/Register/Terms/serverComponents", // Updated title for uniqueness
@@ -28,5 +28,5 @@ export const DefaultRegisterBackToPreviousPageButtonSC = {
 };
 
 export const DefaultMoveToNextPageFromTermsButton = () => {
-  render: () => <MoveToNextPageFromTermsButton />;
+  render: () => <RegisterMoveToNextPageFromTermsButtonSC />;
 };

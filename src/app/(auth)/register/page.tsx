@@ -5,7 +5,7 @@ import { AuthHeaderSpotifyLogoSC } from "@/app/_components/(auth)/serverComponen
 import { RegisterEmailTitleSC } from "@/components/(auth)/serverComponents/RegisterEmailTitleSC";
 import { RegisterSeperateOtherLoginWaySC } from "@/components/(auth)/serverComponents/RegisterSeperateOtherLoginWaySC";
 import { AuthGoogleOauthButtonSC } from "@/app/_components/(auth)/serverComponents/AuthGoogleOauthButtonSC";
-import { MoveToLoginPageButtonSC } from "@/components/(auth)/serverComponents/MoveToLoginPageButtonSC";
+import { RegisterMoveToLoginPageButtonSC } from "@/app/_components/(auth)/serverComponents/RegisterMoveToLoginPageButtonSC";
 
 import { RegisterEmailForm } from "@/app/_components/(auth)/clientComponents/RegisterEmailForm";
 
@@ -21,7 +21,7 @@ export default function RegisterEmail() {
       <RegisterEmailForm />
       <RegisterSeperateOtherLoginWaySC />
       <AuthGoogleOauthButtonSC buttonSize="w-3/4 sm:w-full" />
-      <MoveToLoginPageButtonSC />
+      <RegisterMoveToLoginPageButtonSC />
     </div>
   );
 }

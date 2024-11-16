@@ -4,7 +4,7 @@ import { AuthHeaderSpotifyLogoSC } from "@/components/(auth)/serverComponents/Au
 import { AuthGoogleOauthButtonSC } from "@/components/(auth)/serverComponents/AuthGoogleOauthButtonSC";
 import { LoginPageTitleSC } from "@/components/(auth)/serverComponents/LoginPageTitleSC";
 import { LoginPageTitleDividerSC } from "@/components/(auth)/serverComponents/LoginPageTitileDividerSC";
-import { MoveToResetPasswordPageButtonSC } from "@/components/(auth)/serverComponents/MoveToResetPasswordPageButtonSC";
+import { LoginMoveToResetPasswordPageButtonSC } from "@/app/_components/(auth)/serverComponents/LoginMoveToResetPasswordPageButtonSC";
 
 import { LoginForm } from "@/components/(auth)/clientComponents/LoginForm";
 
@@ -20,7 +20,7 @@ export default function LoginPage() {
       <AuthGoogleOauthButtonSC buttonSize="w-80" />
       <LoginPageTitleDividerSC />
       <LoginForm />
-      <MoveToResetPasswordPageButtonSC />
+      <LoginMoveToResetPasswordPageButtonSC />
     </div>
   );
 }

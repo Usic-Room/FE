@@ -1,7 +1,7 @@
 import "server-only";
 import Link from "next/link";
 
-export function MoveToResetPasswordPageButtonSC() {
+export function LoginMoveToResetPasswordPageButtonSC() {
   const resetPasswordUrl =
     process.env.NEXT_PUBLIC_RESET_PASSWORD_EMAIL || "/login/reset-password";
 

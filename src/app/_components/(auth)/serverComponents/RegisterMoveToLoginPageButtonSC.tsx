@@ -1,7 +1,7 @@
 import "server-only";
 import Link from "next/link";
 
-export function MoveToLoginPageButtonSC() {
+export function RegisterMoveToLoginPageButtonSC() {
   const loginPageUrl = process.env.NEXT_PUBLIC_LOGIN || "/error";
 
   return (

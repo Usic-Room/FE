@@ -1,6 +1,6 @@
 import { RegisterEmailTitleSC } from "@/components/(auth)/serverComponents/RegisterEmailTitleSC";
 import { RegisterSeperateOtherLoginWaySC } from "@/components/(auth)/serverComponents/RegisterSeperateOtherLoginWaySC";
-import { MoveToLoginPageButtonSC } from "@/components/(auth)/serverComponents/MoveToLoginPageButtonSC";
+import { RegisterMoveToLoginPageButtonSC } from "@/app/_components/(auth)/serverComponents/RegisterMoveToLoginPageButtonSC";
 
 import { AuthHeaderSpotifyLogoSC } from "@/app/_components/(auth)/serverComponents/AuthHeaderSpotifyLogoSC";
 import { AuthGoogleOauthButtonSC } from "@/app/_components/(auth)/serverComponents/AuthGoogleOauthButtonSC";
@@ -32,5 +32,5 @@ export const DefaultSeperateOtherLoginWaySC = {
 
 // MoveToLoginPageButtonSC story
 export const DefaultMoveToLoginPageButtonSC = {
-  render: () => <MoveToLoginPageButtonSC />,
+  render: () => <RegisterMoveToLoginPageButtonSC />,
 };

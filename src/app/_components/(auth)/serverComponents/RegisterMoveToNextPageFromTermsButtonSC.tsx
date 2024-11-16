@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-export function MoveToNextPageFromTermsButton() {
+export function RegisterMoveToNextPageFromTermsButtonSC() {
   const registerVerificationUrl =
     process.env.NEXT_PUBLIC_REGISTRATION_VERIFICATION ||
     "/register/verification";

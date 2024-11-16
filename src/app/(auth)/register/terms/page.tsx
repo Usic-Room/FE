@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import { AuthHeaderSpotifyLogoSC } from "@/components/(auth)/serverComponents/AuthHeaderSpotifyLogoSC";
 import { RegisterProgessBarAndSectionsSC } from "@/components/(auth)/serverComponents/RegisterProgessBarAndSectionsSC";
 import { RegisterBackToPreviousPageButtonSC } from "@/app/_components/(auth)/serverComponents/RegisterBackToPreviousPageButtonSC";
-import { MoveToNextPageFromTermsButton } from "@/components/(auth)/serverComponents/MoveToNextPageFromTermsButtonSC";
+import { RegisterMoveToNextPageFromTermsButtonSC } from "@/app/_components/(auth)/serverComponents/RegisterMoveToNextPageFromTermsButtonSC";
 
 import { RegisterTermsForm } from "@/components/(auth)/clientComponents/RegisterTermsForm";
 
@@ -25,7 +25,7 @@ export default function RegisterTermPage() {
         backURL={registeUsernamerUrl}
       />
       <RegisterTermsForm />
-      <MoveToNextPageFromTermsButton />
+      <RegisterMoveToNextPageFromTermsButtonSC />
     </div>
   );
 }
