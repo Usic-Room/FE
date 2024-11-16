@@ -3,7 +3,7 @@ import { Metadata } from "next";
 
 import { AuthHeaderSpotifyLogoSC } from "@/components/(auth)/serverComponents/AuthHeaderSpotifyLogoSC";
 import { RegisterProgessBarAndSectionsSC } from "@/components/(auth)/serverComponents/RegisterProgessBarAndSectionsSC";
-import { BackToPreviousLevelPageButtonSC } from "@/components/(auth)/serverComponents/BackToPreviousLevelPageButtonSC";
+import { RegisterBackToPreviousPageButtonSC } from "@/app/_components/(auth)/serverComponents/RegisterBackToPreviousPageButtonSC";
 import { MoveToNextPageFromTermsButton } from "@/components/(auth)/serverComponents/MoveToNextPageFromTermsButtonSC";
 
 import { RegisterTermsForm } from "@/components/(auth)/clientComponents/RegisterTermsForm";
@@ -19,7 +19,7 @@ export default function RegisterTermPage() {
     <div className="flex flex-col items-center max-w-md mx-auto text-center bg-white min-h-screen font-bold">
       <AuthHeaderSpotifyLogoSC />
       <RegisterProgessBarAndSectionsSC width="100%" />
-      <BackToPreviousLevelPageButtonSC
+      <RegisterBackToPreviousPageButtonSC
         level="3"
         title="약관"
         backURL={registeUsernamerUrl}

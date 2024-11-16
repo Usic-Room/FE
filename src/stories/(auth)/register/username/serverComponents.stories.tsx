@@ -1,5 +1,5 @@
 import { RegisterProgessBarAndSectionsSC } from "@/app/_components/(auth)/serverComponents/RegisterProgessBarAndSectionsSC";
-import { BackToPreviousLevelPageButtonSC } from "@/app/_components/(auth)/serverComponents/BackToPreviousLevelPageButtonSC";
+import { RegisterBackToPreviousPageButtonSC } from "@/app/_components/(auth)/serverComponents/RegisterBackToPreviousPageButtonSC";
 
 export default {
   title: "Components/Register/Username/serverComponents", // Updated title for uniqueness
@@ -15,9 +15,9 @@ const registerPasswordUrl =
   process.env.NEXT_PUBLIC_REGISTRATION_PASSWORD || "/register/password";
 
 // RegisterEmailTitleSC story
-export const DefaultBackToPreviousLevelPageButtonSC = {
+export const DefaultRegisterBackToPreviousPageButtonSC = {
   render: () => (
-    <BackToPreviousLevelPageButtonSC
+    <RegisterBackToPreviousPageButtonSC
       level="2"
       title="자신을 소개해주세요"
       backURL={registerPasswordUrl}

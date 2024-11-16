@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 import { AuthHeaderSpotifyLogoSC } from "@/components/(auth)/serverComponents/AuthHeaderSpotifyLogoSC";
 import { RegisterProgessBarAndSectionsSC } from "@/components/(auth)/serverComponents/RegisterProgessBarAndSectionsSC";
-import { BackToPreviousLevelPageButtonSC } from "@/components/(auth)/serverComponents/BackToPreviousLevelPageButtonSC";
+import { RegisterBackToPreviousPageButtonSC } from "@/app/_components/(auth)/serverComponents/RegisterBackToPreviousPageButtonSC";
 
 import { RegisterPasswordForm } from "@/components/(auth)/clientComponents/RegisterPasswordForm";
 
@@ -17,7 +17,7 @@ export default function RegisterPassword() {
     <div className="flex flex-col items-center max-w-md mx-auto bg-white min-h-screen">
       <AuthHeaderSpotifyLogoSC />
       <RegisterProgessBarAndSectionsSC width="33%" />
-      <BackToPreviousLevelPageButtonSC
+      <RegisterBackToPreviousPageButtonSC
         level="1"
         title="비밀번호를 만드세요."
         backURL={registerUrl}

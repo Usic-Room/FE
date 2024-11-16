@@ -1,5 +1,5 @@
 import { RegisterProgessBarAndSectionsSC } from "@/app/_components/(auth)/serverComponents/RegisterProgessBarAndSectionsSC";
-import { BackToPreviousLevelPageButtonSC } from "@/app/_components/(auth)/serverComponents/BackToPreviousLevelPageButtonSC";
+import { RegisterBackToPreviousPageButtonSC } from "@/app/_components/(auth)/serverComponents/RegisterBackToPreviousPageButtonSC";
 
 import { MoveToNextPageFromTermsButton } from "@/app/_components/(auth)/serverComponents/MoveToNextPageFromTermsButtonSC";
 
@@ -17,9 +17,9 @@ const registerUsernameUrl =
   process.env.NEXT_PUBLIC_REGISTRATION_USERNAME || "/register/username";
 
 // RegisterEmailTitleSC story
-export const DefaultBackToPreviousLevelPageButtonSC = {
+export const DefaultRegisterBackToPreviousPageButtonSC = {
   render: () => (
-    <BackToPreviousLevelPageButtonSC
+    <RegisterBackToPreviousPageButtonSC
       level="3"
       title="약관"
       backURL={registerUsernameUrl}

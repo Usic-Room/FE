@@ -2,17 +2,17 @@ import "server-only";
 import Link from "next/link";
 import ChevronLeft from "@/public/images/chevron-left.svg"; // Correct import path
 
-interface BackToPreviousLevelPageButtonSCProps {
+interface RegisterBackToPreviousPageButtonSCProps {
   level: string;
   title: string;
   backURL: string;
 }
 
-export function BackToPreviousLevelPageButtonSC({
+export function RegisterBackToPreviousPageButtonSC({
   level,
   title,
   backURL,
-}: BackToPreviousLevelPageButtonSCProps) {
+}: RegisterBackToPreviousPageButtonSCProps) {
   return (
     <div className="w-full flex items-center mb-8">
       <Link href={backURL ?? "/error"}>
