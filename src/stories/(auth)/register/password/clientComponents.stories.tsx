@@ -1,5 +1,5 @@
 import { JSX, useState } from "react";
-import { RegisterFormProvider } from "@/app/_contexts/RegisterFormContext"; // Correct import path
+import { RegisterFormProvider } from "@/app/_contexts/RegisterFormProvider"; // Correct import path
 
 import { RegisterPasswordForm } from "@/app/_components/(auth)/clientComponents/RegisterPasswordForm";
 import { PasswordInput } from "@/app/_components/(auth)/clientComponents/ResetPasswordForm";

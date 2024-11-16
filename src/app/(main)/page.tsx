@@ -13,7 +13,7 @@ export default async function Home() {
   console.log("isMobileUser: ", isMobileUser);
 
   return (
-    <div className="overflow-y-scroll mb-12">
+    <div className="overflow-y-scroll mb-12 scrollbar-hide">
       <p className="font-lg font-bold">인기 아티스트</p>
       <MainTopArtistsSC />
       <p className="font-lg font-bold">인기 아티스트</p>

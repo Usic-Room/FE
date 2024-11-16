@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useFormContext } from "@/app/_contexts/RegisterFormContext";
+import { useFormContext } from "@/app/_contexts/RegisterFormProvider";
 import { useRegisterUsernameForm } from "@/hooks/useRegisterUsernameForm";
 
 // Main component to manage the username form

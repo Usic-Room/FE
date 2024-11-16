@@ -1,6 +1,6 @@
 import "@/app/globals.css";
 import localFont from "next/font/local";
-import { RegisterFormProvider } from "@/app/_contexts/RegisterFormContext";
+import { RegisterFormProvider } from "@/app/_contexts/RegisterFormProvider";
 
 const pretendard = localFont({
   src: "../../../../public/fonts/PretendardVariable.woff2",
