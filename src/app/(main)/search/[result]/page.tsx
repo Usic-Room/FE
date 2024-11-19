@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { SearchResultForm } from "@/components/(main)/clientComponents/SearchResultForm";
+import { SearchResultForm } from "@/app/_components/(main)/clientComponents/forms/SearchResultForm";
 
 export const metadata: Metadata = {
   title: "Search Result",

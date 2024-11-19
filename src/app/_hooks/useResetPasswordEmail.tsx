@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { createResetPasswordCode } from "@/auth/login/api/router";
+import { createResetPasswordCode } from "@/auth/reset-password/api/router";
 
 import { create } from "zustand";
 

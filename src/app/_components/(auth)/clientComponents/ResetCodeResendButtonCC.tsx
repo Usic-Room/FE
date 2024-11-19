@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { createResetPasswordCode } from "@/auth/login/api/router";
+import { createResetPasswordCode } from "@/auth/reset-password/api/router";
 import { useResetPasswordStore } from "@/app/_hooks/useResetPasswordEmail";
 
 //export function createResetPasswordCode(email: string) {
