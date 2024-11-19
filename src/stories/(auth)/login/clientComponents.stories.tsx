@@ -1,7 +1,6 @@
-import {
-  LoginForm,
-  LoginSubmitButtonCC,
-} from "@/app/_components/(auth)/clientComponents/LoginForm";
+import { LoginForm } from "@/components/(auth)/clientComponents/forms/LoginForm";
+
+import { LoginSubmitButtonCC } from "@/components/(auth)/clientComponents/LoginSubmitButtonCC";
 
 export default {
   title: "Components/Login/clientComponents", // Updated title for uniqueness

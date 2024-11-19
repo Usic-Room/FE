@@ -1,4 +1,4 @@
-import { ResetPasswordEmailForm } from "@/app/_components/(auth)/clientComponents/ResetPasswordEmailForm";
+import { ResetPasswordEmailForm } from "@/app/_components/(auth)/clientComponents/forms/ResetPasswordEmailForm";
 
 export default {
   title: "Components/Login/ResetPassword/Email/clientComponents",

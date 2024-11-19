@@ -3,7 +3,7 @@ import { AuthHeaderSpotifyLogoSC } from "@/components/(auth)/serverComponents/Au
 import { AuthPageTitleSC } from "@/components/(auth)/serverComponents/AuthPageTitleSC";
 import { AuthPageDescriptionSC } from "@/components/(auth)/serverComponents/AuthPageDescriptionSC";
 
-import { ResetPasswordEmailForm } from "@/components/(auth)/clientComponents/ResetPasswordEmailForm";
+import { ResetPasswordEmailForm } from "@/app/_components/(auth)/clientComponents/forms/ResetPasswordEmailForm";
 
 export const metadata: Metadata = {
   title: "Enter email for register",

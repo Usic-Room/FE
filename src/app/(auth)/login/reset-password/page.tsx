@@ -4,7 +4,7 @@ import { AuthHeaderSpotifyLogoSC } from "@/app/_components/(auth)/serverComponen
 
 import { AuthPageTitleSC } from "@/app/_components/(auth)/serverComponents/AuthPageTitleSC";
 import { AuthPageDescriptionSC } from "@/app/_components/(auth)/serverComponents/AuthPageDescriptionSC";
-import { ResetPasswordForm } from "@/app/_components/(auth)/clientComponents/ResetPasswordForm";
+import { ResetPasswordForm } from "@/app/_components/(auth)/clientComponents/forms/ResetPasswordForm";
 
 export const metadata: Metadata = {
   title: "Reset password",

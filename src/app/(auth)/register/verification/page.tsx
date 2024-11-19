@@ -5,7 +5,7 @@ import { AuthHeaderSpotifyLogoSC } from "@/components/(auth)/serverComponents/Au
 import { AuthPageTitleSC } from "@/app/_components/(auth)/serverComponents/AuthPageTitleSC";
 import { AuthPageDescriptionSC } from "@/app/_components/(auth)/serverComponents/AuthPageDescriptionSC";
 
-import { RegisterVerificationCodeForm } from "@/app/_components/(auth)/clientComponents/RegisterVerificationCodeForm";
+import { RegisterVerificationCodeForm } from "@/app/_components/(auth)/clientComponents/forms/RegisterVerificationCodeForm";
 
 export const metadata: Metadata = {
   title: "Verification",

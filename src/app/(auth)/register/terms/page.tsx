@@ -6,7 +6,7 @@ import { RegisterProgessBarAndSectionsSC } from "@/components/(auth)/serverCompo
 import { RegisterBackToPreviousPageButtonSC } from "@/app/_components/(auth)/serverComponents/RegisterBackToPreviousPageButtonSC";
 import { RegisterMoveToNextPageFromTermsButtonSC } from "@/app/_components/(auth)/serverComponents/RegisterMoveToNextPageFromTermsButtonSC";
 
-import { RegisterTermsForm } from "@/components/(auth)/clientComponents/RegisterTermsForm";
+import { RegisterTermsForm } from "@/app/_components/(auth)/clientComponents/forms/RegisterTermsForm";
 
 export const metadata: Metadata = {
   title: "Register Term",

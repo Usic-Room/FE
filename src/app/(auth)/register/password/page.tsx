@@ -4,7 +4,7 @@ import { AuthHeaderSpotifyLogoSC } from "@/components/(auth)/serverComponents/Au
 import { RegisterProgessBarAndSectionsSC } from "@/components/(auth)/serverComponents/RegisterProgessBarAndSectionsSC";
 import { RegisterBackToPreviousPageButtonSC } from "@/app/_components/(auth)/serverComponents/RegisterBackToPreviousPageButtonSC";
 
-import { RegisterPasswordForm } from "@/components/(auth)/clientComponents/RegisterPasswordForm";
+import { RegisterPasswordForm } from "@/app/_components/(auth)/clientComponents/forms/RegisterPasswordForm";
 
 export const metadata: Metadata = {
   title: "Password",

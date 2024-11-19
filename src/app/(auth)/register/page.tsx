@@ -7,7 +7,7 @@ import { RegisterSeperateOtherLoginWaySC } from "@/components/(auth)/serverCompo
 import { AuthGoogleOauthButtonSC } from "@/app/_components/(auth)/serverComponents/AuthGoogleOauthButtonSC";
 import { RegisterMoveToLoginPageButtonSC } from "@/app/_components/(auth)/serverComponents/RegisterMoveToLoginPageButtonSC";
 
-import { RegisterEmailForm } from "@/app/_components/(auth)/clientComponents/RegisterEmailForm";
+import { RegisterEmailForm } from "@/app/_components/(auth)/clientComponents/forms/RegisterEmailForm";
 
 export const metadata: Metadata = {
   title: "Register",

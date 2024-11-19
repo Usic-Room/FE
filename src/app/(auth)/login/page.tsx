@@ -6,7 +6,7 @@ import { LoginPageTitleSC } from "@/components/(auth)/serverComponents/LoginPage
 import { LoginPageTitleDividerSC } from "@/components/(auth)/serverComponents/LoginPageTitileDividerSC";
 import { LoginMoveToResetPasswordPageButtonSC } from "@/app/_components/(auth)/serverComponents/LoginMoveToResetPasswordPageButtonSC";
 
-import { LoginForm } from "@/components/(auth)/clientComponents/LoginForm";
+import { LoginForm } from "@/app/_components/(auth)/clientComponents/forms/LoginForm";
 
 export const metadata: Metadata = {
   title: "Login",
