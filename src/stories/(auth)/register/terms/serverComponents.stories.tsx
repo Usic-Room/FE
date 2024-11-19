@@ -1,27 +1,25 @@
-import {
-  ProgessBarAndSections,
-  BackToPreviousLevelPage,
-} from "@/app/_components/(auth)/register/password/serverComponents"; // Correct import path
+import { RegisterProgessBarAndSectionsSC } from "@/app/_components/(auth)/serverComponents/RegisterProgessBarAndSectionsSC";
+import { RegisterBackToPreviousPageButtonSC } from "@/app/_components/(auth)/serverComponents/RegisterBackToPreviousPageButtonSC";
 
-import { MoveToNextPageFromTermsButton } from "@/app/_components/(auth)/register/terms/serverComponents";
+import { RegisterMoveToNextPageFromTermsButtonSC } from "@/app/_components/(auth)/serverComponents/RegisterMoveToNextPageFromTermsButtonSC";
 
 export default {
   title: "Components/Register/Terms/serverComponents", // Updated title for uniqueness
   tags: ["autodocs"], // Enable automatic documentation
 };
 
-// HeaderSpotifyLogo story
-export const DefaultProgessBarAndSections = {
-  render: () => <ProgessBarAndSections width="100%" />,
+// HeaderSpotifyLogoSC story
+export const DefaultRegisterProgessBarAndSectionsSC = {
+  render: () => <RegisterProgessBarAndSectionsSC width="100%" />,
 };
 
 const registerUsernameUrl =
   process.env.NEXT_PUBLIC_REGISTRATION_USERNAME || "/register/username";
 
-// RegisterEmailTitle story
-export const DefaultBackToPreviousLevelPage = {
+// RegisterEmailTitleSC story
+export const DefaultRegisterBackToPreviousPageButtonSC = {
   render: () => (
-    <BackToPreviousLevelPage
+    <RegisterBackToPreviousPageButtonSC
       level="3"
       title="약관"
       backURL={registerUsernameUrl}
@@ -30,5 +28,5 @@ export const DefaultBackToPreviousLevelPage = {
 };
 
 export const DefaultMoveToNextPageFromTermsButton = () => {
-  render: () => <MoveToNextPageFromTermsButton />;
+  render: () => <RegisterMoveToNextPageFromTermsButtonSC />;
 };

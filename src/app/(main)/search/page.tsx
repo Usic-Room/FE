@@ -1,9 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
-import {
-  GenreRecommendTitle,
-  GenreCardSection,
-} from "@/components/(main)/home/search/serverComponents";
+import { SearchRecommendTitleSC } from "@/components/(main)/serverComponents/SearchRecommendTitleSC";
+import { SearchRecommendSectionSC } from "@/components/(main)/serverComponents/SearchRecommendSectionSC";
 
 export const metadata: Metadata = {
   title: "Search",
@@ -12,8 +10,8 @@ export const metadata: Metadata = {
 export default function SearchPage() {
   return (
     <div className="flex flex-col w-full h-screen bg-black-121212 text-white pl-2 overflow-y-scroll mb-12 scrollbar-hide">
-      <GenreRecommendTitle />
-      <GenreCardSection />
+      <SearchRecommendTitleSC />
+      <SearchRecommendSectionSC />
     </div>
   );
 }

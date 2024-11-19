@@ -1,24 +1,22 @@
-import {
-  ProgessBarAndSections,
-  BackToPreviousLevelPage,
-} from "@/app/_components/(auth)/register/password/serverComponents"; // Correct import path
+import { RegisterProgessBarAndSectionsSC } from "@/app/_components/(auth)/serverComponents/RegisterProgessBarAndSectionsSC";
+import { RegisterBackToPreviousPageButtonSC } from "@/app/_components/(auth)/serverComponents/RegisterBackToPreviousPageButtonSC";
 
 export default {
   title: "Components/Register/Password/serverComponents", // Updated title for uniqueness
   tags: ["autodocs"], // Enable automatic documentation
 };
 
-// HeaderSpotifyLogo story
-export const DefaultProgessBarAndSections = {
-  render: () => <ProgessBarAndSections width="33%" />,
+// HeaderSpotifyLogoSC story
+export const DefaultProgessBarAndSectionsSC = {
+  render: () => <RegisterProgessBarAndSectionsSC width="33%" />,
 };
 
 const registerUrl = process.env.NEXT_PUBLIC_REGISTRATION || "/register";
 
-// RegisterEmailTitle story
-export const DefaultBackToPreviousLevelPage = {
+// RegisterEmailTitleSC story
+export const DefaultRegisterBackToPreviousPageButtonSC = {
   render: () => (
-    <BackToPreviousLevelPage
+    <RegisterBackToPreviousPageButtonSC
       level="1"
       title="비밀번호를 만드세요."
       backURL={registerUrl}

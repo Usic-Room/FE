@@ -1,7 +1,7 @@
-import { HeaderSpotifyLogo } from "@/app/_components/(auth)/register/serverComponents";
+import { AuthHeaderSpotifyLogoSC } from "@/app/_components/(auth)/serverComponents/AuthHeaderSpotifyLogoSC";
 
-import { OAuthLodingAnimation } from "@/app/_components/(auth)/oauth/clientComponents";
-import { OAuthPageDescription } from "@/app/_components/(auth)/oauth/serverComponents";
+import { OAuthLoadingAnimationCC } from "@/components/(auth)/clientComponents/OAuthLoadingAnimationCC";
+import { OAuthPageDescriptionSC } from "@/components/(auth)/serverComponents/OAuthPageDescriptionSC";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="flex flex-col items-center max-w-md mx-auto text-center bg-white min-h-screen font-bold">
-      <HeaderSpotifyLogo />
-      <OAuthLodingAnimation />
-      <OAuthPageDescription />
+      <AuthHeaderSpotifyLogoSC />
+      <OAuthLoadingAnimationCC />
+      <OAuthPageDescriptionSC />
     </div>
   );
 }

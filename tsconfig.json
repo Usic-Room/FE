@@ -21,10 +21,12 @@
       "@/*": ["./src/*"],
       "@/public/*": ["./public/*"],
       "@/auth/*": ["./src/app/(auth)/*"],
+      "@/main/*": ["./src/app/(main)/*"],
       "@/hooks/*": ["./src/app/_hooks/*"],
       "@/contexts/*": ["./src/app/_contexts/*"],
       "@/components/*": ["./src/app/_components/*"],
       "@/types/*": ["./src/app/_types/*"],
+      "@/utils/*": ["./src/app/_utils/*"],
       "@/stories/*": ["./src/stories/*"]
     }
   },

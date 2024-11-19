@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
@@ -8,6 +8,9 @@ const nextConfig = {
     });
 
     return config;
+  },
+  images: {
+    domains: ["dummyimage.com"], // 외부 도메인 추가
   },
 };
 

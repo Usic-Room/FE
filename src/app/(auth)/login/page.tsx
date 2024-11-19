@@ -1,12 +1,12 @@
-import {
-  LoginPageTitle,
-  LoginPageTitleDivider,
-  GoogleOauthButton,
-  MoveToResetPasswordPage,
-} from "@/app/_components/(auth)/login/serverComponents";
-import { LoginForm } from "@/app/_components/(auth)/login/clientComponents";
 import { Metadata } from "next";
-import { HeaderSpotifyLogo } from "@/app/_components/(auth)/register/serverComponents";
+
+import { AuthHeaderSpotifyLogoSC } from "@/components/(auth)/serverComponents/AuthHeaderSpotifyLogoSC";
+import { AuthGoogleOauthButtonSC } from "@/components/(auth)/serverComponents/AuthGoogleOauthButtonSC";
+import { LoginPageTitleSC } from "@/components/(auth)/serverComponents/LoginPageTitleSC";
+import { LoginPageTitleDividerSC } from "@/components/(auth)/serverComponents/LoginPageTitileDividerSC";
+import { LoginMoveToResetPasswordPageButtonSC } from "@/app/_components/(auth)/serverComponents/LoginMoveToResetPasswordPageButtonSC";
+
+import { LoginForm } from "@/app/_components/(auth)/clientComponents/forms/LoginForm";
 
 export const metadata: Metadata = {
   title: "Login",
@@ -15,12 +15,12 @@ export const metadata: Metadata = {
 export default function LoginPage() {
   return (
     <div className="flex flex-col items-center max-w-md mx-auto bg-white min-h-screen">
-      <HeaderSpotifyLogo />
-      <LoginPageTitle />
-      <GoogleOauthButton />
-      <LoginPageTitleDivider />
+      <AuthHeaderSpotifyLogoSC />
+      <LoginPageTitleSC />
+      <AuthGoogleOauthButtonSC buttonSize="w-80" />
+      <LoginPageTitleDividerSC />
       <LoginForm />
-      <MoveToResetPasswordPage />
+      <LoginMoveToResetPasswordPageButtonSC />
     </div>
   );
 }

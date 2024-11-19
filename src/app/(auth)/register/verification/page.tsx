@@ -1,26 +1,27 @@
 import React from "react";
-import { HeaderSpotifyLogo } from "@/app/_components/(auth)/register/serverComponents";
-
-import {
-  VerificationPageTitle,
-  VerificationPageDescription,
-} from "@/app/_components/(auth)/register/verification/serverComponents";
 import { Metadata } from "next";
-import { VerificationCodeForm } from "@/app/_components/(auth)/register/verification/clientComponents";
+
+import { AuthHeaderSpotifyLogoSC } from "@/components/(auth)/serverComponents/AuthHeaderSpotifyLogoSC";
+import { AuthPageTitleSC } from "@/app/_components/(auth)/serverComponents/AuthPageTitleSC";
+import { AuthPageDescriptionSC } from "@/app/_components/(auth)/serverComponents/AuthPageDescriptionSC";
+
+import { RegisterVerificationCodeForm } from "@/app/_components/(auth)/clientComponents/forms/RegisterVerificationCodeForm";
 
 export const metadata: Metadata = {
   title: "Verification",
 };
 
-export default function RegisterVerification() {
+export default function RegisterVerificationPage() {
   const registeUsernamerUrl =
     process.env.NEXT_PUBLIC_REGISTRATION_USERNAME || "/register/username";
   return (
     <div className="flex flex-col items-center max-w-md mx-auto text-center bg-white min-h-screen font-bold">
-      <HeaderSpotifyLogo />
-      <VerificationPageTitle />
-      <VerificationPageDescription />
-      <VerificationCodeForm />
+      <AuthHeaderSpotifyLogoSC />
+      <AuthPageTitleSC title="환영합니다!" />
+      <AuthPageDescriptionSC
+        description={`가입한 이메일로 인증코드를 보냈습니다.\n코드를 입력해주세요.`}
+      />
+      <RegisterVerificationCodeForm />
     </div>
   );
 }

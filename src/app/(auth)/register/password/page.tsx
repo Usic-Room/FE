@@ -1,10 +1,11 @@
-import {
-  ProgessBarAndSections,
-  BackToPreviousLevelPage,
-} from "@/app/_components/(auth)/register/password/serverComponents";
-import { RegisterPasswordForm } from "@/app/_components/(auth)/register/password/clientComponents";
-import { HeaderSpotifyLogo } from "@/app/_components/(auth)/register/serverComponents";
 import { Metadata } from "next";
+
+import { AuthHeaderSpotifyLogoSC } from "@/components/(auth)/serverComponents/AuthHeaderSpotifyLogoSC";
+import { RegisterProgessBarAndSectionsSC } from "@/components/(auth)/serverComponents/RegisterProgessBarAndSectionsSC";
+import { RegisterBackToPreviousPageButtonSC } from "@/app/_components/(auth)/serverComponents/RegisterBackToPreviousPageButtonSC";
+
+import { RegisterPasswordForm } from "@/app/_components/(auth)/clientComponents/forms/RegisterPasswordForm";
+
 export const metadata: Metadata = {
   title: "Password",
 };
@@ -14,9 +15,9 @@ export default function RegisterPassword() {
   const registerUrl = process.env.NEXT_PUBLIC_REGISTRATION || "/register";
   return (
     <div className="flex flex-col items-center max-w-md mx-auto bg-white min-h-screen">
-      <HeaderSpotifyLogo />
-      <ProgessBarAndSections width="33%" />
-      <BackToPreviousLevelPage
+      <AuthHeaderSpotifyLogoSC />
+      <RegisterProgessBarAndSectionsSC width="33%" />
+      <RegisterBackToPreviousPageButtonSC
         level="1"
         title="비밀번호를 만드세요."
         backURL={registerUrl}

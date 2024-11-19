@@ -1,6 +1,6 @@
 import "@/app/globals.css";
 import localFont from "next/font/local";
-import { RegisterFormProvider } from "@/contexts/registerFormContext";
+import { RegisterFormProvider } from "@/app/_contexts/RegisterFormProvider";
 
 const pretendard = localFont({
   src: "../../../../public/fonts/PretendardVariable.woff2",
@@ -18,7 +18,7 @@ export default function RegisterVerificationLayout({
     <RegisterFormProvider>
       <html lang="kr" className={`${pretendard.variable}`}>
         <body className={pretendard.className}>
-          {/*<HeaderSpotifyLogo />*/}
+          {/*<HeaderSpotifyLogoSC />*/}
           {children}
         </body>
       </html>

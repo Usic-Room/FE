@@ -1,11 +1,11 @@
-import { VerificationCodeForm } from "@/app/_components/(auth)/register/verification/clientComponents";
+import { RegisterVerificationCodeForm } from "@/app/_components/(auth)/clientComponents/forms/RegisterVerificationCodeForm";
 
 export default {
   title: "Components/Register/Verification/clientComponents", // Updated title for uniqueness
-  component: VerificationCodeForm, // Specify the main component used for this set of stories
+  component: RegisterVerificationCodeForm, // Specify the main component used for this set of stories
   tags: ["autodocs"], // Enable automatic documentation
 };
 
-export const DefaultVerificationCodeForm = {
-  render: () => <VerificationCodeForm />,
+export const DefaultRegisterVerificationCodeForm = {
+  render: () => <RegisterVerificationCodeForm />,
 };

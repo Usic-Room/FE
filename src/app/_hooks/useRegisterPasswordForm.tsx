@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useFormContext } from "@/contexts/registerFormContext";
+import { useFormContext } from "@/app/_contexts/RegisterFormProvider";
 
 export const useRegisterPasswordForm = () => {
   const { password, setPassword, isOAuthUser } = useFormContext(); // Context
